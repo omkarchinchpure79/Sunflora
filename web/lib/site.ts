@@ -63,6 +63,10 @@ export type Product = {
   eyebrow: string
   /** Display price. Keep as "DM for price" until the founder supplies one. */
   price: string
+  /** <title> for search/share; falls back to `title`. Keep honest — no keyword stuffing. */
+  metaTitle?: string
+  /** Meta description for search/share; falls back to `summary`. */
+  metaDescription?: string
   /** Machine-readable price for JSON-LD; null while the price is unconfirmed. */
   priceRange: { low: number; high: number } | null
   summary: string
@@ -94,6 +98,9 @@ export const products: Record<string, Product> = {
     name: 'Signature Frame',
     title: 'Signature Frame',
     eyebrow: 'most loved to give',
+    metaTitle: 'Personalised Photo Flower Frame — handmade Signature Frame',
+    metaDescription:
+      'Send your favourite photo and we frame it inside hand-shaped craft-wire flowers — a one-of-one handmade keepsake gift. ₹900–1,200, made to order, ships pan-India.',
     price: '₹900–1,200',
     priceRange: { low: 900, high: 1200 },
     summary:
@@ -134,6 +141,9 @@ export const products: Record<string, Product> = {
     name: 'Mini Frame',
     title: 'Mini Frame',
     eyebrow: 'try me',
+    metaTitle: 'Mini Frame — small handmade flower keepsake gift',
+    metaDescription:
+      'A little square keepsake frame with a handmade craft-wire bloom and your short message. ₹400–500, made to order, ships pan-India.',
     price: '₹400–500',
     priceRange: { low: 400, high: 500 },
     summary:
@@ -169,6 +179,9 @@ export const products: Record<string, Product> = {
     name: 'Bouquets',
     title: 'Everlasting Bouquet',
     eyebrow: 'everlasting',
+    metaTitle: 'Everlasting Bouquet — handmade forever flowers',
+    metaDescription:
+      'A handmade forever-flower bouquet shaped from craft wire — wrapped, ribboned and gift-ready. Two colourways. Made to order, ships pan-India.',
     price: 'DM for price', // TODO(founder): supply the real price.
     priceRange: null,
     summary:
@@ -209,6 +222,9 @@ export const products: Record<string, Product> = {
     name: 'Lotus Latkan',
     title: 'Lotus Latkan — Set of 2 🪷',
     eyebrow: 'festive hanging',
+    metaTitle: 'Lotus Latkan (Set of 2) — handmade festive door hanging',
+    metaDescription:
+      'Hand-strung lotus garlands with pearls for your door or mandir — Ganpati, Diwali and pooja décor. Set of 2, 5 ft each, gift-boxed. Ships pan-India.',
     price: 'DM for price', // TODO(founder): supply the real price.
     priceRange: null,
     summary:
@@ -244,6 +260,9 @@ export const products: Record<string, Product> = {
     name: 'Purple Lotus Latkan',
     title: 'Purple Lotus Latkan — Set of 2 🪷',
     eyebrow: 'festive hanging',
+    metaTitle: 'Purple Lotus Latkan (Set of 2) — festive door hanging',
+    metaDescription:
+      'Hand-strung purple lotus garlands with pearls for your door or mandir — Ganpati, Diwali and pooja décor. Set of 2, 3 ft each, ₹800/pair. Ships pan-India.',
     price: '₹800 / pair',
     priceRange: { low: 800, high: 800 },
     summary:

@@ -6,13 +6,16 @@ import { productJsonLd, products } from '@/lib/site'
 
 const product = products.bouquets
 
+const metaTitle = product.metaTitle ?? product.title
+const metaDescription = product.metaDescription ?? product.summary
+
 export const metadata: Metadata = {
-  title: product.title,
-  description: product.summary,
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: '/products/bouquets' },
   openGraph: {
-    title: `${product.title} · Sunflora`,
-    description: product.summary,
+    title: `${metaTitle} · Sunflora`,
+    description: metaDescription,
     images: [{ url: product.images[0] }],
   },
 }

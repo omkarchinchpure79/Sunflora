@@ -190,7 +190,8 @@ export default function HomePage() {
           <img src="/assets/petal-lily.png" alt="" loading="lazy" width={32} height={31} style={{ opacity: 0.5 }} />
         </div>
         <div className="hp-how-heading">
-          <div className="hp-section-eyebrow-script hp-light">how ordering works</div>
+          {/* h2: this line IS the section's heading (no other title in the section). */}
+          <h2 className="hp-section-eyebrow-script hp-light">how ordering works</h2>
           <p className="hp-how-sub">
             <span className="hp-desktop-only">
               Simple and personal, all over Instagram DM. No cart, no checkout — just a chat with the maker.

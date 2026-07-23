@@ -19,13 +19,15 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { slug } = await params
   const product = products[slug]
   if (!product || slug === 'bouquets') return {}
+  const title = product.metaTitle ?? product.title
+  const description = product.metaDescription ?? product.summary
   return {
-    title: product.title,
-    description: product.summary,
+    title,
+    description,
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
-      title: `${product.title} · Sunflora`,
-      description: product.summary,
+      title: `${title} · Sunflora`,
+      description,
       images: [{ url: product.images[0] }],
     },
   }

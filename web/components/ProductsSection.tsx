@@ -118,7 +118,9 @@ export default function ProductsSection() {
         <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={26} height={27} style={{ opacity: 0.6 }} />
       </div>
       <div className="products-heading">
-        <div className="products-eyebrow">gifts made by hand</div>
+        {/* h2 for document outline (the page otherwise jumps h1 → card h3s);
+            margin: 0 in .products-eyebrow keeps rendering identical to the old div. */}
+        <h2 className="products-eyebrow">gifts made by hand</h2>
         <p className="products-sub desktop-only">
           Each one made to order. Choose a starting point and we&apos;ll design the rest with you over DM.
         </p>
@@ -371,6 +373,8 @@ export default function ProductsSection() {
           font-family: var(--font-caveat), cursive;
           font-size: clamp(24px, 6vw, 34px);
           color: #6B2E8F;
+          font-weight: 400;
+          margin: 0;
         }
         .products-sub {
           font-size: 15px;
