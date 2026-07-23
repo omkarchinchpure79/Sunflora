@@ -101,7 +101,7 @@ export default function ProductsSection() {
         <p className="products-sub desktop-only">
           Each one made to order. Choose a starting point and we&apos;ll design the rest with you over DM.
         </p>
-        <p className="products-sub mobile-only">Swipe to see all five →</p>
+        <p className="products-sub mobile-only">Swipe to see them all →</p>
       </div>
 
       {/* ===== Desktop: bespoke card grid ===== */}
@@ -349,8 +349,8 @@ export default function ProductsSection() {
 
         .products-grid {
           display: grid;
-          /* Fixed 3-column track (not auto-fit) so 5 cards deliberately wrap
-             into a 3-then-2 layout instead of an even auto-fit spread. */
+          /* Fixed 3-column track (not auto-fit) so cards wrap in rows of 3
+             instead of an even auto-fit spread. */
           grid-template-columns: repeat(3, minmax(220px, 1fr));
           gap: clamp(16px, 3vw, 26px);
         }

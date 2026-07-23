@@ -73,7 +73,7 @@ Mounted once per page. Uses GSAP + `@gsap/react`'s `useGSAP` hook + `ScrollTrigg
 
 Whole-card click-through to the product page is implemented via `useRouter().push()` on the card's `onClick`, with nested interactive elements (the "DM to order" link) calling `e.stopPropagation()` so they don't also trigger the card navigation. When adding a new clickable nested element inside a `.pcard`/`.ccard`, remember to stop propagation on it.
 
-The desktop products grid uses a fixed `grid-template-columns: repeat(3, minmax(220px, 1fr))` (not `auto-fit`) — this is intentional so 5 products wrap as 3-then-2, per the design brief, not evenly spread across all available columns.
+The desktop products grid uses a fixed `grid-template-columns: repeat(3, minmax(220px, 1fr))` (not `auto-fit`) — this is intentional so cards wrap in rows of 3 (currently 6 cards → 3+3), not evenly spread across all available columns.
 
 ### Images
 
