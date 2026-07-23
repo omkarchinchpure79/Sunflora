@@ -178,7 +178,7 @@ export default function Header() {
           font-family: var(--font-cormorant), serif;
           font-style: italic;
           font-size: clamp(10px, 2.4vw, 12px);
-          color: #8a6b9e;
+          color: #7c608e;
           margin-top: 2px;
         }
         .desktop-links {

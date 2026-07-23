@@ -62,7 +62,7 @@
   margin-top: 22px;
   font-family: var(--font-caveat), cursive;
   font-size: 19px;
-  color: #8a6b9e;
+  color: #7c608e;
 }
 .hp-hero-note-line {
   width: 26px;
@@ -94,7 +94,7 @@
   text-align: center;
   font-family: var(--font-caveat), cursive;
   font-size: 19px;
-  color: #8a6b9e;
+  color: #7c608e;
   margin-top: 12px;
 }
 .hp-hero-petal {
@@ -217,7 +217,7 @@
 .hp-why-card p {
   font-size: 14px;
   line-height: 1.6;
-  color: #8a6b9e;
+  color: #7c608e;
   margin: 0;
 }
 
@@ -425,7 +425,7 @@
 .hp-care-item p {
   font-size: 13.5px;
   line-height: 1.55;
-  color: #8a6b9e;
+  color: #7c608e;
   margin: 0;
 }
 

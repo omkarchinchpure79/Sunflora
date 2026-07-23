@@ -41,7 +41,7 @@ export const C = {
   sage: '#8A9A5B',
   tan: '#E3C9F5',
   surface: '#FDFBFF',
-  muted: '#8a6b9e',
+  muted: '#7c608e',
   body: '#6d5a82',
   border: '#d9bdee',
   borderSoft: '#e3cff3',
