@@ -8,6 +8,27 @@ import { igDm } from '@/lib/site'
 /** Stops the DM button's click from also triggering the card's own navigation. */
 const stopBubble = (e: React.MouseEvent) => e.stopPropagation()
 
+/** 1×1 transparent GIF. */
+const BLANK_PIXEL =
+  'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+
+/**
+ * An image that appears only in the desktop card grid. The grid is hidden on
+ * mobile with display:none, but Chromium still downloads images inside hidden
+ * subtrees (even with loading="lazy" — a zero-size rect at the viewport origin
+ * counts as intersecting). The <picture> media switch makes mobile resolve the
+ * source to an inline 1-px pixel instead, so the hidden grid costs mobile
+ * visitors zero bytes. Verified at runtime with a headless-browser sweep.
+ */
+function DesktopOnlyImg({ src }: { src: string }) {
+  return (
+    <picture>
+      <source media="(max-width: 768px)" srcSet={BLANK_PIXEL} />
+      <img className="img-cover" src={src} alt="" loading="lazy" decoding="async" />
+    </picture>
+  )
+}
+
 const mobileCards = [
   {
     id: 'sig',
@@ -91,10 +112,10 @@ export default function ProductsSection() {
   return (
     <section id="products" className="products-section">
       <div className="floating-petal desktop-only" aria-hidden style={{ top: '0%', left: '3%', animation: 'floatY 3s ease-in-out infinite' }}>
-        <img src="/assets/petal-lily.png" alt="" width={30} height={29} style={{ opacity: 0.6 }} />
+        <img src="/assets/petal-lily.png" alt="" loading="lazy" width={30} height={29} style={{ opacity: 0.6 }} />
       </div>
       <div className="floating-petal desktop-only" aria-hidden style={{ top: '2%', right: '4%', animation: 'sway 2.5s ease-in-out infinite' }}>
-        <img src="/assets/petal-daisy.png" alt="" width={26} height={27} style={{ opacity: 0.6 }} />
+        <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={26} height={27} style={{ opacity: 0.6 }} />
       </div>
       <div className="products-heading">
         <div className="products-eyebrow">gifts made by hand</div>
@@ -113,13 +134,14 @@ export default function ProductsSection() {
           style={{ '--rot': '-1deg' } as React.CSSProperties}
           onClick={goTo('/products/signature-frame')}
         >
-          <div className="pcard-hero" style={{ backgroundImage: "url('/assets/frame-4.jpeg')" }}>
+          <div className="pcard-hero">
+            <img className="img-cover" src="/assets/frame-4.jpeg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#6B2E8F' }}>MOST LOVED TO GIVE</span>
           </div>
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
-            <div style={{ backgroundImage: "url('/assets/frame-1.jpeg')" }} />
-            <div style={{ backgroundImage: "url('/assets/frame-2.jpeg')" }} />
-            <div style={{ backgroundImage: "url('/assets/frame-3.jpeg')" }} />
+            <div><DesktopOnlyImg src="/assets/frame-1.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/frame-2.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/frame-3.jpeg" /></div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
@@ -148,11 +170,12 @@ export default function ProductsSection() {
           style={{ '--rot': '1deg' } as React.CSSProperties}
           onClick={goTo('/products/mini-frame')}
         >
-          <div className="pcard-hero" style={{ backgroundImage: "url('/assets/frame-5.jpeg')" }}>
+          <div className="pcard-hero">
+            <img className="img-cover" src="/assets/frame-5.jpeg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#8A9A5B' }}>TRY ME</span>
           </div>
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
-            <div style={{ backgroundImage: "url('/assets/frame-6.jpeg')" }} />
+            <div><DesktopOnlyImg src="/assets/frame-6.jpeg" /></div>
             <div className="pcard-more">more styles on request</div>
           </div>
           <div className="pcard-body">
@@ -176,7 +199,8 @@ export default function ProductsSection() {
           style={{ '--rot': '-1deg' } as React.CSSProperties}
           onClick={goTo('/products/bouquets')}
         >
-          <div className="pcard-hero" style={{ backgroundImage: "url('/assets/bouquet-purple-styled.jpg')", borderRadius: 12 }}>
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/bouquet-purple-styled.jpg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
           </div>
           {/* bouquet-purple-2.jpeg is a byte-identical copy of this card's hero
@@ -184,7 +208,9 @@ export default function ProductsSection() {
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
             {/* aspectRatio 2/1 keeps the strip the same height as the two square
                 cells this replaced, so the card's overall layout is unchanged. */}
-            <div style={{ backgroundImage: "url('/assets/bouquet-purple.webp')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
+            <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/bouquet-purple.webp" />
+            </div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
@@ -207,7 +233,8 @@ export default function ProductsSection() {
           style={{ '--rot': '1deg' } as React.CSSProperties}
           onClick={goTo('/products/bouquets')}
         >
-          <div className="pcard-hero" style={{ backgroundImage: "url('/assets/bouquet-burgundy-white-styled.jpg')", borderRadius: 12 }}>
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/bouquet-burgundy-white-styled.jpg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
           </div>
           {/* bouquet-red-white.jpeg is a byte-identical copy of this card's hero
@@ -215,7 +242,9 @@ export default function ProductsSection() {
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
             {/* aspectRatio 2/1 keeps the strip the same height as the two square
                 cells this replaced, so the card's overall layout is unchanged. */}
-            <div style={{ backgroundImage: "url('/assets/bouquet-burgundy-white.webp')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
+            <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/bouquet-burgundy-white.webp" />
+            </div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
@@ -238,12 +267,13 @@ export default function ProductsSection() {
           style={{ '--rot': '-1deg' } as React.CSSProperties}
           onClick={goTo('/products/lotus-latkan')}
         >
-          <div className="pcard-hero" style={{ backgroundImage: "url('/assets/wa-3.jpeg')", borderRadius: 12 }}>
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/wa-3.jpeg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#8A9A5B' }}>FESTIVE HANGING</span>
           </div>
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
-            <div style={{ backgroundImage: "url('/assets/wa-2.jpeg')" }} />
-            <div style={{ backgroundImage: "url('/assets/wa-4.jpeg')" }} />
+            <div><DesktopOnlyImg src="/assets/wa-2.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/wa-4.jpeg" /></div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
@@ -272,12 +302,13 @@ export default function ProductsSection() {
           style={{ '--rot': '1deg' } as React.CSSProperties}
           onClick={goTo('/products/purple-lotus-latkan')}
         >
-          <div className="pcard-hero" style={{ backgroundImage: "url('/assets/purple-lotus-latkan-1.jpeg')", borderRadius: 12 }}>
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/purple-lotus-latkan-1.jpeg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#6B4FA0' }}>FESTIVE HANGING</span>
           </div>
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
-            <div style={{ backgroundImage: "url('/assets/purple-lotus-latkan-thumb-violet.jpeg')" }} />
-            <div style={{ backgroundImage: "url('/assets/purple-lotus-latkan-thumb-magenta.jpeg')" }} />
+            <div><DesktopOnlyImg src="/assets/purple-lotus-latkan-thumb-violet.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/purple-lotus-latkan-thumb-magenta.jpeg" /></div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
@@ -305,7 +336,8 @@ export default function ProductsSection() {
         <div className="carousel" ref={carouselRef} onScroll={handleScroll}>
           {mobileCards.map((p) => (
             <div key={p.id} className="ccard" onClick={goTo(p.href)}>
-              <div className="ccard-img" style={{ backgroundImage: `url('${p.img}')` }}>
+              <div className="ccard-img">
+                <img className="img-cover" src={p.img} alt="" loading="lazy" decoding="async" />
                 <span className="ccard-tag" style={{ background: p.tagBg }}>{p.tag}</span>
               </div>
               <div className="ccard-body">
@@ -385,8 +417,6 @@ export default function ProductsSection() {
           aspect-ratio: 4 / 5;
           border-radius: 10px;
           overflow: hidden;
-          background-size: cover;
-          background-position: center;
         }
         .pcard-badge {
           position: absolute;
@@ -407,10 +437,10 @@ export default function ProductsSection() {
           margin-top: 6px;
         }
         .pcard-strip > div {
+          position: relative;
           aspect-ratio: 1;
           border-radius: 8px;
-          background-size: cover;
-          background-position: center;
+          overflow: hidden;
         }
         .pcard-more {
           display: flex;
@@ -525,8 +555,6 @@ export default function ProductsSection() {
           aspect-ratio: 4 / 5;
           border-radius: 10px;
           overflow: hidden;
-          background-size: cover;
-          background-position: center;
         }
         .ccard-tag {
           position: absolute;

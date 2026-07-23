@@ -18,10 +18,10 @@ export default function ContactPage() {
 
       <section className="contact-hero">
         <div className="contact-petal contact-petal-1" aria-hidden>
-          <img src="/assets/petal-daisy.png" alt="" width={40} height={41} style={{ opacity: 0.55 }} />
+          <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={40} height={41} style={{ opacity: 0.55 }} />
         </div>
         <div className="contact-petal contact-petal-2" aria-hidden>
-          <img src="/assets/petal-lily.png" alt="" width={32} height={31} style={{ opacity: 0.55 }} />
+          <img src="/assets/petal-lily.png" alt="" loading="lazy" width={32} height={31} style={{ opacity: 0.55 }} />
         </div>
 
         <div className="contact-eyebrow" data-reveal>say hello</div>

@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="floating-petal footer-petal" aria-hidden style={{ top: '6%', right: '8%', animation: 'floatY 3.25s ease-in-out infinite' }}>
-        <img src="/assets/petal-lily.png" alt="" width={26} height={25} style={{ opacity: 0.4 }} />
+        <img src="/assets/petal-lily.png" alt="" loading="lazy" width={26} height={25} style={{ opacity: 0.4 }} />
       </div>
       <div className="footer-grid">
         <div>

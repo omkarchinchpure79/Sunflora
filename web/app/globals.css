@@ -57,6 +57,18 @@ img {
   z-index: 1;
 }
 
+/* Fills a positioned container the same way background-size: cover did.
+   Used where former CSS background images became lazy <img> elements
+   (real <img> + loading="lazy" stops hidden-layout images downloading). */
+.img-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 @keyframes floatY {
   0%,
   100% {

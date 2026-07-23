@@ -195,9 +195,9 @@
   transform: scale(1.05);
 }
 .pd-cross-img {
+  position: relative;
   aspect-ratio: 4 / 3;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
 }
 .pd-cross-name {
   padding: 14px;

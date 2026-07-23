@@ -97,7 +97,9 @@ export default function ProductDetail({
         <div className="pd-cross-grid">
           {crossSell.map((p) => (
             <Link key={p.slug} href={`/products/${p.slug}`} className="pd-cross-card" data-reveal>
-              <div className="pd-cross-img" style={{ backgroundImage: `url('${p.images[0]}')` }} />
+              <div className="pd-cross-img">
+                <img className="img-cover" src={p.images[0]} alt="" loading="lazy" decoding="async" />
+              </div>
               <div className="pd-cross-name">{p.name}</div>
             </Link>
           ))}

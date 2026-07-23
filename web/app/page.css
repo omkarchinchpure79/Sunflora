@@ -236,11 +236,10 @@
   position: relative;
 }
 .hp-story-img {
+  position: relative;
   aspect-ratio: 4 / 5;
   border-radius: 18px;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
   box-shadow: 0 20px 40px -26px rgba(58, 38, 71, 0.5);
   transform: rotate(-1.5deg);
 }

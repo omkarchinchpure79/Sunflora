@@ -112,10 +112,10 @@ export default function HomePage() {
             </div>
             <div className="hp-hero-photo-caption">our everlasting bouquet ✿</div>
             <div className="hp-hero-petal hp-hero-petal-1" aria-hidden>
-              <img src="/assets/petal-daisy.png" alt="" width={54} height={55} />
+              <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={54} height={55} />
             </div>
             <div className="hp-hero-petal hp-hero-petal-2 hp-desktop-only" aria-hidden>
-              <img src="/assets/petal-lily.png" alt="" width={36} height={35} />
+              <img src="/assets/petal-lily.png" alt="" loading="lazy" width={36} height={35} />
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function HomePage() {
       {/* ===== WHY SUNFLORA ===== */}
       <section className="hp-why">
         <div className="floating-petal hp-desktop-only" aria-hidden style={{ top: '6%', right: '5%', animation: 'floatY 3.25s ease-in-out infinite' }}>
-          <img src="/assets/petal-lily.png" alt="" width={34} height={33} style={{ opacity: 0.6 }} />
+          <img src="/assets/petal-lily.png" alt="" loading="lazy" width={34} height={33} style={{ opacity: 0.6 }} />
         </div>
         <div className="hp-why-heading">
           <div className="hp-section-eyebrow">Why Sunflora</div>
@@ -150,11 +150,19 @@ export default function HomePage() {
       {/* ===== STORY ===== */}
       <section id="story" className="hp-story">
         <div className="floating-petal hp-desktop-only" aria-hidden style={{ top: '4%', right: '4%', animation: 'sway 2.75s ease-in-out infinite' }}>
-          <img src="/assets/petal-daisy.png" alt="" width={30} height={31} style={{ opacity: 0.65 }} />
+          <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={30} height={31} style={{ opacity: 0.65 }} />
         </div>
         <div className="hp-story-grid">
           <div className="hp-story-photo" data-reveal>
-            <div className="hp-story-img" style={{ backgroundImage: "url('/assets/wa-2.jpeg')" }} />
+            <div className="hp-story-img">
+              <img
+                className="img-cover"
+                src="/assets/wa-2.jpeg"
+                alt="A handmade Sunflora lotus latkan — pink craft-wire lotuses strung with pearls — packed in its clear gift box"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div className="hp-story-badge">made with two hands ✿</div>
           </div>
           <div className="hp-story-copy" data-reveal>
@@ -179,7 +187,7 @@ export default function HomePage() {
       {/* ===== HOW IT WORKS ===== */}
       <section id="how" className="hp-how">
         <div className="floating-petal hp-desktop-only" aria-hidden style={{ bottom: '8%', left: '4%', animation: 'floatY 3.5s ease-in-out infinite .5s' }}>
-          <img src="/assets/petal-lily.png" alt="" width={32} height={31} style={{ opacity: 0.5 }} />
+          <img src="/assets/petal-lily.png" alt="" loading="lazy" width={32} height={31} style={{ opacity: 0.5 }} />
         </div>
         <div className="hp-how-heading">
           <div className="hp-section-eyebrow-script hp-light">how ordering works</div>
@@ -228,7 +236,7 @@ export default function HomePage() {
       {/* ===== CARE & TRUST ===== */}
       <section className="hp-care">
         <div className="floating-petal hp-desktop-only" aria-hidden style={{ top: '2%', right: '6%', animation: 'sway 3s ease-in-out infinite' }}>
-          <img src="/assets/petal-daisy.png" alt="" width={28} height={29} style={{ opacity: 0.6 }} />
+          <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={28} height={29} style={{ opacity: 0.6 }} />
         </div>
         <div className="hp-care-grid">
           {careItems.map((c) => (
@@ -248,10 +256,10 @@ export default function HomePage() {
       {/* ===== FINAL CTA ===== */}
       <section className="hp-final-cta">
         <div className="hp-final-petal hp-final-petal-1 hp-desktop-only" aria-hidden>
-          <img src="/assets/petal-lily.png" alt="" width={40} height={39} style={{ opacity: 0.55 }} />
+          <img src="/assets/petal-lily.png" alt="" loading="lazy" width={40} height={39} style={{ opacity: 0.55 }} />
         </div>
         <div className="hp-final-petal hp-final-petal-2 hp-desktop-only" aria-hidden>
-          <img src="/assets/petal-daisy.png" alt="" width={32} height={33} style={{ opacity: 0.55 }} />
+          <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={32} height={33} style={{ opacity: 0.55 }} />
         </div>
         <div className="hp-section-eyebrow-script">have someone in mind?</div>
         <h2 className="hp-final-title">Tell us who it&apos;s for — we&apos;ll make them something that lasts.</h2>
