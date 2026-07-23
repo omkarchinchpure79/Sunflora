@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { BRAND, igDm } from '@/lib/site'
 
@@ -27,6 +27,8 @@ function Sunflower({ size, petal, center }: { size: number; petal: string; cente
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const drawerRef = useRef<HTMLDivElement>(null)
 
   // Lock body scroll behind the mobile drawer overlay.
   useEffect(() => {
@@ -36,6 +38,22 @@ export default function Header() {
       return () => {
         document.body.style.overflow = prev
       }
+    }
+  }, [menuOpen])
+
+  // Keyboard access for the drawer: Escape closes it, focus moves into it on
+  // open and returns to the menu button on close.
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    drawerRef.current?.querySelector<HTMLElement>('button, a')?.focus()
+    const toggle = toggleRef.current
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      toggle?.focus()
     }
   }, [menuOpen])
 
@@ -75,6 +93,7 @@ export default function Header() {
               DM to order
             </a>
             <button
+              ref={toggleRef}
               onClick={() => setMenuOpen((v) => !v)}
               className="menu-toggle"
               aria-label="Menu"
@@ -93,7 +112,7 @@ export default function Header() {
       {menuOpen && (
         <>
           <button className="drawer-scrim" aria-label="Close menu" onClick={() => setMenuOpen(false)} />
-          <div className="drawer" id="mobile-menu">
+          <div className="drawer" id="mobile-menu" ref={drawerRef}>
             <button className="drawer-close" aria-label="Close" onClick={() => setMenuOpen(false)}>
               ×
             </button>
