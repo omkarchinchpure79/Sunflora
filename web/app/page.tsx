@@ -97,9 +97,17 @@ export default function HomePage() {
 
           <div className="hp-hero-photo">
             <div className="hp-hero-photo-card">
-              <div
+              {/* Real <img> (not a CSS background) so the browser's preload
+                  scanner finds the LCP image immediately; fetchPriority pushes
+                  it ahead of the decorative petals. */}
+              <img
                 className="hp-hero-photo-img"
-                style={{ backgroundImage: "url('/assets/handcrafted-with-love.jpeg')" }}
+                src="/assets/handcrafted-with-love.jpeg"
+                alt="Handcrafted with Love — Sunflora's handmade craft-wire pieces: an everlasting purple bouquet, flower keepsake frames and lotus latkan hangings"
+                width={1054}
+                height={1302}
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
             <div className="hp-hero-photo-caption">our everlasting bouquet ✿</div>
