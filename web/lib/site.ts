@@ -10,9 +10,12 @@
 /** The real Instagram handle, without the "@". Note: spelled "offical", confirmed by the founder. */
 export const IG_HANDLE = 'sunflora_offical'
 
-/** Production origin, no trailing slash. Set NEXT_PUBLIC_SITE_URL in Vercel. */
+/**
+ * Production origin, no trailing slash. Overridable via NEXT_PUBLIC_SITE_URL in Vercel.
+ * www is the canonical host — the apex sunflora.shop 308-redirects to www.
+ */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sunflora.in'
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.sunflora.shop'
 ).replace(/\/$/, '')
 
 /** Opens the Instagram DM composer. */
