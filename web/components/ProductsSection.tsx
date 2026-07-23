@@ -374,7 +374,7 @@ export default function ProductsSection() {
         }
         .products-sub {
           font-size: 15px;
-          color: #8a6b9e;
+          color: #7c608e;
           margin: 6px auto 0;
           max-width: 460px;
         }
@@ -451,7 +451,8 @@ export default function ProductsSection() {
           background: #E3C9F5;
           font-family: var(--font-caveat), cursive;
           font-size: 16px;
-          color: #8a6b9e;
+          /* darker than the usual muted: this sits on the lavender tint (4.7:1) */
+          color: #675076;
         }
         .pcard-body {
           padding: 16px 8px 6px;
@@ -488,7 +489,7 @@ export default function ProductsSection() {
         .pcard-desc {
           font-size: 14px;
           line-height: 1.55;
-          color: #8a6b9e;
+          color: #7c608e;
           margin: 8px 0 12px;
         }
         .pcard-tags {
@@ -508,7 +509,10 @@ export default function ProductsSection() {
           color: #5c6a3f;
           background: #e7ecd8;
         }
-        .pcard-details {
+        /* :global() because these classes sit on <Link> components — styled-jsx
+           only auto-scopes plain DOM elements, so a scoped rule never matches
+           the <a> that Link renders (same reason Header/Footer use :global). */
+        .pcard :global(.pcard-details) {
           display: block;
           text-align: center;
           font-size: 13px;
@@ -593,10 +597,10 @@ export default function ProductsSection() {
         .ccard-body p {
           font-size: 13px;
           line-height: 1.5;
-          color: #8a6b9e;
+          color: #7c608e;
           margin: 6px 0 12px;
         }
-        .ccard-cta {
+        .ccard :global(.ccard-cta) {
           display: block;
           text-align: center;
           background: #6B2E8F;
@@ -605,8 +609,9 @@ export default function ProductsSection() {
           border-radius: 24px;
           font-weight: 600;
           font-size: 14px;
+          min-height: 44px;
         }
-        .ccard-cta:hover {
+        .ccard :global(.ccard-cta:hover) {
           color: #fff;
         }
         .dots {
