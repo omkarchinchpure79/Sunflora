@@ -238,3 +238,23 @@ Sunflora is a **real, low-cost, low-risk business worth testing** — with a gen
 What it is **not yet**: proven. Zero strangers have paid. The hero product isn't built. The whole thing now hinges on doing the uncomfortable, un-glamorous work in order: **make samples → photograph → ask your people → get the first 10 → then, and only then, build the shop.**
 
 The plan is sound. The only question left is whether the founder will do the asking. Everything in this document is designed to get to that one moment.
+
+---
+
+## 18. Website — Build & Audit Status (updated 2026-07-23)
+
+*This section is a factual status update appended after the original document. The strategy above (§0–§17) still stands; this records where the actual website now is.*
+
+**The website exists and is live.** It is built with Next.js 15 (App Router) + React 19, TypeScript, hosted on Vercel, and lives at **www.sunflora.shop** (the founder's owned domain; the audit wired the code to it after finding it had been pointing at a dead placeholder domain). All content and product data live in one file, `web/lib/site.ts`. There is no cart or checkout — every "DM to order" button opens an Instagram DM, matching the go-to-market plan in §8 and §11.
+
+**Products currently on the site:** Signature Frame (₹900–1,200), Mini Frame (₹400–500), Everlasting Bouquet (two colourways, price TBD), Lotus Latkan and Purple Lotus Latkan (₹800/pair). This is broader than the §4 v1 scope (which deliberately cut the mala/latkan) — a note for future focus, not a correction.
+
+**A full professional audit was completed (2026-07-23)** across engineering, conversion design and marketing. Sixteen fixes were made on a branch (`audit/repairs`), including: repairing the dead-domain problem that was breaking every shared link's preview image; cutting the mobile image payload from ~3.4 MB to ~1 MB; fixing a mobile "See details" button that was silently rendering as a tiny text link; removing duplicate gallery photos; adding a branded 404 page; an always-visible mobile "DM to order" bar; accessibility and contrast fixes; a Content-Security-Policy header; and search/share metadata (structured data, correct titles, sitemap). Full detail lives in the audit deliverables (`audit/` — kept local) and the private change log.
+
+**Open items awaiting founder decision (as of this update):**
+1. **Confirm the Instagram handle spelling** (`sunflora_offical`) by tap-testing a "DM to order" button from inside Instagram — every conversion button depends on it.
+2. **Real prices for the Everlasting Bouquet and Lotus Latkan** (they still read "DM for price").
+3. **The homepage hero** — kept as-is for now; the audit recommends leading with the "turn your photo into flowers that never fade" promise (§5's USP) instead of the current generic "Looking for the Perfect Gift?".
+4. **Deploy the audit branch** and submit the sitemap to Google Search Console before Ganpati (~mid-September), the one genuinely winnable search window ("lotus latkan").
+
+**The §16 warning still governs.** The website is now good — arguably ahead of the business. Per this document's own logic, the highest-return next action is still *not* on the website: it is messaging the ~100 warm contacts and landing the first 10 paid orders. The site is now a link worth putting under that message; its job is to close warm doubt, not manufacture cold demand.
