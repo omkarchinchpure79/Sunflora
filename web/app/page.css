@@ -343,7 +343,9 @@
   margin: 0;
 }
 .hp-how-timeline {
-  display: flex;
+  /* No display here: it would out-cascade .hp-mobile-only's display:none
+     (same specificity, later in file) and show the timeline on desktop too.
+     The mobile media block below sets display: flex. */
   flex-direction: column;
 }
 .hp-timeline-row {
@@ -467,6 +469,9 @@
   }
   .hp-mobile-only {
     display: block;
+  }
+  .hp-how-timeline {
+    display: flex;
   }
   .hp-hero {
     padding: 20px 18px 8px;
