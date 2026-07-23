@@ -1,0 +1,101 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Sticky header height, so #story / #how anchors don't land under it. */
+  scroll-padding-top: 96px;
+}
+
+body {
+  margin: 0;
+  background: #f7f3fb;
+  color: #3a2647;
+  font-family: var(--font-work-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Stops iOS Safari inflating type in landscape. */
+  -webkit-text-size-adjust: 100%;
+  /* Room for the fixed "DM us" button so it never covers footer text. */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+a {
+  color: #6b2e8f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4f2169;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Visible keyboard focus — the design has no focus styling of its own. */
+.site-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+:focus-visible {
+  outline: 2.5px solid #6b2e8f;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.floating-petal {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

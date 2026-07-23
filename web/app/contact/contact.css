@@ -1,0 +1,74 @@
+.contact-hero {
+  position: relative;
+  text-align: center;
+  padding: clamp(60px, 14vw, 140px) clamp(18px, 5vw, 40px);
+  max-width: 640px;
+  margin: 0 auto;
+}
+.contact-petal {
+  position: absolute;
+}
+.contact-petal-1 {
+  top: 12%;
+  left: 6%;
+  animation: floatY 3s ease-in-out infinite;
+}
+.contact-petal-2 {
+  bottom: 16%;
+  right: 8%;
+  animation: floatY 3.5s ease-in-out infinite 1s;
+}
+.contact-eyebrow {
+  font-family: var(--font-caveat), cursive;
+  font-size: clamp(22px, 5vw, 28px);
+  color: #6B2E8F;
+  margin-bottom: 10px;
+}
+.contact-title {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 600;
+  font-size: clamp(34px, 7vw, 56px);
+  line-height: 1.08;
+  margin: 0 0 18px;
+}
+.contact-body {
+  font-size: clamp(15px, 3.4vw, 18px);
+  line-height: 1.65;
+  color: #6d5a82;
+  margin: 0 0 32px;
+}
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #6B2E8F;
+  color: #fff;
+  padding: 18px 34px;
+  border-radius: 34px;
+  font-weight: 600;
+  font-size: 17px;
+  min-height: 44px;
+  box-shadow: 0 14px 28px -12px rgba(107, 46, 143, 0.7);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.contact-cta:hover {
+  color: #fff;
+  background: #4F2169;
+  transform: translateY(-3px);
+}
+.contact-handle {
+  margin-top: 16px;
+  font-family: var(--font-caveat), cursive;
+  font-size: 19px;
+  color: #8a6b9e;
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding: 48px 18px 60px;
+  }
+  .contact-cta {
+    width: 100%;
+  }
+}
