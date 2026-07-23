@@ -1,10 +1,22 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { BRAND, igAt, igDm, igProfile } from '@/lib/site'
 
 export default function Footer() {
   const year = new Date().getFullYear()
+
+  // Mobile DM bar (founder-approved D7): fixed to the viewport once the
+  // visitor scrolls past the hero, so a DM tap is always one thumb away.
+  // Threshold 400px keeps it from covering the hero's own CTA.
+  const [barVisible, setBarVisible] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setBarVisible(window.scrollY > 400)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <footer className="footer">
@@ -62,8 +74,8 @@ export default function Footer() {
         DM us
       </a>
 
-      {/* Mobile: full-width sticky bottom bar */}
-      <div className="sticky-bar">
+      {/* Mobile: full-width fixed bottom bar, shown after scrolling past the hero */}
+      <div className={`sticky-bar${barVisible ? ' sticky-bar-visible' : ''}`}>
         <a href={igDm} target="_blank" rel="noopener noreferrer" className="sticky-bar-link">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" aria-hidden>
             <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -174,7 +186,8 @@ export default function Footer() {
         /* ===== Mobile (<= 768px): mirrors the "Mobile Footer" handoff ===== */
         @media (max-width: 768px) {
           .footer {
-            padding: 26px 18px;
+            /* Extra bottom padding clears the fixed DM bar (~70px + safe area). */
+            padding: 26px 18px calc(96px + env(safe-area-inset-bottom));
           }
           .footer-petal {
             display: none;
@@ -195,12 +208,19 @@ export default function Footer() {
           }
           .sticky-bar {
             display: block;
-            position: sticky;
+            position: fixed;
             bottom: 0;
+            left: 0;
+            right: 0;
             z-index: 30;
             background: #6B2E8F;
             padding: 12px 18px calc(env(safe-area-inset-bottom) + 14px);
             box-shadow: 0 -8px 20px -10px rgba(0, 0, 0, 0.3);
+            transform: translateY(110%);
+            transition: transform 0.25s ease;
+          }
+          .sticky-bar-visible {
+            transform: translateY(0);
           }
           .sticky-bar-link {
             display: flex;
