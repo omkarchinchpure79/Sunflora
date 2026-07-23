@@ -177,7 +177,7 @@ export const products: Record<string, Product> = {
     // bouquet-burgundy-white-styled.jpg — do not add it back as a "third" photo.
     images: [
       '/assets/bouquet-burgundy-white-styled.jpg',
-      '/assets/bouquet-burgundy-white.png',
+      '/assets/bouquet-burgundy-white.webp',
     ],
     tags: [],
     alt: 'Everlasting handmade bouquet',
@@ -291,14 +291,14 @@ export const bouquetVariants = {
     label: 'Burgundy & White',
     images: [
       '/assets/bouquet-burgundy-white-styled.jpg',
-      '/assets/bouquet-burgundy-white.png',
+      '/assets/bouquet-burgundy-white.webp',
     ],
   },
   purple: {
     label: 'Purple',
     images: [
       '/assets/bouquet-purple-styled.jpg',
-      '/assets/bouquet-purple.png',
+      '/assets/bouquet-purple.webp',
     ],
   },
 } as const

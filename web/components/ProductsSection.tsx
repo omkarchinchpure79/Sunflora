@@ -184,7 +184,7 @@ export default function ProductsSection() {
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
             {/* aspectRatio 2/1 keeps the strip the same height as the two square
                 cells this replaced, so the card's overall layout is unchanged. */}
-            <div style={{ backgroundImage: "url('/assets/bouquet-purple.png')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
+            <div style={{ backgroundImage: "url('/assets/bouquet-purple.webp')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
@@ -215,7 +215,7 @@ export default function ProductsSection() {
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
             {/* aspectRatio 2/1 keeps the strip the same height as the two square
                 cells this replaced, so the card's overall layout is unchanged. */}
-            <div style={{ backgroundImage: "url('/assets/bouquet-burgundy-white.png')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
+            <div style={{ backgroundImage: "url('/assets/bouquet-burgundy-white.webp')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
