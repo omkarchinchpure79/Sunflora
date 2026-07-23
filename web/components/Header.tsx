@@ -335,7 +335,10 @@ export default function Header() {
             line-height: 1;
             color: #3A2647;
             margin-bottom: 14px;
-            padding: 4px;
+            /* ≥44px touch target */
+            padding: 9px 12px;
+            min-width: 44px;
+            min-height: 44px;
           }
           .drawer :global(a) {
             font-family: var(--font-cormorant), serif;
