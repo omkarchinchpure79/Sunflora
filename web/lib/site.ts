@@ -281,6 +281,35 @@ export const products: Record<string, Product> = {
 }
 
 /**
+ * schema.org Product JSON-LD for a product detail page.
+ * Emits an offer only when a confirmed price exists (priceRange is null while
+ * a product still reads "DM for price") — never invents prices, reviews or ratings.
+ */
+export function productJsonLd(p: Product) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: p.title,
+    description: p.summary,
+    image: p.images.map((i) => `${SITE_URL}${i}`),
+    brand: { '@type': 'Brand', name: BRAND.name },
+    url: `${SITE_URL}/products/${p.slug}`,
+    ...(p.priceRange
+      ? {
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'INR',
+            lowPrice: p.priceRange.low,
+            highPrice: p.priceRange.high,
+            availability: 'https://schema.org/InStock',
+            url: `${SITE_URL}/products/${p.slug}`,
+          },
+        }
+      : {}),
+  }
+}
+
+/**
  * The two colourways on the bouquet page.
  * Each colourway has exactly 2 unique photos on disk — the apparent "third"
  * files (bouquet-red-white.jpeg, bouquet-purple-2.jpeg) are byte-identical

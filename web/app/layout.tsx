@@ -54,8 +54,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/assets/bouquet-burgundy-white-styled.jpg',
-        width: 1200,
-        height: 1500,
+        // Actual pixel dimensions of the file — keep in sync if it changes.
+        width: 1086,
+        height: 1448,
         alt: 'A handmade everlasting bouquet by Sunflora',
       },
     ],

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProductDetail from '@/components/ProductDetail'
-import { products } from '@/lib/site'
+import { productJsonLd, products } from '@/lib/site'
 
 // The bouquet page has its own route (app/products/bouquets/page.tsx) for the
 // colourway toggle, so it's excluded from this generic template.
@@ -38,6 +38,10 @@ export default async function ProductPage({ params }: { params: Params }) {
 
   return (
     <div className="site-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd(product)) }}
+      />
       <Header />
       <ProductDetail product={product} />
       <Footer />
