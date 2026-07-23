@@ -179,9 +179,12 @@ export default function ProductsSection() {
           <div className="pcard-hero" style={{ backgroundImage: "url('/assets/bouquet-purple-styled.jpg')", borderRadius: 12 }}>
             <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
           </div>
-          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
-            <div style={{ backgroundImage: "url('/assets/bouquet-purple.png')", backgroundColor: '#E3C9F5' }} />
-            <div style={{ backgroundImage: "url('/assets/bouquet-purple-2.jpeg')" }} />
+          {/* bouquet-purple-2.jpeg is a byte-identical copy of this card's hero
+              image, so the strip shows only the one genuinely different photo. */}
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
+            {/* aspectRatio 2/1 keeps the strip the same height as the two square
+                cells this replaced, so the card's overall layout is unchanged. */}
+            <div style={{ backgroundImage: "url('/assets/bouquet-purple.png')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
@@ -207,9 +210,12 @@ export default function ProductsSection() {
           <div className="pcard-hero" style={{ backgroundImage: "url('/assets/bouquet-burgundy-white-styled.jpg')", borderRadius: 12 }}>
             <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
           </div>
-          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
-            <div style={{ backgroundImage: "url('/assets/bouquet-burgundy-white.png')", backgroundColor: '#E3C9F5' }} />
-            <div style={{ backgroundImage: "url('/assets/bouquet-red-white.jpeg')" }} />
+          {/* bouquet-red-white.jpeg is a byte-identical copy of this card's hero
+              image, so the strip shows only the one genuinely different photo. */}
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
+            {/* aspectRatio 2/1 keeps the strip the same height as the two square
+                cells this replaced, so the card's overall layout is unchanged. */}
+            <div style={{ backgroundImage: "url('/assets/bouquet-burgundy-white.png')", backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }} />
           </div>
           <div className="pcard-body">
             <div className="pcard-row">

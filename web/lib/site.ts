@@ -173,10 +173,11 @@ export const products: Record<string, Product> = {
     priceRange: null,
     summary:
       "Real flowers wilt in two days. These don't — hand-shaped from craft wire, wrapped and ribboned, ready to gift.",
+    // NOTE: bouquet-red-white.jpeg is a byte-identical copy of
+    // bouquet-burgundy-white-styled.jpg — do not add it back as a "third" photo.
     images: [
       '/assets/bouquet-burgundy-white-styled.jpg',
       '/assets/bouquet-burgundy-white.png',
-      '/assets/bouquet-red-white.jpeg',
     ],
     tags: [],
     alt: 'Everlasting handmade bouquet',
@@ -279,14 +280,18 @@ export const products: Record<string, Product> = {
   },
 }
 
-/** The two colourways on the bouquet page. */
+/**
+ * The two colourways on the bouquet page.
+ * Each colourway has exactly 2 unique photos on disk — the apparent "third"
+ * files (bouquet-red-white.jpeg, bouquet-purple-2.jpeg) are byte-identical
+ * duplicates of the styled shots and must not be re-added.
+ */
 export const bouquetVariants = {
   burgundy: {
     label: 'Burgundy & White',
     images: [
       '/assets/bouquet-burgundy-white-styled.jpg',
       '/assets/bouquet-burgundy-white.png',
-      '/assets/bouquet-red-white.jpeg',
     ],
   },
   purple: {
@@ -294,7 +299,6 @@ export const bouquetVariants = {
     images: [
       '/assets/bouquet-purple-styled.jpg',
       '/assets/bouquet-purple.png',
-      '/assets/bouquet-purple-2.jpeg',
     ],
   },
 } as const
