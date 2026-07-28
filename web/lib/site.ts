@@ -7,8 +7,8 @@
  *   3. Any price still reading "DM for price" (see `products` below).
  */
 
-/** The real Instagram handle, without the "@". Note: spelled "offical", confirmed by the founder. */
-export const IG_HANDLE = 'sunflora_offical'
+/** The real Instagram handle, without the "@". */
+export const IG_HANDLE = 'sunflora.craftilicious.ful'
 
 /**
  * Production origin, no trailing slash. Overridable via NEXT_PUBLIC_SITE_URL in Vercel.
@@ -22,7 +22,7 @@ export const SITE_URL = (
 export const igDm = `https://ig.me/m/${IG_HANDLE}`
 /** Opens the Instagram profile. */
 export const igProfile = `https://instagram.com/${IG_HANDLE}`
-/** Display form, e.g. "@sunflora_offical". */
+/** Display form, e.g. "@sunflora.craftilicious.ful". */
 export const igAt = `@${IG_HANDLE}`
 
 export const BRAND = {

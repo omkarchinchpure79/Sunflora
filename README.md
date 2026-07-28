@@ -5,7 +5,7 @@
 This repository holds the Sunflora marketing/e-commerce-style website (a Next.js app) along with the brand's founding documents, market research, and raw photo assets.
 
 - **Live site:** [sunflora-iota.vercel.app](https://sunflora-iota.vercel.app)
-- **Instagram:** [@sunflora_offical](https://instagram.com/sunflora_offical) *(spelling is intentional — confirmed by the founder)*
+- **Instagram:** [@sunflora.craftilicious.ful](https://instagram.com/sunflora.craftilicious.ful)
 
 ---
 

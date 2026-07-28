@@ -44,7 +44,7 @@ This is a single Next.js 15 (App Router) + React 19 codebase serving **one respo
 Single source of truth for the whole site — brand copy, design tokens (`C`), Instagram DM helpers (`igDm`, `igProfile`, `igAt`), and the `products` record (keyed by slug: `signature-frame`, `mini-frame`, `bouquets`, `lotus-latkan`). Product detail pages, the landing-page grid, the footer, and JSON-LD metadata all read from this one file — adding/editing a product means editing `products` here, not hunting through components.
 
 Two things in this file are intentionally unusual and must not be "corrected":
-- `IG_HANDLE = 'sunflora_offical'` — the misspelling is confirmed by the founder, not a typo.
+- `IG_HANDLE = 'sunflora.craftilicious.ful'` — updated to the new Instagram handle (changed from the old `sunflora_offical`).
 - Prices reading `'DM for price'` with a `// TODO(founder)` comment — leave as-is until a real price is supplied; don't invent one.
 
 ### Routing
