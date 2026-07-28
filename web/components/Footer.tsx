@@ -50,7 +50,7 @@ export default function Footer() {
           <a href={igProfile} target="_blank" rel="noopener noreferrer">
             {igAt}
           </a>
-          <span className="footer-muted">Ships pan-India · Delhivery</span>
+          <span className="footer-muted">Ships pan-India · Delivery</span>
         </div>
       </div>
 

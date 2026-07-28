@@ -84,10 +84,9 @@
   box-shadow: 0 26px 50px -18px rgba(63, 27, 87, 0.55), 0 0 0 1px rgba(107, 46, 143, 0.08);
 }
 .hp-hero-photo-img {
-  aspect-ratio: 4 / 5;
   width: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 .hp-hero-photo-caption {

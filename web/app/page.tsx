@@ -32,7 +32,7 @@ const howSteps = [
     title: 'Pay to confirm',
     body: 'Since each piece is custom-made, we take payment upfront (UPI / GPay) over DM to begin.',
   },
-  { n: 4, title: 'We make & ship it', body: 'Handmade with care, packed sturdily, and couriered pan-India via Delhivery.' },
+  { n: 4, title: 'We make & ship it', body: 'Handmade with care, packed sturdily, and couriered pan-India for delivery.' },
 ]
 
 const careItems = [
@@ -49,7 +49,7 @@ const careItems = [
   },
   {
     title: 'Ships pan-India',
-    body: 'Couriered anywhere in India through Delhivery, with tracking.',
+    body: 'Couriered anywhere in India with tracked delivery.',
     icon: <path d="M3 12h4l3 8 4-16 3 8h4" />,
   },
   {
