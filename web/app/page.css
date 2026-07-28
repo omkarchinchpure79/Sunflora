@@ -74,6 +74,9 @@
   margin: 8px 12px 18px;
   transform: rotate(-1.5deg);
   animation: fadeUp 1s ease both;
+  max-width: 480px;
+  width: 100%;
+  justify-self: center;
 }
 .hp-hero-photo-card {
   border-radius: 18px;
@@ -85,9 +88,8 @@
 }
 .hp-hero-photo-img {
   width: 100%;
+  height: auto;
   display: block;
-  object-fit: contain;
-  object-position: center;
 }
 .hp-hero-photo-caption {
   text-align: center;
