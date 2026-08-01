@@ -420,9 +420,9 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Lotus Decorative Latkan</h3>
-              <span className="pcard-price pcard-price-sm">₹500</span>
+              <span className="pcard-price pcard-price-sm">₹500 / pair</span>
             </div>
-            <div className="pcard-eyebrow">triple pearl strands · handmade</div>
+            <div className="pcard-eyebrow">set of 2 · triple pearl strands 🪷</div>
             <p className="pcard-desc">
               Deep red velvet blooms gathered on three rows of pearls, finished with a rose and a soft bud drop —
               ready to hang the moment it lands.
@@ -554,6 +554,13 @@ export default function ProductsSection() {
              instead of an even auto-fit spread. */
           grid-template-columns: repeat(3, minmax(220px, 1fr));
           gap: clamp(16px, 3vw, 26px);
+          /* Each card sizes to its own content. Without this, grid's default
+             align-items:stretch forces every card to the tallest height in its
+             row, and a card with less content (e.g. one with no thumbnail
+             strip) renders a blank void below its DM button.
+             NB: no backticks in this block — it lives inside a styled-jsx
+             template literal, where a backtick ends the string. */
+          align-items: start;
         }
         @media (max-width: 1000px) and (min-width: 769px) {
           .products-grid {
