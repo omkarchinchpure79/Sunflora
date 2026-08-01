@@ -25,11 +25,21 @@ export const igProfile = `https://instagram.com/${IG_HANDLE}`
 /** Display form, e.g. "@sunflora.craftilicious.ful". */
 export const igAt = `@${IG_HANDLE}`
 
+/**
+ * Order value above which shipping is free. Single source of truth — it appears
+ * in the announcement bar (full + short forms) and on the mobile sticky DM bar,
+ * so changing it here changes it everywhere.
+ */
+export const FREE_SHIPPING_OVER = '₹999'
+
 export const BRAND = {
   name: 'Sunflora',
   tagline: 'craftilicious forever flowers',
-  announcement:
-    'Free Shipping on Orders Above ₹1000 • Taking Limited Orders Only • DM to Customize Your Bouquet',
+  announcement: `Free Shipping on Orders Above ${FREE_SHIPPING_OVER} • Taking Limited Orders Only • DM to Customize Your Bouquet`,
+  /** Short form for narrow screens, where the full announcement would wrap. */
+  announcementShort: `Free Shipping Above ${FREE_SHIPPING_OVER} • DM to Customize ✿`,
+  /** Small print under the mobile sticky DM button. */
+  shippingNote: `Free shipping on orders above ${FREE_SHIPPING_OVER}`,
 } as const
 
 /** Design tokens, lifted verbatim from the design handoff. */

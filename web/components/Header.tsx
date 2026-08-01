@@ -61,7 +61,7 @@ export default function Header() {
     <>
       <div className="announcement">
         <span className="announcement-full">{BRAND.announcement}</span>
-        <span className="announcement-short">Free Shipping Above ₹1000 • DM to Customize ✿</span>
+        <span className="announcement-short">{BRAND.announcementShort}</span>
       </div>
       <header className="site-header">
         <div className="site-header-row">

@@ -84,6 +84,9 @@ export default function Footer() {
           </svg>
           DM to order
         </a>
+        {/* Sibling of the link, not a child: inside the <a> this would be read
+            out as part of the link's name ("DM to order, free shipping on…"). */}
+        <span className="sticky-bar-note">{BRAND.shippingNote}</span>
       </div>
 
       <style jsx>{`
@@ -186,8 +189,9 @@ export default function Footer() {
         /* ===== Mobile (<= 768px): mirrors the "Mobile Footer" handoff ===== */
         @media (max-width: 768px) {
           .footer {
-            /* Extra bottom padding clears the fixed DM bar (~70px + safe area). */
-            padding: 26px 18px calc(96px + env(safe-area-inset-bottom));
+            /* Clears the fixed DM bar. The bar is ~86px tall: 12 top pad + 44
+               link + ~16 shipping note + 14 bottom pad, plus the safe area. */
+            padding: 26px 18px calc(114px + env(safe-area-inset-bottom));
           }
           .footer-petal {
             display: none;
@@ -235,6 +239,15 @@ export default function Footer() {
           }
           .sticky-bar-link:hover {
             color: #fff;
+          }
+          .sticky-bar-note {
+            display: block;
+            text-align: center;
+            /* 5.7:1 on the #6B2E8F bar — passes AA for small text. */
+            color: #E3C9F5;
+            font-size: 11.5px;
+            line-height: 1.3;
+            margin-top: 1px;
           }
         }
       `}</style>
