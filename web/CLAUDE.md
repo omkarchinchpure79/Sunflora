@@ -17,12 +17,18 @@ There is no test suite in this repo. There is no `tsc --noEmit` script — use `
 
 ### Deploying
 
-Deploys go to the Vercel project `edupath/sunflora` (production alias: `sunflora-iota.vercel.app` — avoid the `sunflora-edupath*.vercel.app` aliases, they expose the account/team name in the URL). Deploy straight from disk with the Vercel CLI so binary assets never have to pass through a model's context window:
+Deploys go to the Vercel project `edupath/sunflora`. The canonical production URL is **www.sunflora.shop** — prefer it over the `*.vercel.app` aliases in anything user-facing, and never use the `sunflora-edupath*.vercel.app` ones, which expose the account/team name.
+
+**Pushing to `main` deploys to production**; pushing any other branch produces a preview deploy. The project's Root Directory is set to `web`, which is what lets the Git integration find this app. (Before 2026-08-01 that setting was unset and *every* Git-triggered build failed with `Couldn't find any 'pages' or 'app' directory` — if Git deploys ever start failing that way again, check this setting first. It can only be changed in the dashboard; `vercel project update` has no flag for it.)
+
+To deploy manually — useful for uncommitted work, and it keeps binary assets out of a model's context window:
 
 ```
 npx vercel link --yes --project sunflora --scope edupath   # one-time per checkout
 npx vercel --prod --yes
 ```
+
+Run those from the **repo root**, not from `web/`. Vercel applies the `web` root directory itself, so invoking the CLI inside `web/` makes it look for `web/web/`.
 
 ## Repo layout
 
