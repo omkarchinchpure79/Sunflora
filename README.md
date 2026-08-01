@@ -143,29 +143,26 @@ Notes that have already caught people out:
 
 ## Deployment
 
-Deploys go to the Vercel project `edupath/sunflora`, serving [www.sunflora.shop](https://www.sunflora.shop). Deploy straight from disk with the Vercel CLI (avoids sending binary assets through a chat context window):
+Deploys go to the Vercel project `edupath/sunflora`, serving [www.sunflora.shop](https://www.sunflora.shop).
+
+**Pushing to `main` deploys to production.** The Vercel Git integration builds the repo automatically; the project's Root Directory is set to `web`, so it finds the Next.js app.
+
+To deploy manually instead — useful for deploying uncommitted work, and it avoids sending binary assets through a chat context window:
 
 ```bash
-cd web
 npx vercel link --yes --project sunflora --scope edupath   # one-time per checkout
 npx vercel --prod --yes
 ```
 
-Note the `cd web` — the CLI must run from the app directory, not the repo root. See [Known issues](#known-issues) for why pushing to GitHub does *not* deploy.
+Run this from the **repo root**, not from `web/`. Vercel applies the `web` root directory itself, so running the CLI inside `web/` makes it look for `web/web/`.
 
 ## Known issues
 
-**Pushing to GitHub does not deploy, and marks the commit with a red ✗.**
+**`npm run lint` is not set up.** There is no ESLint config, so `next lint` just prompts you to create one interactively (and `next lint` is itself deprecated as of Next.js 16). Typechecking happens via `npm run build`.
 
-Vercel's Git integration is connected to this repo, but the project's **Root Directory** setting was never set to `web`. Git-triggered builds therefore run from the repo root, where there is no `package.json` or `app/` directory, and fail immediately with:
+### Resolved
 
-```
-Couldn't find any `pages` or `app` directory. Please create one under the project root
-```
-
-Every Git-triggered deployment has failed this way since 2026-07-22. The live site is unaffected — it is served by the CLI deploys above, which run from `web/` and succeed. The only real symptom is a red ✗ against commits on GitHub.
-
-To fix it, in the Vercel dashboard: **Project Settings → Build and Deployment → Root Directory → `web`**. It cannot be set from the CLI (`vercel project update` has no such flag). After changing it, deploy with `npx vercel --prod` from the **repo root** rather than from `web/`, since Vercel will then apply the root directory itself.
+- **Git pushes used to fail to deploy** (every Git-triggered build errored from 2026-07-22 to 2026-08-01, though the live site was always fine because CLI deploys ran from `web/`). Cause: the project's **Root Directory** was unset, so Git builds ran from the repo root and died with `Couldn't find any 'pages' or 'app' directory`. Fixed by setting **Project Settings → Build and Deployment → Root Directory** to `web`. Note this cannot be set from the CLI — `vercel project update` has no such flag.
 
 ## Project documents
 
