@@ -5,9 +5,12 @@ import Footer from '@/components/Footer'
 import ProductDetail from '@/components/ProductDetail'
 import { productJsonLd, products } from '@/lib/site'
 
-// The bouquet page has its own route (app/products/bouquets/page.tsx) for the
-// colourway toggle, so it's excluded from this generic template.
-const slugs = Object.keys(products).filter((s) => s !== 'bouquets')
+// Products whose page needs client-side variant state get their own route and
+// are excluded from this generic template:
+//   bouquets    → app/products/bouquets/page.tsx    (colourway toggle)
+//   flower-mala → app/products/flower-mala/page.tsx (style toggle, price varies)
+const CUSTOM_ROUTES = new Set(['bouquets', 'flower-mala'])
+const slugs = Object.keys(products).filter((s) => !CUSTOM_ROUTES.has(s))
 
 type Params = Promise<{ slug: string }>
 
@@ -18,7 +21,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params
   const product = products[slug]
-  if (!product || slug === 'bouquets') return {}
+  if (!product || CUSTOM_ROUTES.has(slug)) return {}
   const title = product.metaTitle ?? product.title
   const description = product.metaDescription ?? product.summary
   return {
@@ -36,7 +39,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 export default async function ProductPage({ params }: { params: Params }) {
   const { slug } = await params
   const product = products[slug]
-  if (!product || slug === 'bouquets') notFound()
+  if (!product || CUSTOM_ROUTES.has(slug)) notFound()
 
   return (
     <div className="site-shell">

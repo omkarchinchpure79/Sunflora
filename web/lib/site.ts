@@ -229,7 +229,12 @@ export const products: Record<string, Product> = {
     priceRange: null,
     summary:
       'A hand-strung lotus garland for your door or mandir — a touch of elegance and festive charm for every celebration.',
-    images: ['/assets/wa-3.jpeg', '/assets/wa-2.jpeg', '/assets/wa-4.jpeg'],
+    images: [
+      '/assets/wa-3.jpeg',
+      '/assets/wa-2.jpeg',
+      '/assets/wa-4.jpeg',
+      '/assets/lotus-latkan-flatlay.jpeg',
+    ],
     tags: ['Ganpati décor', 'Diwali décor', 'Home & temple décor', 'Festivals & poojas'],
     alt: 'Lotus Latkan — handmade festive flower hanging',
     ctaLabel: 'DM to order — limited stock',
@@ -252,7 +257,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We pack & ship it', body: '' },
     ],
-    crossSell: ['signature-frame', 'mini-frame', 'purple-lotus-latkan'],
+    crossSell: ['purple-lotus-latkan', 'lotus-asaan', 'signature-frame'],
     finalCtaTitle: 'Ready your home for the festival season.',
   },
   'purple-lotus-latkan': {
@@ -294,8 +299,126 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We pack & ship it', body: '' },
     ],
-    crossSell: ['signature-frame', 'mini-frame', 'lotus-latkan'],
+    crossSell: ['lotus-latkan', 'lotus-asaan', 'signature-frame'],
     finalCtaTitle: 'Bring a touch of purple festive charm to your doorway.',
+  },
+  'lotus-asaan': {
+    slug: 'lotus-asaan',
+    name: 'Lotus Asaan',
+    title: 'Lotus Asaan 🪷',
+    eyebrow: 'for your bappa',
+    metaTitle: 'Lotus Asaan — handmade lotus seat for your Ganpati idol',
+    metaDescription:
+      'A handmade craft-wire lotus asaan for your Ganpati or deity idol — pink petals tipped with pearls over green leaves. ₹350, made to order, ships pan-India.',
+    price: '₹350',
+    priceRange: { low: 350, high: 350 },
+    summary:
+      'A hand-shaped lotus seat for your Bappa — soft pink petals tipped with pearls, resting on a ring of green leaves.',
+    images: ['/assets/lotus-asaan-1.jpeg', '/assets/lotus-asaan-2.jpeg', '/assets/lotus-asaan-3.jpeg'],
+    tags: ['Ganpati décor', 'Diwali décor', 'Home & temple décor', 'Festivals & poojas'],
+    alt: 'Lotus Asaan — handmade lotus seat for a deity idol',
+    ctaLabel: 'DM us to order 🪷',
+    ctaNote: 'Order early for Ganesh Chaturthi — each one made fresh.',
+    features: [
+      { title: 'A seat made for your Bappa', body: 'So your idol never sits bare on the table again.' },
+      { title: 'Petals that never wilt', body: 'Shaped by hand from craft wire — it comes back out every year.' },
+      { title: 'Pearl-tipped, leaf-backed', body: 'Every petal finished with a pearl, set over a ring of green leaves.' },
+      { title: 'At home anywhere', body: 'Mandir, pooja thali, festive table — or your work desk all year.' },
+    ],
+    specs: [
+      { label: 'Made to order', value: '~3–5 days to make' },
+      { label: 'Idol not included', value: 'the asaan only' },
+      { label: 'Handmade', value: 'craft-wire petals & pearls' },
+      { label: 'Reusable', value: 'festival after festival' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Tell us your idol size', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['purple-lotus-latkan', 'lotus-latkan', 'flower-mala'],
+    finalCtaTitle: 'Give your Bappa a seat made by hand.',
+  },
+  'lotus-decorative-latkan': {
+    slug: 'lotus-decorative-latkan',
+    name: 'Lotus Decorative Latkan',
+    title: 'Lotus Decorative Latkan — Set of 2',
+    eyebrow: 'festive hanging',
+    metaTitle: 'Lotus Decorative Latkan (Set of 2) — rose & pearl door hanging',
+    metaDescription:
+      'Handmade velvet-rose latkans on triple pearl strands, finished with a rose and bud drop — for your door, mandir or festive corner. Set of 2, ₹500/pair. Ships pan-India.',
+    price: '₹500 / pair',
+    priceRange: { low: 500, high: 500 },
+    summary:
+      'Deep red velvet blooms gathered on triple strands of pearls, finished with a rose and a soft bud drop — a matching pair for your doorway.',
+    images: ['/assets/lotus-decorative-latkan-1.jpeg'],
+    tags: ['Ganpati décor', 'Diwali décor', 'Home & temple décor', 'Festivals & poojas'],
+    alt: 'Lotus Decorative Latkan — handmade red rose and pearl hanging',
+    ctaLabel: 'DM to order — limited stock',
+    ctaNote: "Grab yours before it's gone ✿",
+    features: [
+      { title: 'Set of 2', body: 'A matching pair, so your doorway or mandir is framed on both sides.' },
+      { title: 'Layered by hand', body: 'Every bloom rolled and shaped from craft wire, one petal at a time.' },
+      { title: 'Triple pearl strands', body: 'Three rows of pearls between each flower, so it catches the light.' },
+      { title: 'Out every festival', body: 'Never wilts, never browns — it comes back year after year.' },
+    ],
+    specs: [
+      { label: 'Set of 2', value: 'sold as a pair' },
+      { label: 'Made to order', value: '~4–6 days to make' },
+      { label: 'Handmade', value: 'craft-wire blooms & pearls' },
+      { label: 'Reusable', value: 'festival after festival' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'We confirm stock', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We pack & ship it', body: '' },
+    ],
+    crossSell: ['lotus-latkan', 'purple-lotus-latkan', 'flower-mala'],
+    finalCtaTitle: 'Dress your doorway for the season.',
+  },
+  'flower-mala': {
+    slug: 'flower-mala',
+    name: 'Artificial Flower Mala',
+    title: 'Artificial Flower Mala',
+    eyebrow: 'two styles',
+    metaTitle: 'Artificial Flower Mala — handmade velvet & pearl garland',
+    metaDescription:
+      'Handmade velvet flower malas strung on pearls, in two styles from ₹150. For your Ganpati idol, mandir, pooja or welcome garland. Made to order, ships pan-India.',
+    // Spans both styles — the page swaps in the selected style's own price.
+    price: '₹150–200',
+    priceRange: { low: 150, high: 200 },
+    summary:
+      'A handmade velvet-flower mala strung on pearls — for your idol, your mandir, or to welcome someone home.',
+    images: ['/assets/flower-mala-braided-1.jpeg', '/assets/flower-mala-cluster-1.jpeg'],
+    tags: ['Ganpati décor', 'Weddings', 'Home & temple décor', 'Festivals & poojas'],
+    alt: 'Artificial Flower Mala — handmade velvet flower and pearl garland',
+    ctaLabel: 'DM us to order 🌺',
+    ctaNote: 'Tell us which style — each one is made to order.',
+    features: [
+      { title: 'Two styles, one craft', body: 'Braided Rose or Mixed Bloom — pick the one that suits the occasion.' },
+      { title: 'Strung on pearls', body: 'Pearl segments between every flower, knotted by hand.' },
+      { title: 'Sized for idols', body: 'Made to sit on a murti rather than swamp it.' },
+      { title: 'Never wilts', body: 'Put it away after the pooja and bring it out again next year.' },
+    ],
+    specs: [
+      { label: 'Made to order', value: '~3–5 days to make' },
+      { label: 'Two styles', value: '₹200 or ₹150' },
+      { label: 'Handmade', value: 'craft-wire blooms & pearls' },
+      { label: 'Reusable', value: 'festival after festival' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Pick your style', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['lotus-asaan', 'lotus-decorative-latkan', 'lotus-latkan'],
+    finalCtaTitle: 'A mala that lasts long after the pooja.',
   },
 }
 
@@ -353,6 +476,30 @@ export const bouquetVariants = {
 
 export type BouquetVariant = keyof typeof bouquetVariants
 
+/**
+ * The two styles on the Artificial Flower Mala page.
+ * Unlike `bouquetVariants`, each style carries its own price — the page swaps
+ * `price`/`priceRange` along with the photos, so the number on screen always
+ * matches the style that's selected. The `products['flower-mala']` entry keeps
+ * the spanning "₹150–200" for JSON-LD and for the landing-page card.
+ */
+export const malaVariants = {
+  braided: {
+    label: 'Braided Rose',
+    price: '₹200',
+    priceRange: { low: 200, high: 200 },
+    images: ['/assets/flower-mala-braided-1.jpeg'],
+  },
+  cluster: {
+    label: 'Mixed Bloom',
+    price: '₹150',
+    priceRange: { low: 150, high: 150 },
+    images: ['/assets/flower-mala-cluster-1.jpeg'],
+  },
+} as const
+
+export type MalaVariant = keyof typeof malaVariants
+
 /** Nav order, shared by the header menu and the footer. */
 export const navProducts = [
   products['signature-frame'],
@@ -360,4 +507,7 @@ export const navProducts = [
   products.bouquets,
   products['lotus-latkan'],
   products['purple-lotus-latkan'],
+  products['lotus-asaan'],
+  products['lotus-decorative-latkan'],
+  products['flower-mala'],
 ]

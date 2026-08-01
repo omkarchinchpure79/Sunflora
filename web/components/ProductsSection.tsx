@@ -90,11 +90,42 @@ const mobileCards = [
     href: '/products/purple-lotus-latkan',
     blurb: 'Hand-strung purple lotus latkans on pearls.',
   },
+  {
+    id: 'lotus-asaan',
+    name: 'Lotus Asaan',
+    price: '₹350',
+    tag: 'FOR YOUR BAPPA',
+    tagBg: '#8A9A5B',
+    img: '/assets/lotus-asaan-1.jpeg',
+    href: '/products/lotus-asaan',
+    blurb: 'A hand-shaped lotus seat for your idol.',
+  },
+  {
+    id: 'lotus-decorative-latkan',
+    name: 'Lotus Decorative Latkan — Set of 2',
+    price: '₹500 / pair',
+    tag: 'FESTIVE',
+    tagBg: '#8A9A5B',
+    img: '/assets/lotus-decorative-latkan-1.jpeg',
+    href: '/products/lotus-decorative-latkan',
+    blurb: 'Velvet roses on triple strands of pearls.',
+  },
+  {
+    id: 'flower-mala',
+    name: 'Artificial Flower Mala',
+    price: 'from ₹150',
+    tag: 'TWO STYLES',
+    tagBg: '#6B4FA0',
+    img: '/assets/flower-mala-braided-1.jpeg',
+    href: '/products/flower-mala',
+    blurb: 'Velvet flower malas strung on pearls.',
+  },
 ]
 
 export default function ProductsSection() {
   const router = useRouter()
   const [active, setActive] = useState(0)
+  const [showAll, setShowAll] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
 
   const goTo = (href: string) => () => router.push(href)
@@ -331,6 +362,134 @@ export default function ProductsSection() {
             <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
           </div>
         </div>
+
+        {/* ── Behind "Show more" (desktop only; the mobile carousel lists everything).
+            These are conditionally rendered rather than CSS-hidden on purpose:
+            ScrollReveal runs gsap.set(opacity:0) over [data-reveal] once at mount,
+            and a display:none card never enters the viewport to be faded back in —
+            it would stay invisible forever. Not existing at mount avoids that
+            entirely, so they render at full opacity and use their own CSS fade. ── */}
+        {showAll && (
+          <>
+        {/* Lotus Asaan */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/lotus-asaan')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/lotus-asaan-1.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#8A9A5B' }}>FOR YOUR BAPPA</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
+            <div><DesktopOnlyImg src="/assets/lotus-asaan-2.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/lotus-asaan-3.jpeg" /></div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Lotus Asaan</h3>
+              <span className="pcard-price">₹350</span>
+            </div>
+            <div className="pcard-eyebrow">pearl-tipped petals · idol not included 🪷</div>
+            <p className="pcard-desc">
+              A lotus seat for your Bappa — soft pink petals tipped with pearls, resting on a ring of green leaves.
+              Handmade, and it comes back out every year.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Mandir & pooja thali'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/lotus-asaan" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Lotus Decorative Latkan — only one photo so far, so no thumbnail strip. */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '1deg' } as React.CSSProperties}
+          onClick={goTo('/products/lotus-decorative-latkan')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/lotus-decorative-latkan-1.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#8A9A5B' }}>FESTIVE HANGING</span>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Lotus Decorative Latkan</h3>
+              <span className="pcard-price pcard-price-sm">₹500</span>
+            </div>
+            <div className="pcard-eyebrow">triple pearl strands · handmade</div>
+            <p className="pcard-desc">
+              Deep red velvet blooms gathered on three rows of pearls, finished with a rose and a soft bud drop —
+              ready to hang the moment it lands.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Temple & entrance décor'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/lotus-decorative-latkan" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
+          </div>
+        </div>
+
+        {/* Artificial Flower Mala */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/flower-mala')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/flower-mala-braided-1.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#6B4FA0' }}>TWO STYLES</span>
+          </div>
+          {/* One cell at 2/1 keeps this card the same height as its 2-thumb neighbours. */}
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
+            <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/flower-mala-cluster-1.jpeg" />
+            </div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Artificial Flower Mala</h3>
+              <span className="pcard-price pcard-price-sm">from ₹150</span>
+            </div>
+            <div className="pcard-eyebrow">Braided Rose ₹200 · Mixed Bloom ₹150</div>
+            <p className="pcard-desc">
+              A velvet-flower mala strung on pearls, knotted by hand — for your idol, your mandir, or to welcome
+              someone home. Pick your style on the page.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Weddings', 'Pooja & mandir'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/flower-mala" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+          </>
+        )}
+      </div>
+
+      {/* Desktop only — the mobile carousel already swipes through every product. */}
+      <div className="products-more desktop-only">
+        <button
+          type="button"
+          className="products-more-btn"
+          onClick={() => setShowAll((v) => !v)}
+          aria-expanded={showAll}
+        >
+          {showAll ? 'Show less' : 'Show more'}
+          <span className="products-more-chev" aria-hidden>
+            {showAll ? '↑' : '↓'}
+          </span>
+        </button>
       </div>
 
       {/* ===== Mobile: swipeable carousel ===== */}
@@ -416,6 +575,56 @@ export default function ProductsSection() {
           box-shadow: 0 32px 54px -16px rgba(58, 38, 71, 0.5);
           z-index: 2;
         }
+        /* Cards revealed by "Show more" never pass through ScrollReveal (they
+           don't exist at its mount), so they fade themselves in. Opacity only —
+           animating transform here would fight .pcard's rotate/hover lift. */
+        .pcard-new {
+          animation: pcardIn 0.45s ease-out both;
+        }
+        @keyframes pcardIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .pcard-new {
+            animation: none;
+          }
+        }
+
+        .products-more {
+          text-align: center;
+          margin-top: clamp(20px, 3vw, 30px);
+        }
+        .products-more-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          padding: 13px 30px;
+          border-radius: 28px;
+          border: 1.5px solid #d9bdee;
+          background: #FDFBFF;
+          color: #6B2E8F;
+          font-family: var(--font-work-sans), sans-serif;
+          font-weight: 600;
+          font-size: 14.5px;
+          min-height: 44px;
+          cursor: pointer;
+          transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+        .products-more-btn:hover {
+          background: #E3C9F5;
+          border-color: #6B2E8F;
+          transform: translateY(-2px);
+        }
+        .products-more-chev {
+          font-size: 15px;
+          line-height: 1;
+        }
+
         .pcard-hero {
           position: relative;
           aspect-ratio: 4 / 5;

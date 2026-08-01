@@ -31,7 +31,7 @@ This `web/` directory is the only codebase — the parent folder (`c:\Sunflora`)
 - `../Sunflora_Founding_Document.md` — brand founding doc (positioning, story, offer).
 - `../Market_Research.md` — market/competitor research.
 - `../Website_Build_Prompt.md` — the original brief the site was built from; useful for *why* a page/section exists, but `lib/site.ts` (below) is the current source of truth for content, not this file.
-- `../brand-assets/` — raw source photos staged before being cropped/optimized into `public/assets/`. Dropping a file here does nothing for the live site — it must be manually optimized, renamed, and wired into `lib/site.ts`. Currently holds 18 unprocessed WhatsApp-export photos (future product material, not yet assigned) plus `sunflora-logo-new.png` — a higher-res logo pulled from a design-handoff export that is **not yet wired into `lib/site.ts` or `app/layout.tsx`**; the site still uses the older `sunflora-logo.jpg`/`logo-2.jpeg` in `public/assets/`. Swap it in only after the founder confirms it's the intended replacement.
+- `../brand-assets/` — raw source photos staged before being cropped/optimized into `public/assets/`. Dropping a file here does nothing for the live site — it must be manually optimized, renamed, and wired into `lib/site.ts`. Currently holds 18 older unprocessed WhatsApp-export photos (future product material, not yet assigned), 8 photos from the 2026-08-01 drop (7 of which are now wired in as `lotus-asaan-*`, `lotus-decorative-latkan-1`, `flower-mala-*`, `lotus-latkan-flatlay`), plus `sunflora-logo-new.png` — a higher-res logo pulled from a design-handoff export that is **not yet wired into `lib/site.ts` or `app/layout.tsx`**; the site still uses the older `sunflora-logo.jpg`/`logo-2.jpeg` in `public/assets/`. Swap it in only after the founder confirms it's the intended replacement.
 
 Removed as of 2026-07-23 (superseded/duplicate, safe to recreate from git history if ever needed): `index_2.html` (an old standalone static-HTML prototype, fully superseded by this Next.js app), `Four hero design directions for florist.zip` (a design-handoff archive whose contents duplicated files already in `public/assets/`, except for `sunflora-logo-new.png` which was extracted into `brand-assets/` first), and ~8 `brand-assets/` files that were exact-name or malformed-extension duplicates of files already in `public/assets/`.
 
@@ -41,7 +41,11 @@ This is a single Next.js 15 (App Router) + React 19 codebase serving **one respo
 
 ### Data layer: `lib/site.ts`
 
-Single source of truth for the whole site — brand copy, design tokens (`C`), Instagram DM helpers (`igDm`, `igProfile`, `igAt`), and the `products` record (keyed by slug: `signature-frame`, `mini-frame`, `bouquets`, `lotus-latkan`). Product detail pages, the landing-page grid, the footer, and JSON-LD metadata all read from this one file — adding/editing a product means editing `products` here, not hunting through components.
+Single source of truth for the whole site — brand copy, design tokens (`C`), Instagram DM helpers (`igDm`, `igProfile`, `igAt`), and the `products` record (keyed by slug: `signature-frame`, `mini-frame`, `bouquets`, `lotus-latkan`, `purple-lotus-latkan`, `lotus-asaan`, `lotus-decorative-latkan`, `flower-mala`). Product detail pages, the sitemap, and JSON-LD metadata all read from this one file.
+
+Adding a product means editing `products` here **and** `components/ProductsSection.tsx` — the landing-page grid and mobile carousel are hand-written per card (for the bespoke rotation/badge/thumb-strip layout), so they do *not* derive from `products`. A product added only to `lib/site.ts` gets a working detail page and sitemap entry but never appears on the homepage.
+
+`navProducts` at the bottom of the file is currently **dead code** — nothing imports it. Header and Footer link only Home / Menu / Contact us. Keep it in sync anyway or delete it deliberately; don't assume editing it changes the nav.
 
 Two things in this file are intentionally unusual and must not be "corrected":
 - `IG_HANDLE = 'sunflora.craftilicious.ful'` — updated to the new Instagram handle (changed from the old `sunflora_offical`).
@@ -50,8 +54,9 @@ Two things in this file are intentionally unusual and must not be "corrected":
 ### Routing
 
 - `app/page.tsx` — the landing page (hero, products grid, why-Sunflora, how-it-works). "Menu" in nav scrolls to `/#products` on this page rather than routing elsewhere.
-- `app/products/[slug]/page.tsx` — generic product detail template, driven entirely by `lib/site.ts`. Explicitly excludes the `bouquets` slug (see `slugs.filter`) because bouquets need client-side variant state.
+- `app/products/[slug]/page.tsx` — generic product detail template, driven entirely by `lib/site.ts`. Excludes any slug in `CUSTOM_ROUTES` (currently `bouquets` and `flower-mala`) because those need client-side variant state and have their own routes.
 - `app/products/bouquets/page.tsx` — dedicated route rendering `<BouquetDetail />`, which wraps `<ProductDetail>` with colourway toggle state (`bouquetVariants.burgundy` / `.purple` from `lib/site.ts`).
+- `app/products/flower-mala/page.tsx` — dedicated route rendering `<MalaDetail />`, same wrapping pattern with `malaVariants.braided` / `.cluster`. Unlike the bouquet colourways, the two mala styles have **different prices**, so `MalaDetail` swaps `price`/`priceRange` into the product object alongside the images. `ProductDetail` needed no change — it renders whatever `product.price` it is handed. The `products['flower-mala']` entry keeps a spanning `₹150–200` / `{low:150,high:200}` so the JSON-LD `AggregateOffer` and the homepage card stay honest across both styles.
 - `app/contact/page.tsx` — single dedicated Contact page with one DM CTA.
 - Dynamic route `params` is a `Promise` (Next.js 15) — always `await params` in both the page and `generateMetadata`.
 
@@ -73,7 +78,7 @@ Mounted once per page. Uses GSAP + `@gsap/react`'s `useGSAP` hook + `ScrollTrigg
 
 Whole-card click-through to the product page is implemented via `useRouter().push()` on the card's `onClick`, with nested interactive elements (the "DM to order" link) calling `e.stopPropagation()` so they don't also trigger the card navigation. When adding a new clickable nested element inside a `.pcard`/`.ccard`, remember to stop propagation on it.
 
-The desktop products grid uses a fixed `grid-template-columns: repeat(3, minmax(220px, 1fr))` (not `auto-fit`) — this is intentional so cards wrap in rows of 3 (currently 6 cards → 3+3), not evenly spread across all available columns.
+The desktop products grid uses a fixed `grid-template-columns: repeat(3, minmax(220px, 1fr))` (not `auto-fit`) — this is intentional so cards wrap in rows of 3 (currently 9 cards → 3+3+3), not evenly spread across all available columns. Adding a 10th card leaves a lone card on the last row; prefer adding them in threes.
 
 ### Images
 
