@@ -153,7 +153,16 @@ export default function HomePage() {
           <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={30} height={31} style={{ opacity: 0.65 }} />
         </div>
         <div className="hp-story-grid">
-          <div className="hp-story-photo" data-reveal>
+          {/* The photo is the Lotus Latkan, so it links there. aria-label names
+              the destination — without it the accessible name would be the alt
+              text plus the "made with two hands" badge, which reads as a caption
+              rather than a link. */}
+          <Link
+            href="/products/lotus-latkan"
+            className="hp-story-photo"
+            data-reveal
+            aria-label="See the Lotus Latkan — Set of 2"
+          >
             <div className="hp-story-img">
               <img
                 className="img-cover"
@@ -163,8 +172,8 @@ export default function HomePage() {
                 decoding="async"
               />
             </div>
-            <div className="hp-story-badge">made with two hands ✿</div>
-          </div>
+            <span className="hp-story-badge">made with two hands ✿</span>
+          </Link>
           <div className="hp-story-copy" data-reveal>
             <div className="hp-section-eyebrow-script">a little note from me</div>
             <h2 className="hp-story-title">Sunflora started because a memory deserves more than a shelf.</h2>

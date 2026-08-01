@@ -233,8 +233,16 @@
   gap: clamp(22px, 4vw, 48px);
   align-items: center;
 }
+/* An <a> linking to /products/lotus-latkan (the piece in the photo). */
 .hp-story-photo {
   position: relative;
+  display: block;
+  cursor: pointer;
+  border-radius: 18px;
+}
+.hp-story-photo:focus-visible {
+  outline: 3px solid #6b2e8f;
+  outline-offset: 6px;
 }
 .hp-story-img {
   position: relative;
@@ -243,6 +251,25 @@
   overflow: hidden;
   box-shadow: 0 20px 40px -26px rgba(58, 38, 71, 0.5);
   transform: rotate(-1.5deg);
+  /* Hover motion sits on this child, not on .hp-story-photo — that element
+     carries data-reveal, and ScrollReveal writes an inline transform to it.
+     Inline styles beat stylesheet rules, so a hover transform there would be
+     dead until GSAP's clearProps ran. The child is never touched by GSAP. */
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+.hp-story-photo:hover .hp-story-img,
+.hp-story-photo:focus-visible .hp-story-img {
+  transform: rotate(0deg) translateY(-8px) scale(1.015);
+  box-shadow: 0 34px 56px -22px rgba(58, 38, 71, 0.55);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hp-story-img {
+    transition: none;
+  }
+  .hp-story-photo:hover .hp-story-img,
+  .hp-story-photo:focus-visible .hp-story-img {
+    transform: rotate(-1.5deg);
+  }
 }
 .hp-story-badge {
   position: absolute;
