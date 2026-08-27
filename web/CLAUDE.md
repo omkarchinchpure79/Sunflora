@@ -15,6 +15,12 @@ npm run lint     # next lint
 
 There is no test suite in this repo. There is no `tsc --noEmit` script — use `npm run build` to catch type errors.
 
+**Only ever run one `next` process against this folder at a time.** `next dev` and `next build` both own `.next` exclusively, and a second process of either kind corrupts the first. Two `next dev` instances (e.g. two editor windows or two Claude Code sessions in the same repo, the second silently falling back to port 3001) delete each other's manifests — the symptom is `ENOENT: .next\server\app-paths-manifest.json`, a 500, then the server exiting, and the still-open browser tab renders as raw unstyled HTML. Before starting a dev server, check nothing is already serving: `Get-NetTCPConnection -State Listen -LocalPort 3000,3001,3002`. If something is, use it rather than starting another.
+
+**Never run `npm run build` while `npm run dev` is running.** Both write `.next`. The build overwrites the dev server's chunks underneath it, and the already-open page then requests CSS/JS URLs that no longer exist — the site renders as raw unstyled HTML and looks catastrophically broken while every source file is fine. Recovery: stop every Node process (on Windows `pkill` from Git Bash often misses them — use `Get-NetTCPConnection -LocalPort 3000 | Stop-Process -Id $_.OwningProcess -Force`, and check the dev server didn't silently fall back to port 3001/3002), `rm -rf .next`, restart. To test a production build, stop the dev server first.
+
+**The CSP in `next.config.mjs` needs `'unsafe-eval'` in development.** Next's dev bundler wraps modules in `eval()` for HMR, so a policy without it blocks *all* client JavaScript on `next dev`: styled-jsx never injects its `<style>` tags and GSAP never runs. The page then renders unstyled, and — because `.img-cover` is `position:absolute; inset:0` — any thumbnail whose `position:relative` parent came from styled-jsx escapes and stretches over the whole page. This was silently true from the CSP's introduction until 2026-08-27; production was always fine (no `eval`), which is why nobody noticed. `scriptSrc` in `next.config.mjs` is now branched on `NODE_ENV`; keep the production policy strict.
+
 ### Deploying
 
 Deploys go to the Vercel project `edupath/sunflora`. The canonical production URL is **www.sunflora.shop** — prefer it over the `*.vercel.app` aliases in anything user-facing, and never use the `sunflora-edupath*.vercel.app` ones, which expose the account/team name.
@@ -75,6 +81,41 @@ Two approaches coexist by necessity, not preference:
 Layout width is capped via `.site-shell`/`.hp-page { max-width: 1440px; margin: 0 auto }` in `globals.css`/`page.css` — this was deliberately widened from an earlier 1180px value that looked fine on a design mockup but produced excessive side margins on ordinary monitors.
 
 `position: sticky` (used by `Header.tsx`'s `.site-header`) requires its containing block to be full page height. `Header` therefore returns a React Fragment (`<>...</>`), **not** a wrapping `<div>` — a wrapper div only as tall as the header breaks sticky positioning almost immediately on scroll. Don't reintroduce a wrapper element around the header's sticky part.
+
+### Hero scene: `components/HeroScene.tsx` + `scripts/build_hero.py`
+
+The homepage hero is a composite: one backdrop plate (`brand-assets/hero/plate-v3.jpg`, an AI-generated empty room the founder supplies) with nine real product cut-outs positioned over it, each a link.
+
+The plate is only 1376×768 — a quarter of v2 — so all geometry is kept in a **5504×3072 virtual space** (`PW`/`PH`), measured values multiplied by `PLATE_SCALE`. Cut-outs are generated at that virtual resolution and only downscaled by `EXPORT_SCALE` (0.6) on save; shipping them at full virtual size made the hero 3.3MB. Layout is unaffected because every size is a percentage. `local_exposure` divides back down to sample the plate in its own pixel space.
+
+**Do not hand-edit `lib/heroScene.ts` or the files in `public/assets/hero/`.** Both are generated. `scripts/build_hero.py` (run from the repo root) cuts, grades, scales and positions every piece, then emits the geometry as TypeScript. Editing the outputs means the next run silently reverts you. To change the scene — add a product, move something, resize — edit the `SCENE` list in that script and re-run it, then `scripts/preview_hero.py` to check the result as a flat image before looking at it in the browser.
+
+Cut-outs are made with `rembg` using the **birefnet-general** model (`pip install rembg onnxruntime`). It is far better than isnet or u2net on these photos — it was the difference between the asaan keeping its leaves and losing half of them. It needs ~600MB RAM and ~4 min per image, so run one process at a time; two concurrent sessions OOM with `bad allocation`.
+
+Four things in that script are load-bearing and look like fussiness until you remove one:
+
+- **Cut-outs with soft alpha save `lossless=True`.** Lossy WebP leaves 1–7 alpha noise across the whole bounding box; with rembg's leftover light RGB under it, that composites as a pale rectangle around every product. A piece that is *fully opaque* has no alpha to corrupt and ships as ordinary lossy WebP — for the photo frame that is 48KB instead of 963KB.
+- **Alpha is binarised and eroded 1px, not just thresholded.** rembg returns a partial-alpha halo where the product met its own backdrop (the white table under the asaan and the frames). Left in, it is the most obvious "this is a PNG" tell in the scene.
+- **Shadow canvases are padded by 3× their blur radius**, in `preview_hero.py` and conceptually in the CSS. A Gaussian with no headroom clips at the canvas edge and a shadow that should trace the product's outline composites as a dark rectangle beside it. This bit us twice — once on the cast shadow, once on the contact shadow.
+- **Each piece is dimmed to the plate's own luminance where it lands** (`local_exposure`). Half the wall is inside the window's cast shadow; a piece hung there but lit as if in full sun reads as pasted no matter how clean its edge is.
+
+The light in the plate comes from the window on the **far left**, and every shadow in it falls right and slightly down (measured off the brass hooks' own shadows: +145px across for +15px down). Every shadow in `build_hero.py`, `preview_hero.py` and the `.hs-*` CSS matches that direction. **If the plate is ever regenerated with the window somewhere else, all of them have to move with it** or the scene goes straight back to looking pasted.
+
+Sizes are not arbitrary percentages — each piece is sized from its real dimension (from `lib/site.ts` where the product states one). True scale is impossible in one frame: the products span 10:1 (a 5 ft latkan against a 15 cm asaan) but the plate's furniture is drawn ~4× oversized for them, so a literal asaan lands at 119px on a 1168px plinth. Sizes therefore run through a compression curve that keeps the ORDER and the visible differences while pulling the spread to about 4:1. `TABLE_BOOST` is not a fudge — the table genuinely is nearer the camera than the wall.
+
+Placement rules that are easy to break and obvious once broken:
+
+- **Both display surfaces are seen nearly edge-on, so their top faces are far shallower than they look.** In virtual px the plinth's top face is only y 2512–2640 and the riser's only y 2520–2600 — about 80–130px deep, not the ~200 you'd guess from the render. A `base` well below the front edge sinks the piece into the surface's front *face* and it reads as hovering in front of it; well above the back edge and it hovers behind. Measure the surface before moving anything onto it, don't estimate from a downscaled crop — that mistake put the asaan, the bouquet and the mini frame all in the wrong place at once.
+- A piece wider than its surface's projected depth (the asaan is 741px wide on 80px of top face) **should sit just past the front edge and drape over it**, which is what a real flower on a narrow ledge does. Trying to tuck it fully onto the face makes it float.
+- Keep a resting piece's full width inside its surface horizontally (plinth x 1736–2908, riser x 3232–4712).
+- Only one garland (the 5 ft Lotus Latkan) is long enough to reach the table zone, so it takes the one hook with clear table beneath it — the far-right one. The CSS gives `.hs-item--rest` a higher `z-index` than `.hs-item--hang` so a garland correctly passes *behind* anything standing on the table.
+- `kind='duo'` covers a set-of-2 product where only one strand was ever photographed: it hangs the same strand on both prongs, mirroring the right copy so the pair doesn't read as one image pasted twice. That's how the Purple Lotus Latkan is built — its only source is a doorway lifestyle shot, and birefnet finds nothing in the full room, so the strand is cropped to a strip and upscaled 4x before matting.
+
+`.hs-swing` owns `transform` for the pendulum keyframes, so the hover pop lives on its own `.hs-pop` element. Putting both on one element makes them overwrite each other and the piece stops moving the moment you touch it.
+
+In the CSS, `.hs-scene` carries the plate's exact aspect ratio and holds both the plate and the hotspots, so they crop together. Do not go back to `object-fit: cover` on the plate with percentage-positioned hotspots: at any width where the two ratios disagree the plate crops, the painted hooks slide, and the garlands detach from them.
+
+The mobile rule is counter-intuitive: a phone shows a slice of the 1.79:1 scene, and the slice's **width** is set by `.hs-stage`'s aspect ratio. The scene is sized by height, so a *taller* stage makes it wider and therefore shows *less* of it. The products span 16.8%–98.8% of the scene, which needs at least 1.47:1; the stage is `3 / 2` with `translateX(-58%)` to centre the crop on the products rather than the plate. Making the mobile hero taller silently crops products off both ends — verify with the visibility check rather than by eye.
 
 ### Animation: `components/ScrollReveal.tsx`
 

@@ -27,3 +27,11 @@ yarn-error.log*
 # audit working files — kept local, not committed
 fable5-website-audit-prompt.md
 WEBSITE_CHANGELOG.md
+
+# hero-scene working files — regenerable, and far too large to track.
+# Cut-outs are rebuilt from brand-assets sources with rembg (see web/CLAUDE.md);
+# _-prefixed files are throwaway previews from scripts/preview_hero.py.
+brand-assets/hero/cutouts/
+brand-assets/hero/_*
+__pycache__/
+*.pyc

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProductsSection from '@/components/ProductsSection'
+import HeroScene from '@/components/HeroScene'
 import ScrollReveal from '@/components/ScrollReveal'
 import { igAt, igDm, igProfile } from '@/lib/site'
 import './page.css'
@@ -71,53 +72,32 @@ export default function HomePage() {
 
       {/* ===== HERO ===== */}
       <section id="top" className="hp-hero">
-        <div className="hp-hero-grid">
-          <div className="hp-hero-copy">
-            <div className="hp-hero-eyebrow">preserve your memories with flowers that bloom forever</div>
-            <h1 className="hp-hero-title">Looking for the Perfect Gift?</h1>
-            <p className="hp-hero-body">
-              Not sure what to gift someone on their special day? We&apos;ve got you covered. Handcrafted forever
-              flowers for Birthdays, Anniversaries, Weddings, Baby Showers, Housewarmings, Valentine&apos;s Day,
-              Mother&apos;s Day, Diwali Décor, Ganpati Décor, Festive Decorations, Home Décor, Personalized Gifts, and
-              every special occasion.
-            </p>
-            <div className="hp-hero-ctas">
-              <a href={igDm} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                Design yours — DM us
-              </a>
-              <a href="#products" className="btn-outline">
-                See the frames ↓
-              </a>
-            </div>
-            <div className="hp-hero-note hp-desktop-only">
-              <span className="hp-hero-note-line" />
-              Made one at a time — by one pair of hands.
-            </div>
+        <div className="hp-hero-copy">
+          <div className="hp-hero-eyebrow">preserve your memories with flowers that bloom forever</div>
+          <h1 className="hp-hero-title">Looking for the Perfect Gift?</h1>
+          <p className="hp-hero-body">
+            Not sure what to gift someone on their special day? We&apos;ve got you covered. Handcrafted forever
+            flowers for Birthdays, Anniversaries, Weddings, Baby Showers, Housewarmings, Diwali and Ganpati décor,
+            and every special occasion.
+          </p>
+          <div className="hp-hero-ctas">
+            <a href={igDm} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Design yours — DM us
+            </a>
+            <a href="#products" className="btn-outline">
+              See the collection ↓
+            </a>
           </div>
+        </div>
 
-          <div className="hp-hero-photo">
-            <div className="hp-hero-photo-card">
-              {/* Real <img> (not a CSS background) so the browser's preload
-                  scanner finds the LCP image immediately; fetchPriority pushes
-                  it ahead of the decorative petals. */}
-              <img
-                className="hp-hero-photo-img"
-                src="/assets/handcrafted-with-love.jpeg"
-                alt="Handcrafted with Love — Sunflora's handmade craft-wire pieces: an everlasting purple bouquet, flower keepsake frames and lotus latkan hangings"
-                width={1054}
-                height={1302}
-                fetchPriority="high"
-                decoding="async"
-              />
-            </div>
-            <div className="hp-hero-photo-caption">our everlasting bouquet ✿</div>
-            <div className="hp-hero-petal hp-hero-petal-1" aria-hidden>
-              <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={54} height={55} />
-            </div>
-            <div className="hp-hero-petal hp-hero-petal-2 hp-desktop-only" aria-hidden>
-              <img src="/assets/petal-lily.png" alt="" loading="lazy" width={36} height={35} />
-            </div>
-          </div>
+        <div className="hp-hero-scene">
+          <HeroScene />
+          <p className="hp-hero-hint">
+            <span className="hp-desktop-only">Hover any piece to see it up close</span>
+            <span className="hp-mobile-only">Tap any piece to see it up close</span>
+            <span className="hp-hero-hint-sep"> · </span>
+            Made one at a time, by one pair of hands
+          </p>
         </div>
       </section>
 

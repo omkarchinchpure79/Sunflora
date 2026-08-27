@@ -13,15 +13,14 @@
 /* ---------- HERO ---------- */
 .hp-hero {
   position: relative;
-  padding: clamp(24px, 5vw, 54px) clamp(18px, 5vw, 40px) clamp(30px, 5vw, 50px);
+  padding: clamp(14px, 3vw, 30px) clamp(18px, 5vw, 40px) clamp(30px, 5vw, 50px);
 }
-.hp-hero-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: clamp(20px, 4vw, 50px);
-  align-items: start;
-}
+/* Copy sits above the scene now, centred and narrow, so the interactive scene
+   gets the full page width rather than half of it. */
 .hp-hero-copy {
+  max-width: 720px;
+  margin: 0 auto clamp(14px, 2.4vw, 24px);
+  text-align: center;
   animation: fadeUp 0.8s ease both;
 }
 .hp-hero-eyebrow {
@@ -33,9 +32,9 @@
 .hp-hero-title {
   font-family: var(--font-cormorant), serif;
   font-weight: 600;
-  font-size: clamp(38px, 8vw, 64px);
+  font-size: clamp(34px, 6.4vw, 54px);
   line-height: 1.04;
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   letter-spacing: -0.01em;
 }
 .hp-hero-title-script {
@@ -47,69 +46,284 @@
   font-size: clamp(15px, 3.6vw, 18px);
   line-height: 1.65;
   color: #6d5a82;
-  margin: 0 0 28px;
-  max-width: 460px;
+  margin: 0 auto 18px;
+  max-width: 700px;
 }
 .hp-hero-ctas {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
 }
-.hp-hero-note {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 22px;
-  font-family: var(--font-caveat), cursive;
-  font-size: 19px;
-  color: #7c608e;
-}
-.hp-hero-note-line {
-  width: 26px;
-  height: 1.5px;
-  background: #d9bdee;
-}
-.hp-hero-photo {
-  position: relative;
-  margin: 8px 12px 18px;
-  transform: rotate(-1.5deg);
+/* Cancel .hp-hero's horizontal padding so the scene spans the full page rather
+   than sitting inside it as an inset panel. Together with dropping the rounded
+   corners and drop shadow it used to carry, this is what stops the hero reading
+   as "a picture placed on the website" instead of being the top of it.
+   (Not 100vw: globals.css doesn't hide overflow-x, so a viewport-width bleed
+   would add the scrollbar's width and produce a horizontal scrollbar.) */
+.hp-hero-scene {
+  margin-inline: calc(clamp(18px, 5vw, 40px) * -1);
   animation: fadeUp 1s ease both;
-  max-width: 480px;
-  width: 100%;
-  justify-self: center;
 }
-.hp-hero-photo-card {
-  border-radius: 18px;
-  overflow: hidden;
-  border: 10px solid #fff;
-  outline: 1.5px solid #d9bdee;
-  outline-offset: -1px;
-  box-shadow: 0 26px 50px -18px rgba(63, 27, 87, 0.55), 0 0 0 1px rgba(107, 46, 143, 0.08);
-}
-.hp-hero-photo-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.hp-hero-photo-caption {
+.hp-hero-hint {
+  margin: 14px 0 0;
   text-align: center;
   font-family: var(--font-caveat), cursive;
   font-size: 19px;
   color: #7c608e;
-  margin-top: 12px;
 }
-.hp-hero-petal {
+
+/* ---------- HERO SCENE (components/HeroScene.tsx) ----------
+   A layered scene, not a flat picture: one backdrop plate with nine real
+   products composited over it. Every product is an <a>, so hover, tap and Tab
+   all reach it.
+
+   Positions, sizes and the pieces' baked-in lighting come from
+   scripts/build_hero.py via lib/heroScene.ts. Only motion lives here.
+
+   The light in the plate comes from the window on the far LEFT, and every
+   shadow in it falls right and slightly down. Every shadow below matches that.
+   If the plate is ever regenerated with the window elsewhere, these offsets
+   have to move with it or the whole scene goes back to looking pasted. */
+.hs-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5504 / 3072;
+  overflow: hidden;
+}
+/* The plate and the hotspots live in the SAME box, and that box keeps the
+   plate's exact aspect ratio. Previously the plate was `object-fit: cover`
+   inside the stage while the hotspots were positioned as a % of the stage — so
+   at any width where the two ratios disagreed the plate cropped, the painted
+   hooks slid, and the garlands detached from them. Cropping the scene box
+   itself (below, on mobile) keeps them locked together at every size. */
+.hs-scene {
   position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  aspect-ratio: 5504 / 3072;
+  container-type: inline-size;
+  --hs-px: 0;
+  --hs-py: 0;
 }
-.hp-hero-petal-1 {
-  bottom: -16px;
-  right: -14px;
-  animation: sway 2.5s ease-in-out infinite;
+/* <picture> is an inline wrapper; display:contents keeps it out of the layout
+   entirely so .hs-plate sizes against .hs-scene as if it were a direct child. */
+.hs-scene picture {
+  display: contents;
 }
-.hp-hero-petal-2 {
-  top: 20%;
-  left: -18px;
-  animation: floatY 3s ease-in-out infinite;
+.hs-plate {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* The plate is the far layer, so it tracks the pointer least. */
+  transform: translate3d(calc(var(--hs-px) * -0.18cqw), calc(var(--hs-py) * -0.1cqw), 0);
+  transition: filter 0.25s ease;
+}
+/* When one piece has the spotlight the room falls back a little. This dims by
+   LIGHT — never by opacity — because a translucent product reads as a sticker
+   lying on the page rather than an object standing in the room. */
+.hs-scene.is-spotlit .hs-plate {
+  filter: brightness(0.95) saturate(0.94);
+}
+
+.hs-item {
+  position: absolute;
+  display: block;
+  transform: translate3d(calc(-50% + var(--hs-px) * 0.55cqw), calc(var(--hs-py) * 0.28cqw), 0);
+  z-index: 2;
+  transition: filter 0.2s ease;
+}
+.hs-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* Right and slightly down: the same direction as every shadow already in the
+     plate. drop-shadow follows the alpha, so this is the product's own
+     silhouette rather than a rectangle. */
+  filter: drop-shadow(0.62cqw 0.13cqw 0.34cqw rgba(74, 52, 92, 0.34));
+  transition: filter 0.2s ease;
+}
+.hs-item.is-dimmed {
+  filter: brightness(0.84) saturate(0.9);
+}
+/* The table is nearer the camera than the wall, so a piece standing on it
+   passes IN FRONT of a garland hanging down behind it. At the larger sizes the
+   5ft Lotus Latkan reaches the table, so this now actually matters. */
+.hs-item--rest {
+  z-index: 3;
+}
+.hs-item.is-active {
+  z-index: 6;
+}
+.hs-item.is-active img {
+  filter: drop-shadow(0.95cqw 0.24cqw 0.7cqw rgba(74, 52, 92, 0.46)) brightness(1.05);
+}
+
+/* ----- hanging pieces: a pendulum, not a bob -----
+   These hang from a hook, so the only motion they have is a swing about that
+   hook. The old scene translated every piece up and down instead, which reads
+   as zero gravity and was a large part of why the garlands looked like they
+   were floating in front of the wall rather than hanging on it. */
+.hs-swing,
+.hs-pop {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 0;
+}
+/* The pop on hover. It lives on its own element because .hs-swing's transform
+   is already spoken for by the pendulum keyframes. Origin stays at the top for
+   hanging pieces: growing from the centre would lift the piece off its hook. */
+.hs-pop {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.hs-item.is-active .hs-pop {
+  transform: scale(1.22);
+}
+.hs-item--rest .hs-pop {
+  transform-origin: 50% 100%;
+}
+.hs-item--rest.is-active .hs-pop {
+  transform: translateY(-5%) scale(1.26);
+}
+.hs-item--hang .hs-swing {
+  animation: hsSwing var(--swing, 6s) ease-in-out var(--swing-delay, 0s) infinite;
+}
+@keyframes hsSwing {
+  0%,
+  100% {
+    transform: rotate(-0.55deg);
+  }
+  50% {
+    transform: rotate(0.55deg);
+  }
+}
+/* Taking hold of one gives it a nudge — a wider, slower swing — rather than
+   scaling it up. A hanging thing that grows has left its hook behind. */
+.hs-item--hang.is-active .hs-swing {
+  animation-duration: calc(var(--swing, 6s) * 0.62);
+  animation-name: hsSwingWide;
+}
+@keyframes hsSwingWide {
+  0%,
+  100% {
+    transform: rotate(-1.7deg);
+  }
+  50% {
+    transform: rotate(1.7deg);
+  }
+}
+
+/* ----- resting pieces: they don't move on their own -----
+   A bouquet on a plinth is not swaying. Idle motion here is what broke the
+   physics before. */
+.hs-item--rest .hs-swing {
+  transform-origin: 50% 100%;
+}
+/* The contact shadow: tight, dark and directly beneath. This is what says
+   "sitting ON the surface" rather than "hovering above it" — the cast shadow
+   above only says "in front of something". */
+.hs-item--rest::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  width: 88%;
+  height: 20%;
+  transform: translateX(-46%);
+  background: radial-gradient(ellipse at center, rgba(74, 52, 92, 0.62), rgba(74, 52, 92, 0) 70%);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: -1;
+}
+.hs-item--rest.is-active::after {
+  transform: translateX(-46%) scale(1.16);
+  opacity: 0.72;
+}
+
+.hs-label {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 1.4cqw);
+  transform: translateX(-50%) translateY(0.5cqw);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0.55cqw 1.05cqw;
+  border-radius: 0.9cqw;
+  background: rgba(253, 251, 255, 0.96);
+  border: 1px solid #e3cff3;
+  box-shadow: 0 0.85cqw 1.7cqw -1cqw rgba(58, 38, 71, 0.6);
+  white-space: nowrap;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+/* Pieces low in the frame would push their label off the bottom edge. */
+.hs-item--rest .hs-label {
+  top: auto;
+  bottom: calc(100% + 1.4cqw);
+  transform: translateX(-50%) translateY(-0.5cqw);
+}
+.hs-item.is-active .hs-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.hs-label-name {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 600;
+  font-size: 1.25cqw;
+  color: #3a2647;
+  line-height: 1.2;
+}
+.hs-label-price {
+  font-size: 0.9cqw;
+  letter-spacing: 0.04em;
+  color: #7c608e;
+}
+
+/* The scene is 1.79:1 — far too letterboxed to read on a phone. Crop the sides
+   instead of shrinking everything: the scene keeps its aspect ratio and is
+   sized by height, so the products stay legible and only the outer edges are
+   lost. The rightmost hook sits at 92.4%, so it goes first — which is why the
+   pieces are ordered with the frames anchoring both ends of the table. */
+@media (max-width: 760px) {
+  /* A phone can only show a slice of a 1.79:1 scene, and the slice's WIDTH is
+     set by the stage's aspect ratio: a taller stage makes the height-sized
+     scene wider, so LESS of it fits. The products span 16.8%–98.8% of the
+     scene, so the stage has to be at least 1.47:1 to fit them all — 3:2 leaves
+     a small margin. Going taller here silently crops products off both ends. */
+  .hs-stage {
+    aspect-ratio: 3 / 2;
+  }
+  /* Centre the crop on the PRODUCTS (midpoint ~58%), not on the plate. */
+  .hs-scene {
+    transform: translateX(-58%);
+  }
+  .hs-label-name {
+    font-size: 2.1cqw;
+  }
+  .hs-label-price {
+    font-size: 1.7cqw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-item--hang .hs-swing,
+  .hs-item--hang.is-active .hs-swing {
+    animation: none;
+  }
+  .hs-item,
+  .hs-item img,
+  .hs-plate,
+  .hs-pop,
+  .hs-label,
+  .hs-item--rest::after {
+    transition: none;
+  }
 }
 
 /* ---------- shared buttons ---------- */
@@ -515,9 +729,14 @@
   .hp-hero-ctas a {
     width: 100%;
   }
-  .hp-hero-photo {
-    margin: 16px 18px 24px;
-    transform: rotate(-1deg);
+  .hp-hero-hint {
+    font-size: 16px;
+  }
+  .hp-hero-hint-sep {
+    display: none;
+  }
+  .hp-hero-hint .hp-mobile-only {
+    display: block;
   }
   .hp-why {
     padding: 26px 18px;
