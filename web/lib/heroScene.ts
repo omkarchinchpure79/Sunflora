@@ -30,17 +30,17 @@ export const HERO_ITEMS: HeroItem[] = [
     "h": 69.694
   },
   {
-    "id": "door-latkan-coral",
-    "name": "Door Side Latkan",
+    "id": "door-latkan-orange",
+    "name": "Orange Lotus Latkan",
     "price": "DM for price",
     "slug": null,
-    "alt": "Door Side Latkan — handmade coral lotus latkan on a pearl chain",
-    "src": "/assets/hero/door-latkan-coral.webp",
+    "alt": "Orange Lotus Latkan — handmade orange velvet lotus blooms on a pearl chain, set of 2",
+    "src": "/assets/hero/door-latkan-orange.webp",
     "hang": true,
     "left": 20.794,
     "top": 10.482,
-    "w": 5.65,
-    "h": 33.366
+    "w": 6.086,
+    "h": 52.311
   },
   {
     "id": "decorative-latkan",
@@ -56,30 +56,30 @@ export const HERO_ITEMS: HeroItem[] = [
     "h": 39.355
   },
   {
-    "id": "flower-mala",
-    "name": "Artificial Flower Mala",
-    "price": "₹150–200",
-    "slug": "flower-mala",
-    "alt": "Artificial Flower Mala — handmade velvet flower and pearl garland",
-    "src": "/assets/hero/flower-mala.webp",
+    "id": "door-latkan-maroon",
+    "name": "Maroon Lotus Latkan",
+    "price": "DM for price",
+    "slug": null,
+    "alt": "Maroon Lotus Latkan — handmade deep-red velvet lotus blooms on a pearl chain, set of 2",
+    "src": "/assets/hero/door-latkan-maroon.webp",
     "hang": true,
-    "left": 49.6,
+    "left": 49.609,
     "top": 10.482,
-    "w": 7.994,
-    "h": 32.324
+    "w": 5.723,
+    "h": 50.586
   },
   {
     "id": "door-latkan-pink",
-    "name": "Door Side Latkan",
+    "name": "Pink Lotus Latkan",
     "price": "DM for price",
     "slug": null,
-    "alt": "Door Side Latkan — handmade pink and gold lotus latkan with pearls",
+    "alt": "Pink Lotus Latkan — handmade pink velvet lotus blooms on a pearl chain, set of 2",
     "src": "/assets/hero/door-latkan-pink.webp",
     "hang": true,
     "left": 78.443,
     "top": 10.482,
-    "w": 5.614,
-    "h": 33.366
+    "w": 5.214,
+    "h": 53.971
   },
   {
     "id": "purple-latkan",
@@ -91,8 +91,47 @@ export const HERO_ITEMS: HeroItem[] = [
     "hang": true,
     "left": 64.026,
     "top": 10.482,
-    "w": 5.523,
-    "h": 50.618
+    "w": 5.487,
+    "h": 49.577
+  },
+  {
+    "id": "bouquet-pink",
+    "name": "Pink Bouquet",
+    "price": "DM for price",
+    "slug": "bouquets",
+    "alt": "Everlasting Bouquet — handmade pink lilies and tulips in a cream wrap",
+    "src": "/assets/hero/bouquet-pink.webp",
+    "hang": false,
+    "left": 66.506,
+    "top": 50.553,
+    "w": 13.717,
+    "h": 33.952
+  },
+  {
+    "id": "bouquet",
+    "name": "Purple Bouquet",
+    "price": "DM for price",
+    "slug": "bouquets",
+    "alt": "Everlasting Bouquet — handmade lavender lilies and purple lavender sprigs in a lilac wrap",
+    "src": "/assets/hero/bouquet.webp",
+    "hang": false,
+    "left": 39.617,
+    "top": 51.465,
+    "w": 13.463,
+    "h": 33.952
+  },
+  {
+    "id": "mini-frame",
+    "name": "Mini Frame",
+    "price": "₹400–500",
+    "slug": "mini-frame",
+    "alt": "Mini Frame — a small handmade craft-wire bloom in a keepsake frame",
+    "src": "/assets/hero/mini-frame.webp",
+    "hang": false,
+    "left": 91.297,
+    "top": 69.076,
+    "w": 10.32,
+    "h": 22.07
   },
   {
     "id": "photo-frame",
@@ -108,19 +147,6 @@ export const HERO_ITEMS: HeroItem[] = [
     "h": 32.324
   },
   {
-    "id": "bouquet",
-    "name": "Bouquets",
-    "price": "DM for price",
-    "slug": "bouquets",
-    "alt": "Everlasting Bouquet — handmade purple craft-wire flowers, wrapped and ribboned",
-    "src": "/assets/hero/bouquet.webp",
-    "hang": false,
-    "left": 42.197,
-    "top": 48.503,
-    "w": 15.534,
-    "h": 36.914
-  },
-  {
     "id": "asaan",
     "name": "Lotus Asaan",
     "price": "₹350",
@@ -128,22 +154,22 @@ export const HERO_ITEMS: HeroItem[] = [
     "alt": "Lotus Asaan — handmade pink lotus seat on green leaves, for your Ganpati idol",
     "src": "/assets/hero/asaan.webp",
     "hang": false,
-    "left": 65.779,
-    "top": 65.43,
+    "left": 53.606,
+    "top": 73.112,
     "w": 13.463,
     "h": 19.987
   },
   {
-    "id": "mini-frame",
-    "name": "Mini Frame",
-    "price": "₹400–500",
-    "slug": "mini-frame",
-    "alt": "Mini Frame — a small handmade craft-wire bloom in a keepsake frame",
-    "src": "/assets/hero/mini-frame.webp",
+    "id": "bouquet-blush",
+    "name": "Blush Bouquet",
+    "price": "DM for price",
+    "slug": "bouquets",
+    "alt": "Everlasting Bouquet — a handmade pink lily and white daisies in a blush wrap",
+    "src": "/assets/hero/bouquet-blush.webp",
     "hang": false,
-    "left": 79.215,
-    "top": 62.305,
-    "w": 10.32,
-    "h": 22.07
+    "left": 78.125,
+    "top": 59.277,
+    "w": 11.555,
+    "h": 33.952
   }
 ]

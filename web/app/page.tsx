@@ -4,7 +4,8 @@ import Footer from '@/components/Footer'
 import ProductsSection from '@/components/ProductsSection'
 import HeroScene from '@/components/HeroScene'
 import ScrollReveal from '@/components/ScrollReveal'
-import { igAt, igDm, igProfile } from '@/lib/site'
+import IgLink from '@/components/IgLink'
+import { igAt } from '@/lib/site'
 import './page.css'
 
 const whyCards = [
@@ -81,9 +82,7 @@ export default function HomePage() {
             and every special occasion.
           </p>
           <div className="hp-hero-ctas">
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Design yours — DM us
-            </a>
+            <IgLink className="btn-primary">Design yours — DM us</IgLink>
             <a href="#products" className="btn-outline">
               See the collection ↓
             </a>
@@ -166,9 +165,7 @@ export default function HomePage() {
               We&apos;re new, and I like it that way — a few founding orders, made slowly and carefully. When you DM
               us, you&apos;re talking to me, not a bot.
             </p>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="hp-story-cta">
-              Tell me who it&apos;s for →
-            </a>
+            <IgLink className="hp-story-cta">Tell me who it&apos;s for →</IgLink>
           </div>
         </div>
       </section>
@@ -217,9 +214,7 @@ export default function HomePage() {
         </div>
 
         <div className="hp-how-cta">
-          <a href={igDm} target="_blank" rel="noopener noreferrer" className="btn-light">
-            Start with a DM
-          </a>
+          <IgLink className="btn-light">Start with a DM</IgLink>
         </div>
       </section>
 
@@ -254,12 +249,8 @@ export default function HomePage() {
         <div className="hp-section-eyebrow-script">have someone in mind?</div>
         <h2 className="hp-final-title">Tell us who it&apos;s for — we&apos;ll make them something that lasts.</h2>
         <div className="hp-final-ctas">
-          <a href={igDm} target="_blank" rel="noopener noreferrer" className="btn-primary">
-            DM us on Instagram
-          </a>
-          <Link href={igProfile} target="_blank" className="btn-outline">
-            See more on Instagram
-          </Link>
+          <IgLink className="btn-primary">DM us on Instagram</IgLink>
+          <IgLink to="profile" className="btn-outline">See more on Instagram</IgLink>
         </div>
       </section>
 

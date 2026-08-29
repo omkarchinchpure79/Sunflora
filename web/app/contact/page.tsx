@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
-import { igAt, igDm } from '@/lib/site'
+import IgLink from '@/components/IgLink'
+import { igAt } from '@/lib/site'
 import './contact.css'
 
 export const metadata: Metadata = {
@@ -29,14 +30,14 @@ export default function ContactPage() {
         <p className="contact-body" data-reveal>
           No forms, no cart — just DM us on Instagram and tell us who it&apos;s for. We&apos;ll take it from there.
         </p>
-        <a href={igDm} target="_blank" rel="noopener noreferrer" className="contact-cta" data-reveal>
+        <IgLink className="contact-cta" data-reveal>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" aria-hidden>
             <rect x="3" y="3" width="18" height="18" rx="5" />
             <circle cx="12" cy="12" r="4" />
             <circle cx="17.2" cy="6.8" r="1" />
           </svg>
           DM us on Instagram
-        </a>
+        </IgLink>
         <div className="contact-handle" data-reveal>{igAt}</div>
       </section>
 

@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { BRAND, igAt, igDm, igProfile } from '@/lib/site'
+import { useInstagramLink } from '@/components/IgLink'
+import { BRAND, igAt } from '@/lib/site'
 
 export default function Footer() {
+  const ig = useInstagramLink()
+  const igProf = useInstagramLink('profile')
   const year = new Date().getFullYear()
 
   // Mobile DM bar (founder-approved D7): fixed to the viewport once the
@@ -44,12 +47,8 @@ export default function Footer() {
           <Link href="/contact">Contact us</Link>
         </div>
         <div className="footer-links footer-links-contact">
-          <a href={igDm} target="_blank" rel="noopener noreferrer" className="footer-dm">
-            DM to order
-          </a>
-          <a href={igProfile} target="_blank" rel="noopener noreferrer">
-            {igAt}
-          </a>
+          <a {...ig} className="footer-dm">DM to order</a>
+          <a {...igProf}>{igAt}</a>
           <span className="footer-muted">Ships pan-India · Delivery</span>
         </div>
       </div>
@@ -59,13 +58,7 @@ export default function Footer() {
       </div>
 
       {/* Desktop: floating round DM button, bottom-right */}
-      <a
-        href={igDm}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="floating-dm"
-        aria-label="DM us on Instagram to order"
-      >
+      <a {...ig} className="floating-dm" aria-label="DM us on Instagram to order">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" aria-hidden>
           <rect x="3" y="3" width="18" height="18" rx="5" />
           <circle cx="12" cy="12" r="4" />
@@ -76,7 +69,7 @@ export default function Footer() {
 
       {/* Mobile: full-width fixed bottom bar, shown after scrolling past the hero */}
       <div className={`sticky-bar${barVisible ? ' sticky-bar-visible' : ''}`}>
-        <a href={igDm} target="_blank" rel="noopener noreferrer" className="sticky-bar-link">
+        <a {...ig} className="sticky-bar-link">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" aria-hidden>
             <rect x="3" y="3" width="18" height="18" rx="5" />
             <circle cx="12" cy="12" r="4" />

@@ -63,6 +63,20 @@ Two things in this file are intentionally unusual and must not be "corrected":
 - `IG_HANDLE = 'sunflora.craftilicious.ful'` — updated to the new Instagram handle (changed from the old `sunflora_offical`).
 - Prices reading `'DM for price'` with a `// TODO(founder)` comment — leave as-is until a real price is supplied; don't invent one.
 
+### Instagram links: `components/IgLink.tsx`
+
+Every "DM us" / "@sunflora…" link goes through `IgLink` (or `useInstagramLink`, for a component that renders its own `<a>` — `HeroScene`'s hotspots). Do not hand-roll `<a href={igDm} target="_blank">` again; that is what was broken.
+
+The whole point is getting a phone to open the **app**. Instagram's web serves a login wall to logged-out visitors for both the profile and the DM composer, so a link that reaches the browser has already failed. Three separate things were stopping the hand-off:
+
+- **`target="_blank"`.** iOS matches a Universal Link on a top-level, user-initiated navigation; opened into a new tab it frequently just loads in Safari. So on a touch device `IgLink` navigates the page itself. Desktop keeps the new tab — there is no app to hand off to there, and losing the shop's own tab is worse than a login wall.
+- **In-app browsers.** Most traffic here arrives from the link in the Instagram bio, which opens in Instagram's own webview — and **a webview never fires a Universal Link or an Android App Link**, whatever the URL is. The only thing that escapes is the app's own `instagram://` scheme, so that is what is used there, with a 1.2s fallback to the web URL that is cancelled on `visibilitychange`/`pagehide` (i.e. when the app actually took over, so a returning visitor isn't dragged to a login page).
+- **Redirects.** The OS matches the URL that was *tapped*; once the browser is following a redirect chain the app never gets a look. `instagram.com/<handle>` 301s, so `igProfile` is the canonical `www.instagram.com/<handle>/`. **`igDm` deliberately stays `ig.me/m/<handle>` even though it also redirects** — ig.me is Meta's own documented messaging deep link and the app claims it on both platforms, so the redirect is only ever followed when there is no app to hand off to.
+
+`IgLink` composes a caller's `onClick` rather than replacing it — the product cards pass `stopPropagation` to suppress the whole-card navigation, and spreading props over the link would silently drop the deep-link behaviour.
+
+None of this helps a phone with no Instagram app, or a signed-out desktop visitor. That login wall is Instagram's, not ours.
+
 ### Routing
 
 - `app/page.tsx` — the landing page (hero, products grid, why-Sunflora, how-it-works). "Menu" in nav scrolls to `/#products` on this page rather than routing elsewhere.
@@ -84,7 +98,7 @@ Layout width is capped via `.site-shell`/`.hp-page { max-width: 1440px; margin: 
 
 ### Hero scene: `components/HeroScene.tsx` + `scripts/build_hero.py`
 
-The homepage hero is a composite: one backdrop plate (`brand-assets/hero/plate-v3.jpg`, an AI-generated empty room the founder supplies) with nine real product cut-outs positioned over it, each a link.
+The homepage hero is a composite: one backdrop plate (`brand-assets/hero/plate-v3.jpg`, an AI-generated empty room the founder supplies) with twelve real product cut-outs positioned over it, each a link.
 
 The plate is only 1376×768 — a quarter of v2 — so all geometry is kept in a **5504×3072 virtual space** (`PW`/`PH`), measured values multiplied by `PLATE_SCALE`. Cut-outs are generated at that virtual resolution and only downscaled by `EXPORT_SCALE` (0.6) on save; shipping them at full virtual size made the hero 3.3MB. Layout is unaffected because every size is a percentage. `local_exposure` divides back down to sample the plate in its own pixel space.
 
@@ -108,14 +122,15 @@ Placement rules that are easy to break and obvious once broken:
 - **Both display surfaces are seen nearly edge-on, so their top faces are far shallower than they look.** In virtual px the plinth's top face is only y 2512–2640 and the riser's only y 2520–2600 — about 80–130px deep, not the ~200 you'd guess from the render. A `base` well below the front edge sinks the piece into the surface's front *face* and it reads as hovering in front of it; well above the back edge and it hovers behind. Measure the surface before moving anything onto it, don't estimate from a downscaled crop — that mistake put the asaan, the bouquet and the mini frame all in the wrong place at once.
 - A piece wider than its surface's projected depth (the asaan is 741px wide on 80px of top face) **should sit just past the front edge and drape over it**, which is what a real flower on a narrow ledge does. Trying to tuck it fully onto the face makes it float.
 - Keep a resting piece's full width inside its surface horizontally (plinth x 1736–2908, riser x 3232–4712).
+- **A resting piece's TOP is a placement constraint, not just its base.** Six garlands hang above the table and their lowest blooms come down to y 1531–2463. A piece tall enough to reach one of them cuts the bloom in half, which reads as damage rather than as depth — a bloom sitting just *above* a piece reads correctly, and so does a chain disappearing behind it. This is what caps the three bouquets at `cm=26`: their cut-outs run the full height of the wrap, collar to hem, where the older ones were cropped at the collar and so drew shorter for the same real object. Raising a bouquet onto the plinth or riser costs ~260px of that headroom, which is why the third one stands on the table instead.
 - Only one garland (the 5 ft Lotus Latkan) is long enough to reach the table zone, so it takes the one hook with clear table beneath it — the far-right one. The CSS gives `.hs-item--rest` a higher `z-index` than `.hs-item--hang` so a garland correctly passes *behind* anything standing on the table.
-- `kind='duo'` covers a set-of-2 product where only one strand was ever photographed: it hangs the same strand on both prongs, mirroring the right copy so the pair doesn't read as one image pasted twice. That's how the Purple Lotus Latkan is built — its only source is a doorway lifestyle shot, and birefnet finds nothing in the full room, so the strand is cropped to a strip and upscaled 4x before matting.
+- `kind='duo'` covers a set-of-2 product where only one strand was ever photographed: it hangs the same strand on both prongs, mirroring the right copy so the pair doesn't read as one image pasted twice. Four of the six garlands are built this way — the Purple, Orange, Maroon and Pink Lotus Latkans — because each was shot lying on a sofa or hanging on a door rather than as a pair. birefnet finds nothing in the full room, so each strand is straightened, cropped to a strip and upscaled before matting. A strip that tall (8:1 or worse) cannot go through birefnet whole: thumbnailed to the model's working size the pearl chain is a few pixels wide and vanishes. Matte it as a row of overlapping near-square tiles with cross-faded alpha instead — and expect two artefacts from doing so, a background slab that each tile confidently keeps (drop every component the strand's own top-row component doesn't reach) and a chain that drops out at a tile seam (refill those rows from the alpha profile either side, which the RGB survives intact for).
 
 `.hs-swing` owns `transform` for the pendulum keyframes, so the hover pop lives on its own `.hs-pop` element. Putting both on one element makes them overwrite each other and the piece stops moving the moment you touch it.
 
 In the CSS, `.hs-scene` carries the plate's exact aspect ratio and holds both the plate and the hotspots, so they crop together. Do not go back to `object-fit: cover` on the plate with percentage-positioned hotspots: at any width where the two ratios disagree the plate crops, the painted hooks slide, and the garlands detach from them.
 
-The mobile rule is counter-intuitive: a phone shows a slice of the 1.79:1 scene, and the slice's **width** is set by `.hs-stage`'s aspect ratio. The scene is sized by height, so a *taller* stage makes it wider and therefore shows *less* of it. The products span 16.8%–98.8% of the scene, which needs at least 1.47:1; the stage is `3 / 2` with `translateX(-58%)` to centre the crop on the products rather than the plate. Making the mobile hero taller silently crops products off both ends — verify with the visibility check rather than by eye.
+The mobile rule is counter-intuitive: a phone shows a slice of the 1.79:1 scene, and the slice's **width** is set by `.hs-stage`'s aspect ratio. The scene is sized by height, so a *taller* stage makes it wider and therefore shows *less* of it. The products span 16.8%–96.6% of the scene, which needs at least 1.44:1; the stage is `3 / 2` with `translateX(-58%)` to centre the crop on the products rather than the plate. Making the mobile hero taller silently crops products off both ends — verify with the visibility check rather than by eye.
 
 ### Animation: `components/ScrollReveal.tsx`
 

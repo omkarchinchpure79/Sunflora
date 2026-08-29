@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { BRAND, igDm } from '@/lib/site'
+import { useInstagramLink } from './IgLink'
+import { BRAND } from '@/lib/site'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -26,6 +27,7 @@ function Sunflower({ size, petal, center }: { size: number; petal: string; cente
 }
 
 export default function Header() {
+  const ig = useInstagramLink()
   const [menuOpen, setMenuOpen] = useState(false)
   const toggleRef = useRef<HTMLButtonElement>(null)
   const drawerRef = useRef<HTMLDivElement>(null)
@@ -84,7 +86,7 @@ export default function Header() {
           </nav>
 
           <div className="site-header-actions">
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="dm-pill">
+            <a {...ig} className="dm-pill">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" aria-hidden>
                 <rect x="3" y="3" width="18" height="18" rx="5" />
                 <circle cx="12" cy="12" r="4" />

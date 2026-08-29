@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useRef, useState } from 'react'
-import { igDm } from '@/lib/site'
+import { useInstagramLink } from './IgLink'
 
 /** Stops the DM button's click from also triggering the card's own navigation. */
 const stopBubble = (e: React.MouseEvent) => e.stopPropagation()
@@ -123,6 +123,9 @@ const mobileCards = [
 ]
 
 export default function ProductsSection() {
+  // Spread onto each card CTA. `stopBubble` is composed in, not layered on
+  // top, so the DM link keeps both the app hand-off and the card suppression.
+  const ig = useInstagramLink('dm', stopBubble)
   const router = useRouter()
   const [active, setActive] = useState(0)
   const [showAll, setShowAll] = useState(false)
@@ -192,7 +195,7 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/signature-frame" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
 
@@ -221,7 +224,7 @@ export default function ProductsSection() {
               as handmade.
             </p>
             <Link href="/products/mini-frame" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
 
@@ -255,7 +258,7 @@ export default function ProductsSection() {
               days — this one doesn&apos;t.
             </p>
             <Link href="/products/bouquets" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
 
@@ -289,7 +292,7 @@ export default function ProductsSection() {
               order.
             </p>
             <Link href="/products/bouquets" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
 
@@ -324,7 +327,7 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/lotus-latkan" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
           </div>
         </div>
 
@@ -359,7 +362,7 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/purple-lotus-latkan" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
           </div>
         </div>
 
@@ -402,7 +405,7 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/lotus-asaan" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
 
@@ -433,7 +436,7 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/lotus-decorative-latkan" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
           </div>
         </div>
 
@@ -470,7 +473,7 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/flower-mala" className="pcard-details" onClick={stopBubble}>See details →</Link>
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pcard-dm" onClick={stopBubble}>DM to order</a>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
           </>

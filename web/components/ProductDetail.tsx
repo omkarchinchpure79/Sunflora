@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import ProductGallery from '@/components/ProductGallery'
 import ScrollReveal from '@/components/ScrollReveal'
-import { igDm, products, type Product } from '@/lib/site'
+import IgLink from '@/components/IgLink'
+import { products, type Product } from '@/lib/site'
 import './ProductDetail.css'
 
 export default function ProductDetail({
@@ -39,9 +40,7 @@ export default function ProductDetail({
                 ))}
               </div>
             )}
-            <a href={igDm} target="_blank" rel="noopener noreferrer" className="pd-cta">
-              {product.ctaLabel}
-            </a>
+            <IgLink className="pd-cta">{product.ctaLabel}</IgLink>
             {product.ctaNote && <div className="pd-cta-note">{product.ctaNote}</div>}
 
             {/* Filled into the hero's right column (rather than its own section
@@ -109,9 +108,7 @@ export default function ProductDetail({
       {/* ===== FINAL CTA ===== */}
       <section className="pd-final">
         <h2>{product.finalCtaTitle}</h2>
-        <a href={igDm} target="_blank" rel="noopener noreferrer" className="pd-cta">
-          DM us on Instagram
-        </a>
+        <IgLink className="pd-cta">DM us on Instagram</IgLink>
       </section>
 
       <ScrollReveal />

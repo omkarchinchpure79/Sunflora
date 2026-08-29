@@ -18,10 +18,27 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.sunflora.shop'
 ).replace(/\/$/, '')
 
-/** Opens the Instagram DM composer. */
+/**
+ * Opens the Instagram DM composer. `ig.me` is Meta's own documented messaging
+ * deep link and the Instagram app claims it on both iOS and Android, so the
+ * 302 it serves to `www.instagram.com/m/…` is only ever followed when there is
+ * no app to hand off to. Do NOT "simplify" this to the www URL it redirects to.
+ */
 export const igDm = `https://ig.me/m/${IG_HANDLE}`
-/** Opens the Instagram profile. */
-export const igProfile = `https://instagram.com/${IG_HANDLE}`
+/**
+ * Opens the Instagram profile. The `www.` and the trailing slash are load-
+ * bearing: the bare `instagram.com/<handle>` 301-redirects here, and a phone
+ * matches the URL that was TAPPED against the app — once the browser is
+ * following a redirect, the app never gets the chance.
+ */
+export const igProfile = `https://www.instagram.com/${IG_HANDLE}/`
+/**
+ * The app's own URL scheme. The only thing that escapes an in-app browser
+ * (Instagram's link-in-bio webview, where much of this site's traffic lands),
+ * because a webview never fires a Universal Link or an Android App Link.
+ * See `components/IgLink.tsx`.
+ */
+export const igAppProfile = `instagram://user?username=${IG_HANDLE}`
 /** Display form, e.g. "@sunflora.craftilicious.ful". */
 export const igAt = `@${IG_HANDLE}`
 
