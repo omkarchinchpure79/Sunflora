@@ -1,0 +1,19 @@
+{
+  "name": "Sunflora — Handmade Keepsakes & Flowers",
+  "short_name": "Sunflora",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#F7F3FB",
+  "background_color": "#F7F3FB",
+  "display": "standalone"
+}

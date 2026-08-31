@@ -43,6 +43,16 @@ export const metadata: Metadata = {
     'Sunflora',
   ],
   authors: [{ name: BRAND.name }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
     siteName: BRAND.name,
