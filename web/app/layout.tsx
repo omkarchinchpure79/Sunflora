@@ -113,6 +113,13 @@ export default function RootLayout({
       lang="en-IN"
       className={`${caveat.variable} ${cormorant.variable} ${workSans.variable}`}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/icon.png?v=2" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=2" />
+        <link rel="apple-touch-icon" href="/apple-icon.png?v=2" />
+        <link rel="manifest" href="/site.webmanifest?v=2" />
+      </head>
       <body>
         <script
           type="application/ld+json"

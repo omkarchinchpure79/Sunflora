@@ -68,12 +68,21 @@ export default function Header() {
       <header className="site-header">
         <div className="site-header-row">
           <Link href="/" className="logo" aria-label="Sunflora home">
-            <span className="logo-word">
-              Sunfl
-              <Sunflower size={28} petal="#F4B23A" center="#6B4322" />
-              ra
-            </span>
-            <span className="logo-tagline">{BRAND.tagline}</span>
+            <img
+              src="/assets/sunflora-logo-header.png"
+              alt="Sunflora Brand Logo"
+              width="44"
+              height="44"
+              className="brand-logo-badge"
+            />
+            <div className="logo-text-group">
+              <span className="logo-word">
+                Sunfl
+                <Sunflower size={28} petal="#F4B23A" center="#6B4322" />
+                ra
+              </span>
+              <span className="logo-tagline">{BRAND.tagline}</span>
+            </div>
           </Link>
 
           {/* Desktop: always-visible inline nav — only 3 destinations, no dropdown needed */}
@@ -159,9 +168,26 @@ export default function Header() {
         }
         .logo {
           display: flex;
-          flex-direction: column;
+          align-items: center;
+          gap: 12px;
           line-height: 1;
           text-decoration: none;
+        }
+        .brand-logo-badge {
+          width: clamp(34px, 8vw, 44px);
+          height: clamp(34px, 8vw, 44px);
+          object-fit: contain;
+          border-radius: 50%;
+          box-shadow: 0 3px 10px rgba(107, 46, 143, 0.18);
+          transition: transform 0.25s ease;
+          flex-shrink: 0;
+        }
+        .logo:hover .brand-logo-badge {
+          transform: scale(1.06);
+        }
+        .logo-text-group {
+          display: flex;
+          flex-direction: column;
         }
         .logo-word {
           font-family: var(--font-cormorant), serif;
