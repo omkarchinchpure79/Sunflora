@@ -78,7 +78,7 @@ const mobileCards = [
     tagBg: '#8A9A5B',
     img: '/assets/wa-3.jpeg',
     href: '/products/lotus-latkan',
-    blurb: 'Hand-strung lotus latkans on pearls.',
+    blurb: 'Hand-strung lotus latkans on pearls (5 ft).',
   },
   {
     id: 'purple-lotus',
@@ -88,17 +88,37 @@ const mobileCards = [
     tagBg: '#6B4FA0',
     img: '/assets/purple-lotus-latkan-1.jpeg',
     href: '/products/purple-lotus-latkan',
-    blurb: 'Hand-strung purple lotus latkans on pearls.',
+    blurb: 'Hand-strung purple lotus latkans on pearls (3 ft).',
   },
   {
-    id: 'lotus-asaan',
-    name: 'Lotus Asaan',
-    price: '₹350',
-    tag: 'FOR YOUR BAPPA',
+    id: 'door-latkan-5ft',
+    name: 'Door Side Latkans Decor (5 Ft)',
+    price: 'DM for price',
+    tag: '4 COLOURS',
+    tagBg: '#6B4FA0',
+    img: '/assets/door-latkan-5ft-lavender.jpeg',
+    href: '/products/door-side-latkan-5ft',
+    blurb: 'Full 5 ft doorway latkans with pearl cascades in 4 colors.',
+  },
+  {
+    id: 'door-latkan-4ft',
+    name: 'Door Side Latkans (4 Ft)',
+    price: 'DM for price',
+    tag: 'FESTIVE',
     tagBg: '#8A9A5B',
-    img: '/assets/lotus-asaan-1.jpeg',
-    href: '/products/lotus-asaan',
-    blurb: 'A hand-shaped lotus seat for your idol.',
+    img: '/assets/door-side-latkan-4ft-maroon.jpeg',
+    href: '/products/door-side-latkan-4ft',
+    blurb: 'Deep maroon velvet blooms on pearl strands.',
+  },
+  {
+    id: 'multipurpose-2ft',
+    name: 'Multipurpose 2 Ft Latkan',
+    price: 'DM for price',
+    tag: '2 COLOURS',
+    tagBg: '#8A9A5B',
+    img: '/assets/multipurpose-latkan-2ft-pink.jpeg',
+    href: '/products/multipurpose-2ft-latkan',
+    blurb: 'Versatile 2 ft latkan in Pink and Golden Yellow.',
   },
   {
     id: 'lotus-decorative-latkan',
@@ -109,6 +129,46 @@ const mobileCards = [
     img: '/assets/lotus-decorative-latkan-1.jpeg',
     href: '/products/lotus-decorative-latkan',
     blurb: 'Velvet roses on triple strands of pearls.',
+  },
+  {
+    id: 'lotus-asaan',
+    name: 'Lotus Asaan — Small',
+    price: 'DM for price',
+    tag: 'FOR YOUR BAPPA',
+    tagBg: '#8A9A5B',
+    img: '/assets/lotus-asaan-small-1.jpeg',
+    href: '/products/lotus-asaan',
+    blurb: 'A hand-shaped lotus seat for your idol.',
+  },
+  {
+    id: 'lotus-asaan-medium',
+    name: 'Lotus Asaan — Medium',
+    price: 'DM for price',
+    tag: 'FOR YOUR BAPPA',
+    tagBg: '#6B4FA0',
+    img: '/assets/lotus-asaan-medium-1.jpeg',
+    href: '/products/lotus-asaan-medium',
+    blurb: 'Grand multi-layered lotus throne for Ganpati.',
+  },
+  {
+    id: 'pink-lotus-asaan-medium',
+    name: 'Pink Lotus Asaan — Medium',
+    price: 'DM for price',
+    tag: 'FOR YOUR BAPPA',
+    tagBg: '#A569BD',
+    img: '/assets/pink-lotus-asaan-medium-1.jpeg',
+    href: '/products/pink-lotus-asaan-medium',
+    blurb: 'Vibrant pink lotus seat with detailed stamens.',
+  },
+  {
+    id: 'ganpati-special-mala',
+    name: 'Ganpati Special Mala',
+    price: 'DM for price',
+    tag: '4 STYLES',
+    tagBg: '#6B4FA0',
+    img: '/assets/ganpati-mala-mogra-pink.jpeg',
+    href: '/products/ganpati-special-mala',
+    blurb: 'Velvet flower malas in 4 sacred styles for idols & murtis.',
   },
   {
     id: 'flower-mala',
@@ -152,8 +212,6 @@ export default function ProductsSection() {
         <img src="/assets/petal-daisy.png" alt="" loading="lazy" width={26} height={27} style={{ opacity: 0.6 }} />
       </div>
       <div className="products-heading">
-        {/* h2 for document outline (the page otherwise jumps h1 → card h3s);
-            margin: 0 in .products-eyebrow keeps rendering identical to the old div. */}
         <h2 className="products-eyebrow">gifts made by hand</h2>
         <p className="products-sub desktop-only">
           Each one made to order. Choose a starting point and we&apos;ll design the rest with you over DM.
@@ -239,11 +297,7 @@ export default function ProductsSection() {
             <img className="img-cover" src="/assets/bouquet-purple-styled.jpg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
           </div>
-          {/* bouquet-purple-2.jpeg is a byte-identical copy of this card's hero
-              image, so the strip shows only the one genuinely different photo. */}
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
-            {/* aspectRatio 2/1 keeps the strip the same height as the two square
-                cells this replaced, so the card's overall layout is unchanged. */}
             <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
               <DesktopOnlyImg src="/assets/bouquet-purple.webp" />
             </div>
@@ -273,11 +327,7 @@ export default function ProductsSection() {
             <img className="img-cover" src="/assets/bouquet-burgundy-white-styled.jpg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
           </div>
-          {/* bouquet-red-white.jpeg is a byte-identical copy of this card's hero
-              image, so the strip shows only the one genuinely different photo. */}
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
-            {/* aspectRatio 2/1 keeps the strip the same height as the two square
-                cells this replaced, so the card's overall layout is unchanged. */}
             <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
               <DesktopOnlyImg src="/assets/bouquet-burgundy-white.webp" />
             </div>
@@ -366,37 +416,135 @@ export default function ProductsSection() {
           </div>
         </div>
 
-        {/* ── Behind "Show more" (desktop only; the mobile carousel lists everything).
-            These are conditionally rendered rather than CSS-hidden on purpose:
-            ScrollReveal runs gsap.set(opacity:0) over [data-reveal] once at mount,
-            and a display:none card never enters the viewport to be faded back in —
-            it would stay invisible forever. Not existing at mount avoids that
-            entirely, so they render at full opacity and use their own CSS fade. ── */}
+        {/* ── Behind "Show more" (desktop only; the mobile carousel lists everything). ── */}
         {showAll && (
           <>
-        {/* Lotus Asaan */}
+        {/* Door Side Latkans Decor 5 Ft */}
         <div
           className="pcard pcard-new"
           data-reveal
           style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/door-side-latkan-5ft')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/door-latkan-5ft-lavender.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#6B4FA0' }}>4 COLOURWAYS</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
+            <div><DesktopOnlyImg src="/assets/door-latkan-5ft-violet-pink.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/door-latkan-5ft-red.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/door-latkan-5ft-orange-1.jpeg" /></div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Door Side Latkans Decor</h3>
+              <span className="pcard-price pcard-price-sm">DM for price</span>
+            </div>
+            <div className="pcard-eyebrow">5 ft each · 4 colourways 🪷</div>
+            <p className="pcard-desc">
+              Full 5-foot festive door latkans with layered blooms, pearl beads, and cascading bud drops — in Lavender,
+              Violet &amp; Pink, Red, or Orange.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Doorway décor'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/door-side-latkan-5ft" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
+          </div>
+        </div>
+
+        {/* Door Side Latkans 4 Ft */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '1deg' } as React.CSSProperties}
+          onClick={goTo('/products/door-side-latkan-4ft')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/door-side-latkan-4ft-maroon.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#8A9A5B' }}>FESTIVE HANGING</span>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Door Side Latkans — 4 Ft</h3>
+              <span className="pcard-price pcard-price-sm">DM for price</span>
+            </div>
+            <div className="pcard-eyebrow">4 ft doorway length · deep maroon velvet 🪷</div>
+            <p className="pcard-desc">
+              Deep maroon velvet flower clusters strung along pearl strands with bud accents — designed to frame doorways
+              and pooja entrances with royal elegance.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Doorway décor'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/door-side-latkan-4ft" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
+          </div>
+        </div>
+
+        {/* Multipurpose Latkan 2 Ft */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/multipurpose-2ft-latkan')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/multipurpose-latkan-2ft-pink.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#8A9A5B' }}>TWO COLOURS</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
+            <div><DesktopOnlyImg src="/assets/multipurpose-latkan-2ft-yellow-1.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/multipurpose-latkan-2ft-yellow-2.jpeg" /></div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Multipurpose 2 Ft Latkan</h3>
+              <span className="pcard-price pcard-price-sm">DM for price</span>
+            </div>
+            <div className="pcard-eyebrow">2 ft · Pink &amp; Golden Yellow 🪷</div>
+            <p className="pcard-desc">
+              A versatile 2-foot handmade latkan with a statement bloom, pearl chain, and dangling bud drops — perfect
+              for doors, mandirs, or curtain accents.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Wall & door hanging'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/multipurpose-2ft-latkan" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order — limited stock</a>
+          </div>
+        </div>
+
+        {/* Lotus Asaan (Small) */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '1deg' } as React.CSSProperties}
           onClick={goTo('/products/lotus-asaan')}
         >
           <div className="pcard-hero" style={{ borderRadius: 12 }}>
-            <img className="img-cover" src="/assets/lotus-asaan-1.jpeg" alt="" loading="lazy" decoding="async" />
+            <img className="img-cover" src="/assets/lotus-asaan-small-1.jpeg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#8A9A5B' }}>FOR YOUR BAPPA</span>
           </div>
-          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
+            <div><DesktopOnlyImg src="/assets/lotus-asaan-1.jpeg" /></div>
             <div><DesktopOnlyImg src="/assets/lotus-asaan-2.jpeg" /></div>
             <div><DesktopOnlyImg src="/assets/lotus-asaan-3.jpeg" /></div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
-              <h3>Lotus Asaan</h3>
-              <span className="pcard-price">₹350</span>
+              <h3>Lotus Asaan (Small)</h3>
+              <span className="pcard-price pcard-price-sm">DM for price</span>
             </div>
-            <div className="pcard-eyebrow">pearl-tipped petals · idol not included 🪷</div>
+            <div className="pcard-eyebrow">compact idol seat · pearl-tipped 🪷</div>
             <p className="pcard-desc">
-              A lotus seat for your Bappa — soft pink petals tipped with pearls, resting on a ring of green leaves.
+              A lotus seat for your Bappa — soft pink and white petals tipped with pearls, resting on a ring of green leaves.
               Handmade, and it comes back out every year.
             </p>
             <div className="pcard-tags pcard-tags-latkan">
@@ -409,7 +557,105 @@ export default function ProductsSection() {
           </div>
         </div>
 
-        {/* Lotus Decorative Latkan — only one photo so far, so no thumbnail strip. */}
+        {/* Lotus Asaan (Medium) */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/lotus-asaan-medium')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/lotus-asaan-medium-1.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#6B4FA0' }}>FOR YOUR BAPPA</span>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Lotus Asaan (Medium)</h3>
+              <span className="pcard-price pcard-price-sm">DM for price</span>
+            </div>
+            <div className="pcard-eyebrow">grand multi-layer lotus · idol not included 🪷</div>
+            <p className="pcard-desc">
+              A grand multi-layered lotus seat for your Bappa — layered pink and white craft-wire petals with a yellow
+              textured core and deep green base leaves.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Mandir & pooja thali'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/lotus-asaan-medium" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Pink Lotus Asaan (Medium) */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '1deg' } as React.CSSProperties}
+          onClick={goTo('/products/pink-lotus-asaan-medium')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/pink-lotus-asaan-medium-1.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#A569BD' }}>FOR YOUR BAPPA</span>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Pink Lotus Asaan (Medium)</h3>
+              <span className="pcard-price pcard-price-sm">DM for price</span>
+            </div>
+            <div className="pcard-eyebrow">vibrant magenta-pink · detailed stamens 🪷</div>
+            <p className="pcard-desc">
+              Vibrant magenta-pink lotus asaan with intricate stamens and a rich golden center — a radiant base for your
+              Ganpati or pooja altar.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Mandir & pooja thali'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/pink-lotus-asaan-medium" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Ganpati Special Mala */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/ganpati-special-mala')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/ganpati-mala-mogra-pink.jpeg" alt="" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#6B4FA0' }}>4 STYLES</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
+            <div><DesktopOnlyImg src="/assets/ganpati-mala-braided-rose.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/ganpati-mala-tricolor.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/ganpati-mala-murti-pink.jpeg" /></div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Ganpati Special Mala</h3>
+              <span className="pcard-price pcard-price-sm">DM for price</span>
+            </div>
+            <div className="pcard-eyebrow">4 sacred styles · Mogra, Rose, Tricolor, Murti</div>
+            <p className="pcard-desc">
+              Handcrafted velvet flower malas strung on pearls — specially designed for Ganpati Bappa idols, home temples,
+              pooja thalis, and car dashboards.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Pooja garland', 'Murti mala'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/ganpati-special-mala" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Lotus Decorative Latkan */}
         <div
           className="pcard pcard-new"
           data-reveal
@@ -451,7 +697,6 @@ export default function ProductsSection() {
             <img className="img-cover" src="/assets/flower-mala-braided-1.jpeg" alt="" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#6B4FA0' }}>TWO STYLES</span>
           </div>
-          {/* One cell at 2/1 keeps this card the same height as its 2-thumb neighbours. */}
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
             <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
               <DesktopOnlyImg src="/assets/flower-mala-cluster-1.jpeg" />

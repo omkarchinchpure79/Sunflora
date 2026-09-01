@@ -7,9 +7,18 @@ import { productJsonLd, products } from '@/lib/site'
 
 // Products whose page needs client-side variant state get their own route and
 // are excluded from this generic template:
-//   bouquets    → app/products/bouquets/page.tsx    (colourway toggle)
-//   flower-mala → app/products/flower-mala/page.tsx (style toggle, price varies)
-const CUSTOM_ROUTES = new Set(['bouquets', 'flower-mala'])
+//   bouquets                → app/products/bouquets/page.tsx                (colourway toggle)
+//   flower-mala             → app/products/flower-mala/page.tsx             (style toggle, price varies)
+//   multipurpose-2ft-latkan → app/products/multipurpose-2ft-latkan/page.tsx (colourway toggle)
+//   door-side-latkan-5ft    → app/products/door-side-latkan-5ft/page.tsx    (colourway toggle)
+//   ganpati-special-mala    → app/products/ganpati-special-mala/page.tsx    (style toggle)
+const CUSTOM_ROUTES = new Set([
+  'bouquets',
+  'flower-mala',
+  'multipurpose-2ft-latkan',
+  'door-side-latkan-5ft',
+  'ganpati-special-mala',
+])
 const slugs = Object.keys(products).filter((s) => !CUSTOM_ROUTES.has(s))
 
 type Params = Promise<{ slug: string }>

@@ -68,12 +68,13 @@ export default function Header() {
       <header className="site-header">
         <div className="site-header-row">
           <Link href="/" className="logo" aria-label="Sunflora home">
-            <span className="logo-word">
-              Sunfl
-              <Sunflower size={28} petal="#F4B23A" center="#6B4322" />
-              ra
-            </span>
-            <span className="logo-tagline">{BRAND.tagline}</span>
+            <img
+              src="/assets/sunflora-brand-logo.png"
+              alt="Sunflora — Craftilicious ful"
+              width={54}
+              height={54}
+              className="brand-logo-img"
+            />
           </Link>
 
           {/* Desktop: always-visible inline nav — only 3 destinations, no dropdown needed */}
@@ -159,29 +160,20 @@ export default function Header() {
         }
         .logo {
           display: flex;
-          flex-direction: column;
+          align-items: center;
           line-height: 1;
           text-decoration: none;
         }
-        .logo-word {
-          font-family: var(--font-cormorant), serif;
-          font-weight: 700;
-          font-size: clamp(23px, 6vw, 36px);
-          color: #6B2E8F;
-          display: flex;
-          align-items: center;
+        .brand-logo-img {
+          width: clamp(42px, 6vw, 54px);
+          height: clamp(42px, 6vw, 54px);
+          object-fit: contain;
+          border-radius: 50%;
+          transition: transform 0.2s ease, filter 0.2s ease;
+          display: block;
         }
-        .logo-word :global(svg) {
-          width: 0.9em;
-          height: 0.9em;
-          margin: 0 1px;
-        }
-        .logo-tagline {
-          font-family: var(--font-cormorant), serif;
-          font-style: italic;
-          font-size: clamp(10px, 2.4vw, 12px);
-          color: #7c608e;
-          margin-top: 2px;
+        .logo:hover .brand-logo-img {
+          transform: scale(1.05);
         }
         .desktop-links {
           display: flex;

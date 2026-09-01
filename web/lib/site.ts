@@ -331,19 +331,24 @@ export const products: Record<string, Product> = {
   },
   'lotus-asaan': {
     slug: 'lotus-asaan',
-    name: 'Lotus Asaan',
-    title: 'Lotus Asaan 🪷',
+    name: 'Lotus Asaan (Small)',
+    title: 'Lotus Asaan — Small 🪷',
     eyebrow: 'for your bappa',
-    metaTitle: 'Lotus Asaan — handmade lotus seat for your Ganpati idol',
+    metaTitle: 'Lotus Asaan (Small) — handmade lotus seat for your Ganpati idol',
     metaDescription:
-      'A handmade craft-wire lotus asaan for your Ganpati or deity idol — pink petals tipped with pearls over green leaves. ₹350, made to order, ships pan-India.',
-    price: '₹350',
-    priceRange: { low: 350, high: 350 },
+      'A handmade craft-wire lotus asaan for your Ganpati or deity idol — pink petals tipped with pearls over green leaves. DM for price, made to order, ships pan-India.',
+    price: 'DM for price',
+    priceRange: null,
     summary:
-      'A hand-shaped lotus seat for your Bappa — soft pink petals tipped with pearls, resting on a ring of green leaves.',
-    images: ['/assets/lotus-asaan-1.jpeg', '/assets/lotus-asaan-2.jpeg', '/assets/lotus-asaan-3.jpeg'],
+      'A hand-shaped lotus seat for your Bappa — soft pink and white petals tipped with pearls, resting on a ring of green leaves.',
+    images: [
+      '/assets/lotus-asaan-small-1.jpeg',
+      '/assets/lotus-asaan-1.jpeg',
+      '/assets/lotus-asaan-2.jpeg',
+      '/assets/lotus-asaan-3.jpeg',
+    ],
     tags: ['Ganpati décor', 'Diwali décor', 'Home & temple décor', 'Festivals & poojas'],
-    alt: 'Lotus Asaan — handmade lotus seat for a deity idol',
+    alt: 'Lotus Asaan Small — handmade lotus seat for a deity idol',
     ctaLabel: 'DM us to order 🪷',
     ctaNote: 'Order early for Ganesh Chaturthi — each one made fresh.',
     features: [
@@ -353,9 +358,9 @@ export const products: Record<string, Product> = {
       { title: 'At home anywhere', body: 'Mandir, pooja thali, festive table — or your work desk all year.' },
     ],
     specs: [
+      { label: 'Small size', value: 'compact idol seat' },
       { label: 'Made to order', value: '~3–5 days to make' },
       { label: 'Idol not included', value: 'the asaan only' },
-      { label: 'Handmade', value: 'craft-wire petals & pearls' },
       { label: 'Reusable', value: 'festival after festival' },
     ],
     specsBg: '#e7ecd8',
@@ -365,8 +370,257 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['purple-lotus-latkan', 'lotus-latkan', 'flower-mala'],
+    crossSell: ['lotus-asaan-medium', 'pink-lotus-asaan-medium', 'ganpati-special-mala'],
     finalCtaTitle: 'Give your Bappa a seat made by hand.',
+  },
+  'lotus-asaan-medium': {
+    slug: 'lotus-asaan-medium',
+    name: 'Lotus Asaan (Medium)',
+    title: 'Lotus Asaan — Medium 🪷',
+    eyebrow: 'for your bappa',
+    metaTitle: 'Lotus Asaan (Medium) — multi-layered handmade lotus seat for Ganpati',
+    metaDescription:
+      'Handmade multi-layered craft-wire lotus asaan for your Ganpati or temple idol — rich pink and white petals with yellow core. DM for price, ships pan-India.',
+    price: 'DM for price',
+    priceRange: null,
+    summary:
+      'A grand multi-layered lotus seat for your Bappa — layered pink and white craft-wire petals with a yellow textured core and deep green base leaves.',
+    images: ['/assets/lotus-asaan-medium-1.jpeg'],
+    tags: ['Ganpati décor', 'Diwali décor', 'Home & temple décor', 'Festivals & poojas'],
+    alt: 'Lotus Asaan Medium — layered handmade lotus seat for Ganpati idol',
+    ctaLabel: 'DM us to order 🪷',
+    ctaNote: 'Made to order with care for the festive season.',
+    features: [
+      { title: 'Grand layered design', body: 'Multiple layers of hand-shaped petals create a rich, blooming lotus.' },
+      { title: 'Never wilts', body: 'Crafted with premium materials to shine year after year.' },
+      { title: 'Custom sized for idols', body: 'Generous medium footprint to seat your Ganpati murti with poise.' },
+      { title: 'Pure handmade charm', body: 'Every petal shaped and finished by hand with love.' },
+    ],
+    specs: [
+      { label: 'Medium size', value: 'fits standard murtis' },
+      { label: 'Made to order', value: '~4–6 days to make' },
+      { label: 'Idol not included', value: 'the asaan only' },
+      { label: 'Reusable', value: 'festival after festival' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Confirm your murti size', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['pink-lotus-asaan-medium', 'lotus-asaan', 'ganpati-special-mala'],
+    finalCtaTitle: 'A majestic throne for your Bappa.',
+  },
+  'pink-lotus-asaan-medium': {
+    slug: 'pink-lotus-asaan-medium',
+    name: 'Pink Lotus Asaan (Medium)',
+    title: 'Pink Lotus Asaan — Medium 🪷',
+    eyebrow: 'vibrant pink',
+    metaTitle: 'Pink Lotus Asaan (Medium) — vibrant handmade lotus idol seat',
+    metaDescription:
+      'Bright pink handmade lotus seat for deity idols and Ganpati Bappa — intricate white-tipped stamens and textured center. DM for price, ships pan-India.',
+    price: 'DM for price',
+    priceRange: null,
+    summary:
+      'Vibrant magenta-pink lotus asaan with intricate stamens and a rich golden center — a radiant base for your Ganpati or pooja altar.',
+    images: ['/assets/pink-lotus-asaan-medium-1.jpeg'],
+    tags: ['Ganpati décor', 'Diwali décor', 'Home & temple décor', 'Festivals & poojas'],
+    alt: 'Pink Lotus Asaan Medium — bright pink handmade lotus seat',
+    ctaLabel: 'DM us to order 🪷',
+    ctaNote: 'Each asaan is crafted individually by hand.',
+    features: [
+      { title: 'Vibrant festive pink', body: 'Radiant velvet petals that add an eye-catching glow to your altar.' },
+      { title: 'Detailed stamen crown', body: 'Finished with delicate white-tipped stamens around a plush core.' },
+      { title: 'Durable & reusable', body: 'Keep safely after celebrations and reuse for every festival.' },
+      { title: 'Handcrafted perfection', body: 'Every single petal shaped and mounted by hand.' },
+    ],
+    specs: [
+      { label: 'Medium size', value: 'ideal for temple & altar' },
+      { label: 'Made to order', value: '~4–6 days to make' },
+      { label: 'Idol not included', value: 'the asaan only' },
+      { label: 'Handmade', value: 'craft-wire & velvet petals' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Confirm your order', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['lotus-asaan-medium', 'lotus-asaan', 'ganpati-special-mala'],
+    finalCtaTitle: 'Add a vibrant festive touch to your sacred space.',
+  },
+  'multipurpose-2ft-latkan': {
+    slug: 'multipurpose-2ft-latkan',
+    name: 'Multipurpose 2 Ft Latkan',
+    title: 'Multipurpose Latkan — 2 Ft',
+    eyebrow: 'two colourways',
+    metaTitle: 'Multipurpose 2 Ft Latkan — handmade festive flower hanging',
+    metaDescription:
+      'Versatile 2 ft hanging latkans with pearl strands and bud drops — available in Pink / Fuchsia and Golden Yellow. DM for price, made to order, ships pan-India.',
+    price: 'DM for price',
+    priceRange: null,
+    summary:
+      'A versatile 2-foot handmade latkan featuring a statement bloom, pearl chain, and dangling bud drops — perfect for doors, mandirs, curtains, and wall accents.',
+    images: [
+      '/assets/multipurpose-latkan-2ft-pink.jpeg',
+      '/assets/multipurpose-latkan-2ft-yellow-1.jpeg',
+      '/assets/multipurpose-latkan-2ft-yellow-2.jpeg',
+    ],
+    tags: ['Ganpati décor', 'Diwali décor', 'Wall & door hanging', 'Festivals & poojas'],
+    alt: 'Multipurpose 2 Ft Latkan — handmade flower and pearl hanging',
+    ctaLabel: 'DM to order — limited stock',
+    ctaNote: 'Choose your favourite colourway over DM ✿',
+    features: [
+      { title: 'Multipurpose styling', body: 'Hang it on doorways, mandir corners, curtains, or festive backdrops.' },
+      { title: 'Two vibrant colourways', body: 'Choose between vibrant Pink/Fuchsia or warm Golden Yellow.' },
+      { title: 'Pearl strands & bud drops', body: 'Detailed with lustrous pearls and delicate flower bud tassels.' },
+      { title: 'Reusable forever', body: 'Crafted to stay beautiful across years of celebrations.' },
+    ],
+    specs: [
+      { label: 'Length', value: '2 ft' },
+      { label: 'Two colours', value: 'Pink & Golden Yellow' },
+      { label: 'Handmade', value: 'craft wire & faux pearls' },
+      { label: 'Easy to hang', value: 'ready with top loop' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Pick your colourway', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['door-side-latkan-4ft', 'door-side-latkan-5ft', 'lotus-latkan'],
+    finalCtaTitle: 'Brighten any festive corner with versatile charm.',
+  },
+  'door-side-latkan-4ft': {
+    slug: 'door-side-latkan-4ft',
+    name: 'Door Side Latkans (4 Ft)',
+    title: 'Door Side Latkans — 4 Ft',
+    eyebrow: 'festive doorway',
+    metaTitle: 'Door Side Latkans (4 Ft) — handmade maroon flower & pearl hanging',
+    metaDescription:
+      'Handmade 4 ft door latkans featuring deep maroon velvet flower clusters strung on lustrous pearls. DM for price, made to order, ships pan-India.',
+    price: 'DM for price',
+    priceRange: null,
+    summary:
+      'Deep maroon velvet flower clusters strung along pearl strands with bud accents — designed to frame doorways and pooja entrances with royal elegance.',
+    images: ['/assets/door-side-latkan-4ft-maroon.jpeg'],
+    tags: ['Ganpati décor', 'Diwali décor', 'Doorway décor', 'Festivals & poojas'],
+    alt: 'Door Side Latkans 4 Ft — maroon velvet and pearl door hanging',
+    ctaLabel: 'DM to order — limited stock',
+    ctaNote: 'Handmade to order for your festive entrance.',
+    features: [
+      { title: '4 ft doorway length', body: 'Perfect length to drape gracefully along entrance doors and mandir gates.' },
+      { title: 'Rich maroon velvet', body: 'Deep wine velvet blooms that exude festive luxury.' },
+      { title: 'Hand-strung pearl segments', body: 'Lustrous pearls spaced evenly between each flower cluster.' },
+      { title: 'Long-lasting heirloom', body: 'Pack away after the festive season and bring out every year.' },
+    ],
+    specs: [
+      { label: 'Length', value: '4 ft' },
+      { label: 'Made to order', value: '~4–6 days to make' },
+      { label: 'Handmade', value: 'velvet blooms & pearls' },
+      { label: 'Reusable', value: 'festival after festival' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Confirm your order', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We pack & ship it', body: '' },
+    ],
+    crossSell: ['door-side-latkan-5ft', 'multipurpose-2ft-latkan', 'lotus-latkan'],
+    finalCtaTitle: 'Give your doorway a warm, auspicious welcome.',
+  },
+  'door-side-latkan-5ft': {
+    slug: 'door-side-latkan-5ft',
+    name: 'Door Side Latkans Decor (5 Ft)',
+    title: 'Door Side Latkans Decor — 5 Ft',
+    eyebrow: '4 colourways',
+    metaTitle: 'Door Side Latkans Decor (5 Ft) — festive hanging in 4 colors',
+    metaDescription:
+      'Full-length 5 ft handmade door latkans with pearl strands and bud drops in Lavender, Violet & Pink, Red Rose, and Marigold Orange. DM for price, ships pan-India.',
+    price: 'DM for price',
+    priceRange: null,
+    summary:
+      'Full 5-foot festive door latkans handcrafted with layered blooms, pearl beads, and cascading bud drops — available in 4 stunning colourways.',
+    images: [
+      '/assets/door-latkan-5ft-lavender.jpeg',
+      '/assets/door-latkan-5ft-violet-pink.jpeg',
+      '/assets/door-latkan-5ft-red.jpeg',
+      '/assets/door-latkan-5ft-orange-1.jpeg',
+      '/assets/door-latkan-5ft-orange-2.jpeg',
+    ],
+    tags: ['Ganpati décor', 'Diwali décor', 'Doorway décor', 'Festivals & poojas'],
+    alt: 'Door Side Latkans Decor 5 Ft — handmade full doorway hanging',
+    ctaLabel: 'DM to order — limited stock',
+    ctaNote: 'Select your favourite colourway when you message us ✿',
+    features: [
+      { title: 'Full 5 ft doorway coverage', body: 'Hangs the full height of your entrance or mandir for a complete festive look.' },
+      { title: '4 exclusive colourways', body: 'Choose from Lavender, Violet & Pink, Red Rose, or Marigold Orange.' },
+      { title: 'Detailed pearl cascades', body: 'Features triple pearl tassels and hand-shaped bud drops at the base.' },
+      { title: 'Reusable year after year', body: 'Never wilts, browns, or breaks — ready for every celebration.' },
+    ],
+    specs: [
+      { label: 'Length', value: '5 ft each' },
+      { label: '4 Colourways', value: 'Lavender, Violet, Red, Orange' },
+      { label: 'Handmade', value: 'craft wire, velvet & pearls' },
+      { label: 'Ready to hang', value: 'top mounting loop included' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Pick your colourway', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['door-side-latkan-4ft', 'multipurpose-2ft-latkan', 'lotus-latkan'],
+    finalCtaTitle: 'Transform your festive entrance with handcrafted grace.',
+  },
+  'ganpati-special-mala': {
+    slug: 'ganpati-special-mala',
+    name: 'Ganpati Special Mala',
+    title: 'Ganpati Special Mala',
+    eyebrow: '4 sacred styles',
+    metaTitle: 'Ganpati Special Mala — handmade velvet & pearl deity garland',
+    metaDescription:
+      'Handmade pooja & deity malas for Ganpati Bappa in 4 styles: Mogra Lotus, Braided Rose, Tricolor Bloom, and Murti Dashboard Mala. DM for price, ships pan-India.',
+    price: 'DM for price',
+    priceRange: null,
+    summary:
+      'Handcrafted velvet flower malas strung on pearls — specially designed for Ganpati Bappa idols, home temples, pooja thalis, and car dashboards.',
+    images: [
+      '/assets/ganpati-mala-mogra-pink.jpeg',
+      '/assets/ganpati-mala-braided-rose.jpeg',
+      '/assets/ganpati-mala-tricolor.jpeg',
+      '/assets/ganpati-mala-murti-pink.jpeg',
+    ],
+    tags: ['Ganpati décor', 'Pooja garland', 'Murti mala', 'Festivals & poojas'],
+    alt: 'Ganpati Special Mala — handmade velvet flower garland',
+    ctaLabel: 'DM us to order 🌺',
+    ctaNote: 'Select your preferred style and tell us your idol size.',
+    features: [
+      { title: '4 sacred styles', body: 'Choose Mogra Lotus, Braided Rose, Tricolor Bloom, or Murti Dashboard Mala.' },
+      { title: 'Tailored for idols', body: 'Carefully proportioned to adorn murtis gracefully without overpowering.' },
+      { title: 'Pearl knotting', body: 'Strung by hand with lustrous pearls and flower bud pendants.' },
+      { title: 'Everlasting devotion', body: 'A holy garland that remains fresh and vibrant year after year.' },
+    ],
+    specs: [
+      { label: '4 styles', value: 'Mogra, Rose, Tricolor, Murti' },
+      { label: 'Made to order', value: '~3–5 days to make' },
+      { label: 'Handmade', value: 'velvet blooms & pearls' },
+      { label: 'Reusable', value: 'festival after festival' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Pick your style & murti size', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['lotus-asaan', 'lotus-asaan-medium', 'pink-lotus-asaan-medium'],
+    finalCtaTitle: 'Adorn your Bappa with a garland made with pure devotion.',
   },
   'lotus-decorative-latkan': {
     slug: 'lotus-decorative-latkan',
@@ -404,7 +658,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We pack & ship it', body: '' },
     ],
-    crossSell: ['lotus-latkan', 'purple-lotus-latkan', 'flower-mala'],
+    crossSell: ['lotus-latkan', 'purple-lotus-latkan', 'door-side-latkan-5ft'],
     finalCtaTitle: 'Dress your doorway for the season.',
   },
   'flower-mala': {
@@ -444,7 +698,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['lotus-asaan', 'lotus-decorative-latkan', 'lotus-latkan'],
+    crossSell: ['lotus-asaan', 'ganpati-special-mala', 'lotus-latkan'],
     finalCtaTitle: 'A mala that lasts long after the pooja.',
   },
 }
@@ -527,6 +781,76 @@ export const malaVariants = {
 
 export type MalaVariant = keyof typeof malaVariants
 
+/**
+ * The two colourways on the Multipurpose 2 Ft Latkan page.
+ */
+export const multipurposeLatkanVariants = {
+  pink: {
+    label: 'Pink / Fuchsia',
+    images: ['/assets/multipurpose-latkan-2ft-pink.jpeg'],
+  },
+  yellow: {
+    label: 'Golden Yellow',
+    images: [
+      '/assets/multipurpose-latkan-2ft-yellow-1.jpeg',
+      '/assets/multipurpose-latkan-2ft-yellow-2.jpeg',
+    ],
+  },
+} as const
+
+export type MultipurposeLatkanVariant = keyof typeof multipurposeLatkanVariants
+
+/**
+ * The four colourways on the Door Side Latkans Decor 5 Ft page.
+ */
+export const doorLatkan5ftVariants = {
+  lavender: {
+    label: 'Lavender Bud',
+    images: ['/assets/door-latkan-5ft-lavender.jpeg'],
+  },
+  violetPink: {
+    label: 'Violet & Pink',
+    images: ['/assets/door-latkan-5ft-violet-pink.jpeg'],
+  },
+  red: {
+    label: 'Red Rose',
+    images: ['/assets/door-latkan-5ft-red.jpeg'],
+  },
+  orange: {
+    label: 'Marigold Orange',
+    images: [
+      '/assets/door-latkan-5ft-orange-1.jpeg',
+      '/assets/door-latkan-5ft-orange-2.jpeg',
+    ],
+  },
+} as const
+
+export type DoorLatkan5ftVariant = keyof typeof doorLatkan5ftVariants
+
+/**
+ * The four styles on the Ganpati Special Mala page.
+ */
+export const ganpatiMalaVariants = {
+  mograPink: {
+    label: 'Mogra & Pink Lotus',
+    images: ['/assets/ganpati-mala-mogra-pink.jpeg'],
+  },
+  braidedRose: {
+    label: 'Braided Rose',
+    images: ['/assets/ganpati-mala-braided-rose.jpeg'],
+  },
+  tricolor: {
+    label: 'Tricolor Bloom',
+    images: ['/assets/ganpati-mala-tricolor.jpeg'],
+  },
+  murtiPink: {
+    label: 'Murti / Dashboard Mala',
+    images: ['/assets/ganpati-mala-murti-pink.jpeg'],
+  },
+} as const
+
+export type GanpatiMalaVariant = keyof typeof ganpatiMalaVariants
+
 /** Nav order, shared by the header menu and the footer. */
 export const navProducts = [
   products['signature-frame'],
@@ -534,7 +858,14 @@ export const navProducts = [
   products.bouquets,
   products['lotus-latkan'],
   products['purple-lotus-latkan'],
+  products['door-side-latkan-4ft'],
+  products['door-side-latkan-5ft'],
+  products['multipurpose-2ft-latkan'],
   products['lotus-asaan'],
+  products['lotus-asaan-medium'],
+  products['pink-lotus-asaan-medium'],
   products['lotus-decorative-latkan'],
   products['flower-mala'],
+  products['ganpati-special-mala'],
 ]
+
