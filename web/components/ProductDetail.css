@@ -26,12 +26,36 @@
   color: #6d5a82;
   margin: 0 0 16px;
 }
+.pd-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
 .pd-price {
   font-family: var(--font-cormorant), serif;
   font-weight: 700;
-  font-size: clamp(18px, 4vw, 26px);
+  font-size: clamp(22px, 4vw, 30px);
   color: #6B2E8F;
-  margin-bottom: 16px;
+}
+.pd-mrp {
+  font-family: inherit;
+  font-size: clamp(15px, 2.5vw, 18px);
+  color: #8c769b;
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+.pd-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2e663a;
+  background: #e2f0d9;
+  border: 1px solid #c2e2b3;
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 .pd-tags {
   display: flex;

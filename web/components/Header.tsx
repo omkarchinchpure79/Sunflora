@@ -7,7 +7,7 @@ import { BRAND } from '@/lib/site'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/#products', label: 'Menu' },
+  { href: '/products', label: 'All Products' },
   { href: '/contact', label: 'Contact us' },
 ]
 

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import ProductsSection from '@/components/ProductsSection'
+import ProductCatalogGrid from '@/components/ProductCatalogGrid'
 import HeroScene from '@/components/HeroScene'
 import ScrollReveal from '@/components/ScrollReveal'
 import IgLink from '@/components/IgLink'
@@ -100,7 +100,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ProductsSection />
+      <ProductCatalogGrid />
 
       {/* ===== WHY SUNFLORA ===== */}
       <section className="hp-why">

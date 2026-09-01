@@ -15,7 +15,7 @@ import { malaVariants, products, type MalaVariant } from '@/lib/site'
 export default function MalaDetail() {
   const [variant, setVariant] = useState<MalaVariant>('braided')
   const product = products['flower-mala']
-  const { label, price, priceRange, images } = malaVariants[variant]
+  const { label, price, mrp, priceRange, images } = malaVariants[variant]
 
   const picker = (
     <div className="variant-picker">
@@ -71,6 +71,7 @@ export default function MalaDetail() {
       product={{
         ...product,
         price,
+        mrp,
         priceRange: { ...priceRange },
         images: [...images],
         alt: `${product.name} — ${label}`,

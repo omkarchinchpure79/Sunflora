@@ -32,7 +32,11 @@ export default function ProductDetail({
             <h1 className="pd-title">{product.title}</h1>
             <p className="pd-summary">{product.summary}</p>
             {variantPicker}
-            <div className="pd-price">{product.price}</div>
+            <div className="pd-price-wrap">
+              <span className="pd-price">{product.price}</span>
+              {product.mrp && <del className="pd-mrp">{product.mrp}</del>}
+              {product.badge && <span className="pd-badge">{product.badge}</span>}
+            </div>
             {product.tags.length > 0 && (
               <div className="pd-tags">
                 {product.tags.map((t) => (
