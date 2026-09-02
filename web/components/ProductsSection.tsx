@@ -51,24 +51,34 @@ const mobileCards = [
     blurb: 'A little square keepsake with a handmade bloom.',
   },
   {
-    id: 'purple',
-    name: 'Bouquet — Purple',
-    price: 'DM for price',
-    tag: 'EVERLASTING',
-    tagBg: '#3F1B57',
-    img: '/assets/bouquet-purple-styled.jpg',
-    href: '/products/bouquets',
-    blurb: 'Deep violet blooms, hand-shaped from craft wire.',
+    id: 'pink-tulips-lilies',
+    name: 'Bouquet — Pink Tulips & Lilies',
+    price: '₹999',
+    tag: 'BESTSELLER',
+    tagBg: '#C25975',
+    img: '/assets/bouquet-pink-tulips-lilies.jpeg',
+    href: '/products/bouquet-pink-tulips-lilies',
+    blurb: 'Hand-shaped pink tulips & lilies in champagne wrapping.',
   },
   {
-    id: 'burgundy',
-    name: 'Bouquet — Burgundy & White',
-    price: 'DM for price',
-    tag: 'EVERLASTING',
+    id: 'purple',
+    name: 'Bouquet — Lavender & Purple Lilies',
+    price: '₹999',
+    tag: '17% OFF',
     tagBg: '#3F1B57',
-    img: '/assets/bouquet-burgundy-white-styled.jpg',
-    href: '/products/bouquets',
-    blurb: 'Velvety lilies wrapped in blush tulle.',
+    img: '/assets/bouquet-purple.jpeg',
+    href: '/products/bouquet-purple',
+    blurb: 'Royal purple lilies and lavender stalks in lilac paper.',
+  },
+  {
+    id: 'blush',
+    name: 'Bouquet — Blush Lily & Daisy',
+    price: '₹999',
+    tag: '17% OFF',
+    tagBg: '#B34A6E',
+    img: '/assets/bouquet-blush-lily-daisy.jpeg',
+    href: '/products/bouquet-blush-lily-daisy',
+    blurb: 'Vibrant center lily with white daisies and fern greenery.',
   },
   {
     id: 'lotus',
@@ -286,16 +296,45 @@ export default function ProductsSection() {
           </div>
         </div>
 
-        {/* Bouquet — Purple */}
+        {/* Bouquet — Pink Tulips & Lilies */}
         <div
           className="pcard"
           data-reveal
           style={{ '--rot': '-1deg' } as React.CSSProperties}
-          onClick={goTo('/products/bouquets')}
+          onClick={goTo('/products/bouquet-pink-tulips-lilies')}
         >
           <div className="pcard-hero" style={{ borderRadius: 12 }}>
-            <img className="img-cover" src="/assets/bouquet-purple-styled.jpg" alt="" loading="lazy" decoding="async" />
-            <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
+            <img className="img-cover" src="/assets/bouquet-pink-tulips-lilies.jpeg" alt="Handcrafted Bouquet — Pink Tulips & Lilies" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#C25975' }}>BESTSELLER</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
+            <div style={{ backgroundColor: '#FBE8EF', aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/bouquet-pink-tulips-lilies.webp" />
+            </div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Bouquet — Pink Tulips &amp; Lilies</h3>
+              <span className="pcard-price pcard-price-sm">₹999</span>
+            </div>
+            <p className="pcard-desc">
+              Velvet pink tulips, blooming lilies, and floret accents wrapped in pleated champagne paper with a satin bow.
+            </p>
+            <Link href="/products/bouquet-pink-tulips-lilies" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Bouquet — Lavender & Purple Lilies */}
+        <div
+          className="pcard"
+          data-reveal
+          style={{ '--rot': '1deg' } as React.CSSProperties}
+          onClick={goTo('/products/bouquet-purple')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/bouquet-purple.jpeg" alt="Handcrafted Bouquet — Lavender & Purple Lilies" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#3F1B57' }}>17% OFF</span>
           </div>
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
             <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
@@ -304,44 +343,42 @@ export default function ProductsSection() {
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
-              <h3>Bouquet — Purple</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <h3>Bouquet — Lavender &amp; Purple Lilies</h3>
+              <span className="pcard-price pcard-price-sm">₹999</span>
             </div>
             <p className="pcard-desc">
-              Deep violet blooms, hand-shaped from craft wire, wrapped with a lilac ribbon. Real flowers wilt in two
-              days — this one doesn&apos;t.
+              Deep purple lilies and lavender stems crafted from velvet wire, wrapped in lilac paper with satin ribbon.
             </p>
-            <Link href="/products/bouquets" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <Link href="/products/bouquet-purple" className="pcard-details" onClick={stopBubble}>See details →</Link>
             <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
 
-        {/* Bouquet — Burgundy & White */}
+        {/* Bouquet — Blush Lily & Daisy */}
         <div
           className="pcard"
           data-reveal
-          style={{ '--rot': '1deg' } as React.CSSProperties}
-          onClick={goTo('/products/bouquets')}
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/bouquet-blush-lily-daisy')}
         >
           <div className="pcard-hero" style={{ borderRadius: 12 }}>
-            <img className="img-cover" src="/assets/bouquet-burgundy-white-styled.jpg" alt="" loading="lazy" decoding="async" />
-            <span className="pcard-badge" style={{ background: '#3F1B57' }}>EVERLASTING</span>
+            <img className="img-cover" src="/assets/bouquet-blush-lily-daisy.jpeg" alt="Handcrafted Bouquet — Blush Lily & Daisy" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#B34A6E' }}>17% OFF</span>
           </div>
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
-            <div style={{ backgroundColor: '#E3C9F5', aspectRatio: '2 / 1' }}>
-              <DesktopOnlyImg src="/assets/bouquet-burgundy-white.webp" />
+            <div style={{ backgroundColor: '#FBE8EF', aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/bouquet-blush-lily-daisy.webp" />
             </div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
-              <h3>Bouquet — Burgundy &amp; White</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <h3>Bouquet — Blush Lily &amp; Daisy</h3>
+              <span className="pcard-price pcard-price-sm">₹999</span>
             </div>
             <p className="pcard-desc">
-              Velvety lilies in burgundy and white, wrapped in blush tulle with a pearl trim. Gift-ready, made to
-              order.
+              Center pink lily, white daisy florets, and fern foliage wrapped in layered pastel blush with a net lace bow.
             </p>
-            <Link href="/products/bouquets" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <Link href="/products/bouquet-blush-lily-daisy" className="pcard-details" onClick={stopBubble}>See details →</Link>
             <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>

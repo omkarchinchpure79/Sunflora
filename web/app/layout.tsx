@@ -63,10 +63,10 @@ export const metadata: Metadata = {
       'Handmade keepsake frames, everlasting bouquets and festive lotus hangings. Made to order, one at a time.',
     images: [
       {
-        url: '/assets/bouquet-burgundy-white-styled.jpg',
+        url: '/assets/bouquet-pink-tulips-lilies.jpeg',
         // Actual pixel dimensions of the file — keep in sync if it changes.
-        width: 1086,
-        height: 1448,
+        width: 896,
+        height: 1195,
         alt: 'A handmade everlasting bouquet by Sunflora',
       },
     ],
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     title: 'Sunflora — a memory you can keep forever',
     description:
       'Handmade keepsake frames, everlasting bouquets and festive lotus hangings.',
-    images: ['/assets/bouquet-burgundy-white-styled.jpg'],
+    images: ['/assets/bouquet-pink-tulips-lilies.jpeg'],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
@@ -97,7 +97,7 @@ const organizationJsonLd = {
   description:
     'Handmade, made-to-order photo keepsake frames, everlasting bouquets and festive lotus hangings.',
   url: SITE_URL,
-  image: `${SITE_URL}/assets/bouquet-burgundy-white-styled.jpg`,
+  image: `${SITE_URL}/assets/bouquet-pink-tulips-lilies.jpeg`,
   sameAs: [igProfile],
   address: { '@type': 'PostalAddress', addressCountry: 'IN' },
   areaServed: 'IN',

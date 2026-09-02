@@ -317,10 +317,10 @@ export const products: Record<string, Product> = {
     finalCtaTitle: 'Carry blessings with you wherever you go.',
   },
 
-  'bouquet-pink-lilies': {
-    slug: 'bouquet-pink-lilies',
-    name: 'Handcrafted Bouquet — Pink Lilies',
-    title: 'Handcrafted Bouquet — Pink Lilies',
+  'bouquet-pink-tulips-lilies': {
+    slug: 'bouquet-pink-tulips-lilies',
+    name: 'Handcrafted Bouquet — Pink Tulips & Lilies',
+    title: 'Handcrafted Bouquet — Pink Tulips & Lilies',
     eyebrow: 'everlasting bouquet',
     category: 'Everlasting Bouquets',
     mrp: '₹1,200',
@@ -328,19 +328,19 @@ export const products: Record<string, Product> = {
     price: '₹999',
     priceValue: 999,
     badge: 'BESTSELLER',
-    metaTitle: 'Handcrafted Bouquet (Pink Lilies) — everlasting forever flowers',
-    metaDescription: 'Hand-shaped pink lilies bouquet wrapped in blush tulle with ribbon. ₹999, made to order, ships pan-India.',
+    metaTitle: 'Handcrafted Bouquet (Pink Tulips & Lilies) — everlasting forever flowers',
+    metaDescription: 'Hand-shaped pink tulips & lilies bouquet in pleated champagne wrapping with satin ribbon. ₹999, made to order, ships pan-India.',
     priceRange: { low: 999, high: 999 },
-    summary: 'A breathtaking everlasting bouquet featuring delicate hand-shaped pink lilies, accent florets, and lush green leaves wrapped in blush tulle.',
-    images: ['/assets/bouquet-pink-lilies.jpeg', '/assets/bouquet-pink-lily-hero.jpeg'],
+    summary: 'A magnificent everlasting bouquet featuring velvet pink tulips, blooming lilies, delicate accent florets, and lush green foliage wrapped in pleated champagne layers.',
+    images: ['/assets/bouquet-pink-tulips-lilies.jpeg'],
     tags: ['Birthdays', 'Anniversaries', 'Romantic gifts', 'Forever flowers'],
-    alt: 'Handcrafted Bouquet — Pink Lilies',
+    alt: 'Handcrafted Bouquet — Pink Tulips & Lilies',
     ctaLabel: 'DM us to order 💐',
     ctaNote: 'Gift-wrapped and ribboned, ready to surprise someone special.',
     features: [
       { title: 'Never Wilts or Fades', body: 'A handmade floral keepsake that lasts for years, not two days.' },
-      { title: 'Gift-Ready Wrapping', body: 'Wrapped in multi-layered textured paper and tied with a satin ribbon.' },
-      { title: 'Meticulous Petal Craft', body: 'Every petal individually shaped by hand from velvet craft wire.' },
+      { title: 'Pleated Champagne Wrap', body: 'Wrapped in multi-layered champagne pleated paper and tied with a satin ribbon.' },
+      { title: 'Meticulous Petal Craft', body: 'Velvet pink tulips and lilies individually shaped by hand.' },
       { title: 'Pan-India Delivery', body: 'Carefully boxed and protected for safe transit.' },
     ],
     specs: [
@@ -355,14 +355,14 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We craft & ship it', body: '' },
     ],
-    crossSell: ['bouquet-purple', 'bouquet-burgundy-white', 'signature-frame'],
+    crossSell: ['bouquet-purple', 'bouquet-blush-lily-daisy', 'frame-3d-box'],
     finalCtaTitle: 'A bouquet that never says goodbye.',
   },
 
   'bouquet-purple': {
     slug: 'bouquet-purple',
-    name: 'Handcrafted Bouquet — Purple Blooms',
-    title: 'Handcrafted Bouquet — Purple Blooms',
+    name: 'Handcrafted Bouquet — Lavender & Purple Lilies',
+    title: 'Handcrafted Bouquet — Lavender & Purple Lilies',
     eyebrow: 'everlasting bouquet',
     category: 'Everlasting Bouquets',
     mrp: '₹1,200',
@@ -370,23 +370,23 @@ export const products: Record<string, Product> = {
     price: '₹999',
     priceValue: 999,
     badge: '17% OFF',
-    metaTitle: 'Handcrafted Bouquet (Purple Blooms) — forever flowers',
-    metaDescription: 'Deep violet and lilac craft-wire flowers wrapped in crisp white paper with organza ribbon. ₹999.',
+    metaTitle: 'Handcrafted Bouquet (Lavender & Purple Lilies) — forever flowers',
+    metaDescription: 'Deep purple lilies and lavender stems wrapped in lilac origami paper with satin ribbon. ₹999, made to order.',
     priceRange: { low: 999, high: 999 },
-    summary: 'Deep violet blooms and lavender accent flowers hand-shaped from craft wire, wrapped in structured white paper and tied with an organza bow.',
-    images: ['/assets/bouquet-purple-styled.jpg', '/assets/bouquet-purple.webp'],
+    summary: 'Handcrafted royal purple lilies and lavender stalks fashioned from velvet craft wire, wrapped in pastel lilac paper and tied with a satin ribbon.',
+    images: ['/assets/bouquet-purple.jpeg'],
     tags: ['Birthdays', 'Anniversaries', 'Everlasting'],
-    alt: 'Handcrafted Bouquet — Purple Blooms',
+    alt: 'Handcrafted Bouquet — Lavender & Purple Lilies',
     ctaLabel: 'DM us to order 💐',
     ctaNote: 'Ready to gift the moment it arrives.',
     features: [
-      { title: 'Deep Royal Purple Tone', body: 'Vibrant violet and lilac blooms with pearl-tipped stamens.' },
+      { title: 'Royal Lavender & Purple Tone', body: 'Vibrant purple lilies paired with textured lavender sprigs.' },
       { title: 'Never Wilts', body: 'Crafted to stay just as radiant year after year.' },
-      { title: 'Artisanal Wrapping', body: 'Crisp origami-style wrapping with a soft sheer ribbon.' },
+      { title: 'Artisanal Lilac Wrapping', body: 'Crisp origami-style wrapping with a soft sheer ribbon.' },
       { title: 'One of a Kind', body: 'Handmade one bouquet at a time.' },
     ],
     specs: [
-      { label: 'Height', value: '~14 in tall' },
+      { label: 'Height', value: '~14–16 in tall' },
       { label: 'Made to order', value: '~3–5 days to make' },
       { label: 'Craft', value: 'Craft-wire velvet petals' },
       { label: 'Care', value: 'Dust gently with brush' },
@@ -397,14 +397,14 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['bouquet-pink-lilies', 'bouquet-burgundy-white', 'signature-frame'],
+    crossSell: ['bouquet-pink-tulips-lilies', 'bouquet-blush-lily-daisy', 'frame-3d-box'],
     finalCtaTitle: 'Give flowers that stay as vibrant as your feelings.',
   },
 
-  'bouquet-burgundy-white': {
-    slug: 'bouquet-burgundy-white',
-    name: 'Handcrafted Bouquet — Burgundy & White',
-    title: 'Handcrafted Bouquet — Burgundy & White',
+  'bouquet-blush-lily-daisy': {
+    slug: 'bouquet-blush-lily-daisy',
+    name: 'Handcrafted Bouquet — Blush Lily & Daisy',
+    title: 'Handcrafted Bouquet — Blush Lily & Daisy',
     eyebrow: 'everlasting bouquet',
     category: 'Everlasting Bouquets',
     mrp: '₹1,200',
@@ -412,25 +412,25 @@ export const products: Record<string, Product> = {
     price: '₹999',
     priceValue: 999,
     badge: '17% OFF',
-    metaTitle: 'Handcrafted Bouquet (Burgundy & White) — forever flowers',
-    metaDescription: 'Velvety burgundy lilies and white blooms wrapped in blush tulle. ₹999, made to order.',
+    metaTitle: 'Handcrafted Bouquet (Blush Lily & Daisy) — forever flowers',
+    metaDescription: 'Handmade blush pink lily with white daisy florets and fern greenery in soft pink wrapping with net lace bow. ₹999, made to order.',
     priceRange: { low: 999, high: 999 },
-    summary: 'Rich burgundy velvet lilies combined with pure white accent blooms, wrapped in soft blush layers and ribboned for gifting.',
-    images: ['/assets/bouquet-burgundy-white-styled.jpg', '/assets/bouquet-burgundy-white.webp'],
+    summary: 'A charming handcrafted bouquet showcasing a vibrant pink center lily, white daisy blossoms, and fern greenery wrapped in soft blush layers with a net bow.',
+    images: ['/assets/bouquet-blush-lily-daisy.jpeg'],
     tags: ['Birthdays', 'Anniversaries', 'Gift-ready'],
-    alt: 'Handcrafted Bouquet — Burgundy & White',
+    alt: 'Handcrafted Bouquet — Blush Lily & Daisy',
     ctaLabel: 'DM us to order 💐',
     ctaNote: 'Each bouquet is handcrafted with individual care.',
     features: [
-      { title: 'Rich Velvet Texture', body: 'Deep wine red and crisp white contrast beautifully.' },
+      { title: 'Blush Lily & Daisy Harmony', body: 'Vibrant pink lily crowned with white daisy florets and foliage.' },
       { title: 'Forever Keepsake', body: 'A bouquet that holds memories forever.' },
       { title: 'Gift-Boxed Safe Shipping', body: 'Packed securely for pan-India delivery.' },
-      { title: 'Hand-Shaped Petals', body: 'Every bloom is shaped and wired by hand.' },
+      { title: 'Hand-Shaped Petals', body: 'Every bloom and leaf is shaped and wired by hand.' },
     ],
     specs: [
-      { label: 'Height', value: '~14 in tall' },
+      { label: 'Height', value: '~14–16 in tall' },
       { label: 'Made to order', value: '~3–5 days to make' },
-      { label: 'Materials', value: 'Velvet craft wire' },
+      { label: 'Materials', value: 'Velvet craft wire & paper' },
       { label: 'Reusable', value: 'Forever' },
     ],
     orderSteps: [
@@ -439,7 +439,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['bouquet-pink-lilies', 'bouquet-purple', 'signature-frame'],
+    crossSell: ['bouquet-pink-tulips-lilies', 'bouquet-purple', 'frame-3d-box'],
     finalCtaTitle: 'A memorable bouquet for someone you cherish.',
   },
 
@@ -481,7 +481,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['mini-frame', 'bouquet-pink-lilies', 'lotus-decorative-latkan'],
+    crossSell: ['mini-frame', 'bouquet-pink-tulips-lilies', 'lotus-decorative-latkan'],
     finalCtaTitle: 'A small gift that creates a big smile.',
   },
 
@@ -543,7 +543,7 @@ export const products: Record<string, Product> = {
     metaDescription: '1 ft handmade floral side latkans with pearl cascades in Maroon and Pink. Set of 2, ₹399.',
     priceRange: { low: 399, high: 399 },
     summary: 'Compact 1-foot festive latkans handcrafted with lush velvet flowers and cascading pearl drops — ideal for Ganpati makhar, mandir pillars, and mirrors.',
-    images: ['/assets/ganpati-side-latkan-1ft.jpeg'],
+    images: ['/assets/ganpati-side-latkan-1ft.jpeg', '/assets/ganpati-side-latkan-1ft-2.jpeg'],
     tags: ['Ganpati makhar', 'Temple pillars', 'Festive décor', 'Pack of 2'],
     alt: 'Ganpati Side Decoration Latkans 1 Ft',
     ctaLabel: 'DM to order — limited stock',
@@ -788,20 +788,20 @@ export const products: Record<string, Product> = {
 
   'frame-3d-box': {
     slug: 'frame-3d-box',
-    name: '3D Flowers Shadow Box Frame (8×8×2 in)',
-    title: '3D Flowers Shadow Box Frame (8×8×2 in)',
+    name: '3D Flowers Shadow Box Frame (10×10×2 in)',
+    title: '3D Flowers Shadow Box Frame (10×10×2 in)',
     eyebrow: 'personalised keepsake',
     category: 'Keepsake Frames',
-    mrp: '₹700',
-    mrpValue: 700,
-    price: '₹599',
-    priceValue: 599,
-    badge: '14% OFF',
-    metaTitle: '3D Flowers Shadow Box Frame (8×8×2 in) — handmade photo gift',
-    metaDescription: 'Natural wooden shadow box frame with deep 3D velvet flowers, pearl cores, and your custom photo collage. ₹599.',
-    priceRange: { low: 599, high: 599 },
+    mrp: '₹800',
+    mrpValue: 800,
+    price: '₹699',
+    priceValue: 699,
+    badge: '13% OFF',
+    metaTitle: '3D Flowers Shadow Box Frame (10×10×2 in) — handmade photo gift',
+    metaDescription: 'Natural wooden shadow box frame with deep 3D velvet flowers, pearl cores, and your custom photo collage. ₹699.',
+    priceRange: { low: 699, high: 699 },
     summary: 'A deep 2-inch wooden shadow box showcasing hand-shaped 3D velvet flowers with pearl cores, customized with your favorite memory photo collage.',
-    images: ['/assets/frame-3d-box.jpeg'],
+    images: ['/assets/frame-3d-box.jpeg', '/assets/frame-3d-box-2.jpeg'],
     tags: ['Birthdays', 'Anniversaries', 'Keepsake frame', 'Handmade gift'],
     alt: '3D Flowers Shadow Box Frame — handmade photo frame',
     ctaLabel: 'DM us to order 💛',
@@ -813,7 +813,7 @@ export const products: Record<string, Product> = {
       { title: 'Forever Keepsake', body: 'Preserves cherished moments in a timeless handmade display.' },
     ],
     specs: [
-      { label: 'Frame Size', value: '8 × 8 × 2 in' },
+      { label: 'Frame Size', value: '10 × 10 × 2 in' },
       { label: 'Material', value: 'Solid pine wood & glass front' },
       { label: 'Flowers', value: 'Hand-shaped velvet blooms' },
       { label: 'Photo Required', value: 'Send after ordering via DM' },
@@ -824,7 +824,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We craft & ship it', body: '' },
     ],
-    crossSell: ['signature-frame', 'mini-frame', 'bouquet-pink-lilies'],
+    crossSell: ['signature-frame', 'mini-frame', 'bouquet-pink-tulips-lilies'],
     finalCtaTitle: 'A memory framed to last a lifetime.',
   },
 
@@ -866,7 +866,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['frame-3d-box', 'mini-frame', 'bouquet-pink-lilies'],
+    crossSell: ['frame-3d-box', 'mini-frame', 'bouquet-pink-tulips-lilies'],
     finalCtaTitle: 'Have someone in mind? Let us make them a memory that lasts.',
   },
 
@@ -1055,7 +1055,7 @@ export const products: Record<string, Product> = {
     badge: 'BESTSELLER',
     priceRange: { low: 999, high: 999 },
     summary: "Real flowers wilt in two days. These do not — hand-shaped from craft wire, wrapped and ribboned, ready to gift.",
-    images: ['/assets/bouquet-pink-lilies.jpeg', '/assets/bouquet-purple-styled.jpg', '/assets/bouquet-burgundy-white-styled.jpg'],
+    images: ['/assets/bouquet-pink-tulips-lilies.jpeg', '/assets/bouquet-purple.jpeg', '/assets/bouquet-blush-lily-daisy.jpeg'],
     tags: ['Birthdays', 'Anniversaries', 'Forever flowers'],
     alt: 'Everlasting handmade bouquet',
     ctaLabel: 'DM us to order 💐',
@@ -1064,7 +1064,7 @@ export const products: Record<string, Product> = {
       { title: 'Never Fades', body: 'A bloom that stays for years, not two days.' },
       { title: 'Gift-Ready', body: 'Wrapped and ribboned, ready to hand over as-is.' },
       { title: 'Actually Handmade', body: 'Every petal shaped by hand from craft wire.' },
-      { title: 'Multiple Colourways', body: 'Pink Lilies, Violet Purple, and Burgundy & White.' },
+      { title: 'Multiple Styles', body: 'Pink Tulips & Lilies, Lavender & Purple Lilies, and Blush Lily & Daisy.' },
     ],
     specs: [
       { label: 'Height', value: '~14 in tall' },
@@ -1343,6 +1343,9 @@ export const products: Record<string, Product> = {
   },
 }
 
+// Backwards compatibility alias
+products['bouquet-pink-lilies'] = products['bouquet-pink-tulips-lilies']
+
 /**
  * Clean flat catalog list for the E-Commerce Product Grid.
  * Each item represents a distinct product or variant card in the store grid.
@@ -1356,9 +1359,9 @@ export const catalogProducts: Product[] = [
   products['ganpati-dashboard-mala'],
 
   // 2. Bouquets
-  products['bouquet-pink-lilies'],
+  products['bouquet-pink-tulips-lilies'],
   products['bouquet-purple'],
-  products['bouquet-burgundy-white'],
+  products['bouquet-blush-lily-daisy'],
   products['bouquet-pink-mini'],
 
   // 3. Latkans & Festive Hangings
@@ -1420,16 +1423,16 @@ export function productJsonLd(p: Product) {
 /** Bouquet variants for dedicated page */
 export const bouquetVariants = {
   pink: {
-    label: 'Pink Lilies',
-    images: ['/assets/bouquet-pink-lilies.jpeg', '/assets/bouquet-pink-lily-hero.jpeg'],
+    label: 'Pink Tulips & Lilies',
+    images: ['/assets/bouquet-pink-tulips-lilies.jpeg'],
   },
   purple: {
-    label: 'Purple Blooms',
-    images: ['/assets/bouquet-purple-styled.jpg', '/assets/bouquet-purple.webp'],
+    label: 'Lavender & Purple Lilies',
+    images: ['/assets/bouquet-purple.jpeg'],
   },
-  burgundy: {
-    label: 'Burgundy & White',
-    images: ['/assets/bouquet-burgundy-white-styled.jpg', '/assets/bouquet-burgundy-white.webp'],
+  blush: {
+    label: 'Blush Lily & Daisy',
+    images: ['/assets/bouquet-blush-lily-daisy.jpeg'],
   },
 } as const
 

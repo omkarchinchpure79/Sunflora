@@ -5,7 +5,7 @@ import ProductDetail from '@/components/ProductDetail'
 import { bouquetVariants, products, type BouquetVariant } from '@/lib/site'
 
 export default function BouquetDetail() {
-  const [variant, setVariant] = useState<BouquetVariant>('burgundy')
+  const [variant, setVariant] = useState<BouquetVariant>('pink')
   const product = products.bouquets
   const images = [...bouquetVariants[variant].images]
 

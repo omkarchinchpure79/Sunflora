@@ -1,0 +1,7 @@
+brand-assets
+.git
+audit
+scripts
+*.md
+web/node_modules
+web/.next
