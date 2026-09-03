@@ -106,7 +106,7 @@ export default function ProductCatalogGrid({
 
           return (
             <div key={product.slug} className="cg-card-wrap">
-              <Link href={`/products/${product.slug}`} className="cg-card">
+              <Link href={`/products/${product.slug}`} prefetch={true} className="cg-card">
                 {/* Image Container */}
                 <div className="cg-img-box">
                   <img

@@ -14,6 +14,7 @@ const scriptSrc = isDev
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['gsap', '@gsap/react'],
   images: {
     // All product photography is local, so only the local loader is needed.
     formats: ['image/avif', 'image/webp'],

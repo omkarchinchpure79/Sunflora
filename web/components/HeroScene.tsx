@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { HERO_ITEMS, type HeroItem } from '@/lib/heroScene'
 import { useInstagramLink } from './IgLink'
 
@@ -129,30 +130,18 @@ export default function HeroScene() {
 
         {HERO_ITEMS.map((it) => {
           const state = active === it.id ? ' is-active' : active ? ' is-dimmed' : ''
-          return (
-            <a
-              key={it.id}
-              className={`hs-item hs-item--${it.hang ? 'hang' : 'rest'}${state}`}
-              {...(it.slug ? { href: `/products/${it.slug}` } : ig)}
-              aria-label={`${it.name} — ${it.price}`}
-              style={{
-                left: `${it.left}%`,
-                top: `${it.top}%`,
-                width: `${it.w}%`,
-                height: `${it.h}%`,
-                ['--swing' as string]: `${swingSeconds(it).toFixed(2)}s`,
-                // Negative delay starts each piece mid-swing, so they never
-                // move in lockstep the way a shared animation would.
-                ['--swing-delay' as string]: `-${(it.left % 3.7).toFixed(2)}s`,
-              }}
-              onPointerEnter={() => take(it.id)}
-              onFocus={() => take(it.id)}
-              onBlur={() => setActive(null)}
-            >
+          const itemStyle = {
+            left: `${it.left}%`,
+            top: `${it.top}%`,
+            width: `${it.w}%`,
+            height: `${it.h}%`,
+            ['--swing' as string]: `${swingSeconds(it).toFixed(2)}s`,
+            ['--swing-delay' as string]: `-${(it.left % 3.7).toFixed(2)}s`,
+          }
+
+          const content = (
+            <>
               <span className="hs-swing">
-                {/* .hs-swing owns `transform` for the pendulum keyframes, so the
-                    hover pop needs its own layer or the two overwrite each other
-                    and the piece stops moving the moment you touch it. */}
                 <span className="hs-pop">
                   <img src={it.src} alt={it.alt} decoding="async" />
                 </span>
@@ -161,6 +150,39 @@ export default function HeroScene() {
                 <span className="hs-label-name">{it.name}</span>
                 <span className="hs-label-price">{it.price}</span>
               </span>
+            </>
+          )
+
+          if (it.slug) {
+            return (
+              <Link
+                key={it.id}
+                href={`/products/${it.slug}`}
+                prefetch={true}
+                className={`hs-item hs-item--${it.hang ? 'hang' : 'rest'}${state}`}
+                aria-label={`${it.name} — ${it.price}`}
+                style={itemStyle}
+                onPointerEnter={() => take(it.id)}
+                onFocus={() => take(it.id)}
+                onBlur={() => setActive(null)}
+              >
+                {content}
+              </Link>
+            )
+          }
+
+          return (
+            <a
+              key={it.id}
+              className={`hs-item hs-item--${it.hang ? 'hang' : 'rest'}${state}`}
+              {...ig}
+              aria-label={`${it.name} — ${it.price}`}
+              style={itemStyle}
+              onPointerEnter={() => take(it.id)}
+              onFocus={() => take(it.id)}
+              onBlur={() => setActive(null)}
+            >
+              {content}
             </a>
           )
         })}

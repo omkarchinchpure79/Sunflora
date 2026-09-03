@@ -19,7 +19,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "lotus-latkan",
     "name": "Lotus Latkan",
-    "price": "DM for price",
+    "price": "₹849",
     "slug": "lotus-latkan",
     "alt": "Lotus Latkan — handmade pink lotus and pearl garland, set of 2, 5 ft each",
     "src": "/assets/hero/lotus-latkan.webp",
@@ -32,8 +32,8 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "door-latkan-orange",
     "name": "Orange Lotus Latkan",
-    "price": "DM for price",
-    "slug": null,
+    "price": "₹799",
+    "slug": "door-latkan-5ft-orange",
     "alt": "Orange Lotus Latkan — handmade orange velvet lotus blooms on a pearl chain, set of 2",
     "src": "/assets/hero/door-latkan-orange.webp",
     "hang": true,
@@ -45,7 +45,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "decorative-latkan",
     "name": "Lotus Decorative Latkan",
-    "price": "₹500 / pair",
+    "price": "₹449",
     "slug": "lotus-decorative-latkan",
     "alt": "Lotus Decorative Latkan — red velvet roses on triple pearl strands, set of 2",
     "src": "/assets/hero/decorative-latkan.webp",
@@ -58,8 +58,8 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "door-latkan-maroon",
     "name": "Maroon Lotus Latkan",
-    "price": "DM for price",
-    "slug": null,
+    "price": "₹649",
+    "slug": "door-side-latkan-4ft",
     "alt": "Maroon Lotus Latkan — handmade deep-red velvet lotus blooms on a pearl chain, set of 2",
     "src": "/assets/hero/door-latkan-maroon.webp",
     "hang": true,
@@ -71,8 +71,8 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "door-latkan-pink",
     "name": "Pink Lotus Latkan",
-    "price": "DM for price",
-    "slug": null,
+    "price": "₹799",
+    "slug": "door-latkan-3ft-pink",
     "alt": "Pink Lotus Latkan — handmade pink velvet lotus blooms on a pearl chain, set of 2",
     "src": "/assets/hero/door-latkan-pink.webp",
     "hang": true,
@@ -84,7 +84,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "purple-latkan",
     "name": "Purple Lotus Latkan",
-    "price": "₹800 / pair",
+    "price": "₹699",
     "slug": "purple-lotus-latkan",
     "alt": "Purple Lotus Latkan — handmade purple lotus and pearl garland, set of 2, 3 ft each",
     "src": "/assets/hero/purple-latkan.webp",
@@ -97,7 +97,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "bouquet-pink",
     "name": "Pink Bouquet",
-    "price": "DM for price",
+    "price": "₹999",
     "slug": "bouquets",
     "alt": "Everlasting Bouquet — handmade pink lilies and tulips in a cream wrap",
     "src": "/assets/hero/bouquet-pink.webp",
@@ -110,7 +110,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "bouquet",
     "name": "Purple Bouquet",
-    "price": "DM for price",
+    "price": "₹999",
     "slug": "bouquets",
     "alt": "Everlasting Bouquet — handmade lavender lilies and purple lavender sprigs in a lilac wrap",
     "src": "/assets/hero/bouquet.webp",
@@ -123,7 +123,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "mini-frame",
     "name": "Mini Frame",
-    "price": "₹400–500",
+    "price": "₹399",
     "slug": "mini-frame",
     "alt": "Mini Frame — a small handmade craft-wire bloom in a keepsake frame",
     "src": "/assets/hero/mini-frame.webp",
@@ -136,7 +136,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "photo-frame",
     "name": "Signature Frame",
-    "price": "₹900–1,200",
+    "price": "₹999",
     "slug": "signature-frame",
     "alt": "Signature Frame — your photo framed inside hand-shaped craft-wire flowers",
     "src": "/assets/hero/photo-frame.webp",
@@ -149,7 +149,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "asaan",
     "name": "Lotus Asaan",
-    "price": "₹350",
+    "price": "₹349",
     "slug": "lotus-asaan",
     "alt": "Lotus Asaan — handmade pink lotus seat on green leaves, for your Ganpati idol",
     "src": "/assets/hero/asaan.webp",
@@ -162,7 +162,7 @@ export const HERO_ITEMS: HeroItem[] = [
   {
     "id": "bouquet-blush",
     "name": "Blush Bouquet",
-    "price": "DM for price",
+    "price": "₹999",
     "slug": "bouquets",
     "alt": "Everlasting Bouquet — a handmade pink lily and white daisies in a blush wrap",
     "src": "/assets/hero/bouquet-blush.webp",

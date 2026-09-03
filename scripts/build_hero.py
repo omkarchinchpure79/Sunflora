@@ -101,7 +101,7 @@ def px_for(cm, on_table=False):
 # real flower on a narrow ledge does.
 SCENE = [
     dict(id='lotus-latkan', src='_raw-wa-3.png', kind='pair', cm=152, hook=5,
-         name='Lotus Latkan', price='DM for price', slug='lotus-latkan',
+         name='Lotus Latkan', price='₹849', slug='lotus-latkan',
          alt='Lotus Latkan — handmade pink lotus and pearl garland, set of 2, 5 ft each'),
     # The three latkans on hooks 0, 2 and 4 were each photographed as a single
     # strand, so they hang as `duo` — one strand mirrored onto both prongs.
@@ -109,20 +109,20 @@ SCENE = [
     # the chain is exactly one bead wide, so the strand's own height in beads
     # gives its length. All three come out near 3 ft, like the purple.
     dict(id='door-latkan-orange', src='_raw-latkan-orange-0.png', kind='duo', cm=95, hook=0,
-         name='Orange Lotus Latkan', price='DM for price', slug=None,
+         name='Orange Lotus Latkan', price='₹799', slug='door-latkan-5ft-orange',
          alt='Orange Lotus Latkan — handmade orange velvet lotus blooms on a pearl chain, set of 2'),
     dict(id='decorative-latkan', src='latkan-red-rose.png', kind='pair', cm=61, hook=1,
-         name='Lotus Decorative Latkan', price='₹500 / pair', slug='lotus-decorative-latkan',
+         name='Lotus Decorative Latkan', price='₹449', slug='lotus-decorative-latkan',
          alt='Lotus Decorative Latkan — red velvet roses on triple pearl strands, set of 2'),
     dict(id='door-latkan-maroon', src='_raw-latkan-maroon.png', kind='duo', cm=90, hook=2,
-         name='Maroon Lotus Latkan', price='DM for price', slug=None,
+         name='Maroon Lotus Latkan', price='₹649', slug='door-side-latkan-4ft',
          alt='Maroon Lotus Latkan — handmade deep-red velvet lotus blooms on a pearl chain, set of 2'),
     dict(id='door-latkan-pink', src='_raw-latkan-pink-1.png', kind='duo', cm=100, hook=4,
-         name='Pink Lotus Latkan', price='DM for price', slug=None,
+         name='Pink Lotus Latkan', price='₹799', slug='door-latkan-3ft-pink',
          alt='Pink Lotus Latkan — handmade pink velvet lotus blooms on a pearl chain, set of 2'),
 
     dict(id='purple-latkan', src='_raw-purple-violet.png', kind='duo', cm=91, hook=3,
-         name='Purple Lotus Latkan', price='₹800 / pair', slug='purple-lotus-latkan',
+         name='Purple Lotus Latkan', price='₹699', slug='purple-lotus-latkan',
          alt='Purple Lotus Latkan — handmade purple lotus and pearl garland, set of 2, 3 ft each'),
 
     # The resting pieces are listed back to front, by `base`: whichever sits
@@ -142,28 +142,28 @@ SCENE = [
     # hanging above it and cuts it in half, which reads as damage rather than as
     # depth. 1043px on a 2596 base clears every garland bottom on the rod.
     dict(id='bouquet-pink', src='_raw-bouquet-pink-v2.png', kind='rest', cm=26, axis='h',
-         x=3660, base=2596, name='Pink Bouquet', price='DM for price', slug='bouquets',
+         x=3660, base=2596, name='Pink Bouquet', price='₹999', slug='bouquets',
          alt='Everlasting Bouquet — handmade pink lilies and tulips in a cream wrap'),
     # Left of the plinth's centre, not on it: the wrap is wide enough that a
     # centred bouquet reaches hook 2 and eats the near strand of the latkan
     # hanging there, which reads as a broken garland rather than as depth.
     dict(id='bouquet', src='_raw-bouquet-purple-v3.png', kind='rest', cm=26, axis='h',
-         x=2180, base=2624, name='Purple Bouquet', price='DM for price', slug='bouquets',
+         x=2180, base=2624, name='Purple Bouquet', price='₹999', slug='bouquets',
          alt='Everlasting Bouquet — handmade lavender lilies and purple lavender sprigs in a lilac wrap'),
     dict(id='mini-frame', src='_raw-frame-5.png', kind='rest', cm=13, axis='h',
-         x=5025, base=2800, name='Mini Frame', price='₹400–500', slug='mini-frame',
+         x=5025, base=2800, name='Mini Frame', price='₹399', slug='mini-frame',
          alt='Mini Frame — a small handmade craft-wire bloom in a keepsake frame'),
     dict(id='photo-frame', src='_raw-photo-frame.png', kind='rest', cm=24, axis='h',
-         x=1400, base=2830, name='Signature Frame', price='₹900–1,200', slug='signature-frame',
+         x=1400, base=2830, name='Signature Frame', price='₹999', slug='signature-frame',
          alt='Signature Frame — your photo framed inside hand-shaped craft-wire flowers'),
     dict(id='asaan', src='asaan-v2.png', kind='rest', cm=15, axis='w',
-         x=2950, base=2860, name='Lotus Asaan', price='₹350', slug='lotus-asaan',
+         x=2950, base=2860, name='Lotus Asaan', price='₹349', slug='lotus-asaan',
          alt='Lotus Asaan — handmade pink lotus seat on green leaves, for your Ganpati idol'),
     # The third bouquet stands on the table itself rather than on the riser, so
     # it reads as the nearest thing in the frame and its top stays well below the
     # garlands. Its own base is the LAST in this list for the same reason.
     dict(id='bouquet-blush', src='_raw-bouquet-blush.png', kind='rest', cm=26, axis='h',
-         x=4300, base=2864, name='Blush Bouquet', price='DM for price', slug='bouquets',
+         x=4300, base=2864, name='Blush Bouquet', price='₹999', slug='bouquets',
          alt='Everlasting Bouquet — a handmade pink lily and white daisies in a blush wrap'),
 ]
 

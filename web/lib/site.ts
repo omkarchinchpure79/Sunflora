@@ -443,47 +443,7 @@ export const products: Record<string, Product> = {
     finalCtaTitle: 'A memorable bouquet for someone you cherish.',
   },
 
-  'bouquet-pink-mini': {
-    slug: 'bouquet-pink-mini',
-    name: 'Handcrafted Pink Mini Bouquet',
-    title: 'Handcrafted Pink Mini Bouquet',
-    eyebrow: 'single bloom & florets',
-    category: 'Everlasting Bouquets',
-    mrp: '₹600',
-    mrpValue: 600,
-    price: '₹399',
-    priceValue: 399,
-    badge: '33% OFF',
-    metaTitle: 'Handcrafted Pink Mini Bouquet — small forever flower gift',
-    metaDescription: 'Sweet single-bloom pink lily bouquet with small white florets and blush wrapping. ₹399, made to order.',
-    priceRange: { low: 399, high: 399 },
-    summary: 'A charming petite bouquet featuring a central pink lily bloom, miniature white florets, and lush greenery in flared blush paper.',
-    images: ['/assets/bouquet-pink-mini.jpeg'],
-    tags: ['First-time gift', 'Sweet gesture', 'Mini bouquet'],
-    alt: 'Handcrafted Pink Mini Bouquet',
-    ctaLabel: 'DM us to order 🌸',
-    ctaNote: 'Affordable, handcrafted, and utterly charming.',
-    features: [
-      { title: 'Charming Petite Size', body: 'Perfect for small desks, bedside tables, and thoughtful surprises.' },
-      { title: 'Handmade Centerpiece Bloom', body: 'Detailed pink lily with textured stamens and white accent flowers.' },
-      { title: 'Layered Blush Wrapping', body: 'Finished with a matching pink tulle ribbon.' },
-      { title: 'Pocket-Friendly Luxury', body: 'Pure artisanal craft at an accessible price point.' },
-    ],
-    specs: [
-      { label: 'Height', value: '~10–12 in tall' },
-      { label: 'Made to order', value: '~2–4 days to make' },
-      { label: 'Materials', value: 'Craft wire, velvet & paper' },
-      { label: 'Care', value: 'Keep dry, dust lightly' },
-    ],
-    orderSteps: [
-      { title: 'DM us on Instagram', body: '' },
-      { title: 'Confirm your order', body: '' },
-      { title: 'Pay upfront to confirm', body: '' },
-      { title: 'We make & ship it', body: '' },
-    ],
-    crossSell: ['mini-frame', 'bouquet-pink-tulips-lilies', 'lotus-decorative-latkan'],
-    finalCtaTitle: 'A small gift that creates a big smile.',
-  },
+
 
   'lotus-decorative-latkan': {
     slug: 'lotus-decorative-latkan',
@@ -569,6 +529,49 @@ export const products: Record<string, Product> = {
     ],
     crossSell: ['lotus-decorative-latkan', 'door-latkan-3ft-purple', 'lotus-asaan'],
     finalCtaTitle: 'Add festive detail to your Ganpati setup.',
+  },
+
+  'ganpati-side-latkan-maroon': {
+    slug: 'ganpati-side-latkan-maroon',
+    name: 'Ganpati Side Decoration Latkans (1 Ft — Maroon)',
+    title: 'Ganpati Side Decoration Latkans — 1 Ft (Maroon, Pack of 2)',
+    eyebrow: 'compact latkan pair',
+    category: 'Festive Latkans',
+    mrp: '₹500',
+    mrpValue: 500,
+    price: '₹399',
+    priceValue: 399,
+    badge: '20% OFF',
+    metaTitle: 'Ganpati Side Decoration Latkans 1 Ft (Maroon) — festive pair',
+    metaDescription: '1 ft handmade maroon velvet floral side latkans with cascading pearl strands and bud tassels. Pack of 2, ₹399.',
+    priceRange: { low: 399, high: 399 },
+    summary: 'Lush handcrafted maroon velvet blossoms suspended on premium pearl chains with delicate hanging flower bud tassels — specially designed as a matching pair for Ganpati makhar and mandir decor.',
+    images: ['/assets/ganpati-side-latkan-maroon.jpeg'],
+    tags: ['Ganpati décor', 'Maroon latkan', 'Side hanging', 'Makhar decor', 'Pack of 2'],
+    alt: 'Ganpati Side Decoration Latkans 1 Ft — Maroon with Pearl Strands',
+    ctaLabel: 'DM to order — limited stock',
+    ctaNote: 'Pack of 2 pieces.',
+    features: [
+      { title: 'Rich Maroon Velvet Blooms', body: 'Lush multilayered maroon florets crafted with velvet wire.' },
+      { title: 'Triple Pearl Cascades', body: 'Tiered pearl strands culminating in delicate bud tassels.' },
+      { title: 'Makhar & Mandir Ready', body: 'Compact 1 ft length perfectly frames Ganpati idol backdrops.' },
+      { title: 'Pack of 2', body: 'Supplied as a matching symmetrical pair.' },
+    ],
+    specs: [
+      { label: 'Length', value: '1 ft' },
+      { label: 'Color', value: 'Deep Maroon & Pearl White' },
+      { label: 'Materials', value: 'Velvet & faux pearls' },
+      { label: 'Mounting', value: 'Hanging ring included' },
+    ],
+    specsBg: '#fcedec',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Confirm your order', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We pack & ship it', body: '' },
+    ],
+    crossSell: ['ganpati-side-latkan-1ft', 'lotus-asaan-red', 'lotus-decorative-latkan'],
+    finalCtaTitle: 'Frame your Ganpati Bappa in royal maroon elegance.',
   },
 
   'door-latkan-5ft-orange': {
@@ -672,7 +675,7 @@ export const products: Record<string, Product> = {
     metaDescription: '3 ft purple and pink floral door hangings with pearl cascades. Pack of 2, ₹699.',
     priceRange: { low: 699, high: 699 },
     summary: 'Vibrant purple and soft pink layered blooms strung on pearl chains with hanging tassels — matching pair for doors and mandir entrances.',
-    images: ['/assets/door-latkan-3ft-purple.jpeg', '/assets/purple-lotus-latkan-1.jpeg'],
+    images: ['/assets/door-latkan-3ft-purple.jpeg'],
     tags: ['Purple latkan', 'Door hanging', 'Ganpati décor', 'Pack of 2'],
     alt: 'Door Side Latkans Decor 3 Ft — Purple / Violet',
     ctaLabel: 'DM to order — limited stock',
@@ -908,7 +911,7 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['frame-3d-box', 'signature-frame', 'bouquet-pink-mini'],
+    crossSell: ['frame-3d-box', 'signature-frame', 'bouquet-pink-tulips-lilies'],
     finalCtaTitle: 'A small gift, a big feeling. Let us make one.',
   },
 
@@ -951,8 +954,51 @@ export const products: Record<string, Product> = {
       { title: 'Pay upfront to confirm', body: '' },
       { title: 'We make & ship it', body: '' },
     ],
-    crossSell: ['lotus-asaan-medium', 'pink-lotus-asaan-medium', 'ganpati-mala-mogra-pink'],
+    crossSell: ['lotus-asaan-red', 'lotus-asaan-medium', 'ganpati-mala-mogra-pink'],
     finalCtaTitle: 'Give your Bappa a seat made by hand.',
+  },
+
+  'lotus-asaan-red': {
+    slug: 'lotus-asaan-red',
+    name: 'Lotus Asaan — Vibrant Red & Coral',
+    title: 'Lotus Asaan — Vibrant Red & Coral 🪷',
+    eyebrow: 'sacred idol seat',
+    category: 'Lotus Asaans',
+    mrp: '₹450',
+    mrpValue: 450,
+    price: '₹349',
+    priceValue: 349,
+    badge: '22% OFF',
+    metaTitle: 'Lotus Asaan (Vibrant Red & Coral) — handmade lotus seat for Ganpati',
+    metaDescription: 'Handmade velvet craft-wire lotus asaan in vibrant red and coral petals with pearl-tipped edges for your Ganpati idol. ₹349, made to order.',
+    priceRange: { low: 349, high: 349 },
+    summary: 'A radiant handcrafted lotus asaan featuring vibrant red and coral velvet petals adorned with lustrous pearls and emerald green base leaves — a magnificent sacred throne for Ganpati Bappa.',
+    images: ['/assets/lotus-asaan-red.jpeg'],
+    tags: ['Lotus Asaan', 'Ganpati seat', 'Murti asaan', 'Pooja decor', 'Red lotus'],
+    alt: 'Lotus Asaan Vibrant Red — handmade lotus seat for Ganpati idol',
+    ctaLabel: 'DM us to order 🌺',
+    ctaNote: 'Each asaan is crafted individually by hand. Idol not included.',
+    features: [
+      { title: 'Layered Red & Coral Petals', body: 'Rich layered velvet petals shaped by hand for a radiant bloom.' },
+      { title: 'Pearl-Tipped Edges', body: 'Each petal crowned with fine pearls for an auspicious finish.' },
+      { title: 'Stable Base for Murtis', body: 'Solid circular base holds idols and pooja thalis securely.' },
+      { title: 'Forever Keepsake', body: 'Durable velvet craft wire stays fresh season after season.' },
+    ],
+    specs: [
+      { label: 'Style', value: 'Vibrant Red & Coral' },
+      { label: 'Made to order', value: '~2–4 days to make' },
+      { label: 'Materials', value: 'Velvet craft wire & pearls' },
+      { label: 'Idol Included', value: 'No (asaan only)' },
+    ],
+    specsBg: '#fcedec',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Confirm your idol size', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We make & ship it', body: '' },
+    ],
+    crossSell: ['lotus-asaan', 'lotus-asaan-medium', 'ganpati-side-latkan-maroon'],
+    finalCtaTitle: 'Give your Ganpati Bappa a royal handmade throne.',
   },
 
   'lotus-asaan-medium': {
@@ -1355,22 +1401,23 @@ export const catalogProducts: Product[] = [
   products['ganpati-mala-mogra-pink'],
   products['ganpati-mala-braided-rose'],
   products['ganpati-mala-tricolor'],
-  products['ganpati-mala-red-rose'],
   products['ganpati-dashboard-mala'],
 
   // 2. Bouquets
   products['bouquet-pink-tulips-lilies'],
   products['bouquet-purple'],
   products['bouquet-blush-lily-daisy'],
-  products['bouquet-pink-mini'],
 
   // 3. Latkans & Festive Hangings
   products['lotus-decorative-latkan'],
   products['ganpati-side-latkan-1ft'],
+  products['ganpati-side-latkan-maroon'],
   products['door-latkan-5ft-orange'],
+  products['door-side-latkan-4ft'],
   products['door-latkan-3ft-lavender'],
   products['door-latkan-3ft-purple'],
   products['door-latkan-3ft-pink'],
+  products['multipurpose-2ft-latkan'],
   products['lotus-latkan'],
 
   // 4. Frames & Keepsakes
@@ -1380,6 +1427,7 @@ export const catalogProducts: Product[] = [
 
   // 5. Lotus Asaans
   products['lotus-asaan'],
+  products['lotus-asaan-red'],
   products['lotus-asaan-medium'],
   products['pink-lotus-asaan-medium'],
 ]
@@ -1459,13 +1507,6 @@ export const malaVariants = {
     mrp: '₹300',
     priceRange: { low: 249, high: 249 },
     images: ['/assets/ganpati-mala-tricolor.jpeg'],
-  },
-  redRose: {
-    label: 'Mogra & Red Rose',
-    price: '₹149',
-    mrp: '₹180',
-    priceRange: { low: 149, high: 149 },
-    images: ['/assets/flower-mala-braided-1.jpeg'],
   },
 } as const
 

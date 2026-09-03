@@ -33,7 +33,7 @@ const mobileCards = [
   {
     id: 'sig',
     name: 'Signature Frame',
-    price: '₹900–1,200',
+    price: '₹999',
     tag: 'MOST LOVED',
     tagBg: '#6B2E8F',
     img: '/assets/frame-4.jpeg',
@@ -43,7 +43,7 @@ const mobileCards = [
   {
     id: 'mini',
     name: 'Mini Frame',
-    price: '₹400–500',
+    price: '₹399',
     tag: 'TRY ME',
     tagBg: '#8A9A5B',
     img: '/assets/frame-5.jpeg',
@@ -83,7 +83,7 @@ const mobileCards = [
   {
     id: 'lotus',
     name: 'Lotus Latkan — Set of 2',
-    price: 'DM for price',
+    price: '₹849',
     tag: 'FESTIVE',
     tagBg: '#8A9A5B',
     img: '/assets/wa-3.jpeg',
@@ -93,7 +93,7 @@ const mobileCards = [
   {
     id: 'purple-lotus',
     name: 'Purple Lotus Latkan — Set of 2',
-    price: '₹800 / pair',
+    price: '₹699',
     tag: 'FESTIVE',
     tagBg: '#6B4FA0',
     img: '/assets/purple-lotus-latkan-1.jpeg',
@@ -103,7 +103,7 @@ const mobileCards = [
   {
     id: 'door-latkan-5ft',
     name: 'Door Side Latkans Decor (5 Ft)',
-    price: 'DM for price',
+    price: '₹799',
     tag: '4 COLOURS',
     tagBg: '#6B4FA0',
     img: '/assets/door-latkan-5ft-lavender.jpeg',
@@ -113,7 +113,7 @@ const mobileCards = [
   {
     id: 'door-latkan-4ft',
     name: 'Door Side Latkans (4 Ft)',
-    price: 'DM for price',
+    price: '₹649',
     tag: 'FESTIVE',
     tagBg: '#8A9A5B',
     img: '/assets/door-side-latkan-4ft-maroon.jpeg',
@@ -123,7 +123,7 @@ const mobileCards = [
   {
     id: 'multipurpose-2ft',
     name: 'Multipurpose 2 Ft Latkan',
-    price: 'DM for price',
+    price: '₹499',
     tag: '2 COLOURS',
     tagBg: '#8A9A5B',
     img: '/assets/multipurpose-latkan-2ft-pink.jpeg',
@@ -133,7 +133,7 @@ const mobileCards = [
   {
     id: 'lotus-decorative-latkan',
     name: 'Lotus Decorative Latkan — Set of 2',
-    price: '₹500 / pair',
+    price: '₹449',
     tag: 'FESTIVE',
     tagBg: '#8A9A5B',
     img: '/assets/lotus-decorative-latkan-1.jpeg',
@@ -143,7 +143,7 @@ const mobileCards = [
   {
     id: 'lotus-asaan',
     name: 'Lotus Asaan — Small',
-    price: 'DM for price',
+    price: '₹349',
     tag: 'FOR YOUR BAPPA',
     tagBg: '#8A9A5B',
     img: '/assets/lotus-asaan-small-1.jpeg',
@@ -153,7 +153,7 @@ const mobileCards = [
   {
     id: 'lotus-asaan-medium',
     name: 'Lotus Asaan — Medium',
-    price: 'DM for price',
+    price: '₹449',
     tag: 'FOR YOUR BAPPA',
     tagBg: '#6B4FA0',
     img: '/assets/lotus-asaan-medium-1.jpeg',
@@ -163,7 +163,7 @@ const mobileCards = [
   {
     id: 'pink-lotus-asaan-medium',
     name: 'Pink Lotus Asaan — Medium',
-    price: 'DM for price',
+    price: '₹549',
     tag: 'FOR YOUR BAPPA',
     tagBg: '#A569BD',
     img: '/assets/pink-lotus-asaan-medium-1.jpeg',
@@ -173,7 +173,7 @@ const mobileCards = [
   {
     id: 'ganpati-special-mala',
     name: 'Ganpati Special Mala',
-    price: 'DM for price',
+    price: '₹249',
     tag: '4 STYLES',
     tagBg: '#6B4FA0',
     img: '/assets/ganpati-mala-mogra-pink.jpeg',
@@ -183,7 +183,7 @@ const mobileCards = [
   {
     id: 'flower-mala',
     name: 'Artificial Flower Mala',
-    price: 'from ₹150',
+    price: '₹149',
     tag: 'TWO STYLES',
     tagBg: '#6B4FA0',
     img: '/assets/flower-mala-braided-1.jpeg',
@@ -250,7 +250,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Signature Frame</h3>
-              <span className="pcard-price">₹900–1,200</span>
+              <span className="pcard-price">₹999</span>
             </div>
             <div className="pcard-eyebrow">Personalized 3D Photo Frame with Handmade Flowers</div>
             <p className="pcard-desc">
@@ -285,7 +285,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Mini Frame</h3>
-              <span className="pcard-price">₹400–500</span>
+              <span className="pcard-price">₹399</span>
             </div>
             <p className="pcard-desc">
               A little square keepsake frame with a handmade bloom and a short message — small, affordable, and just
@@ -401,7 +401,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Lotus Latkan — Set of 2</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹849</span>
             </div>
             <div className="pcard-eyebrow">5 ft each · hand-strung with pearls 🪷</div>
             <p className="pcard-desc">
@@ -436,7 +436,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Purple Lotus Latkan</h3>
-              <span className="pcard-price pcard-price-sm">₹800 / pair</span>
+              <span className="pcard-price pcard-price-sm">₹699</span>
             </div>
             <div className="pcard-eyebrow">3 ft each · hand-strung with pearls 🪷</div>
             <p className="pcard-desc">
@@ -475,7 +475,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Door Side Latkans Decor</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹799</span>
             </div>
             <div className="pcard-eyebrow">5 ft each · 4 colourways 🪷</div>
             <p className="pcard-desc">
@@ -506,7 +506,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Door Side Latkans — 4 Ft</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹649</span>
             </div>
             <div className="pcard-eyebrow">4 ft doorway length · deep maroon velvet 🪷</div>
             <p className="pcard-desc">
@@ -541,7 +541,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Multipurpose 2 Ft Latkan</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹499</span>
             </div>
             <div className="pcard-eyebrow">2 ft · Pink &amp; Golden Yellow 🪷</div>
             <p className="pcard-desc">
@@ -577,7 +577,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Lotus Asaan (Small)</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹349</span>
             </div>
             <div className="pcard-eyebrow">compact idol seat · pearl-tipped 🪷</div>
             <p className="pcard-desc">
@@ -608,7 +608,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Lotus Asaan (Medium)</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹449</span>
             </div>
             <div className="pcard-eyebrow">grand multi-layer lotus · idol not included 🪷</div>
             <p className="pcard-desc">
@@ -639,7 +639,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Pink Lotus Asaan (Medium)</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹549</span>
             </div>
             <div className="pcard-eyebrow">vibrant magenta-pink · detailed stamens 🪷</div>
             <p className="pcard-desc">
@@ -675,7 +675,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Ganpati Special Mala</h3>
-              <span className="pcard-price pcard-price-sm">DM for price</span>
+              <span className="pcard-price pcard-price-sm">₹249</span>
             </div>
             <div className="pcard-eyebrow">4 sacred styles · Mogra, Rose, Tricolor, Murti</div>
             <p className="pcard-desc">
@@ -706,7 +706,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Lotus Decorative Latkan</h3>
-              <span className="pcard-price pcard-price-sm">₹500 / pair</span>
+              <span className="pcard-price pcard-price-sm">₹449</span>
             </div>
             <div className="pcard-eyebrow">set of 2 · triple pearl strands 🪷</div>
             <p className="pcard-desc">
@@ -742,7 +742,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Artificial Flower Mala</h3>
-              <span className="pcard-price pcard-price-sm">from ₹150</span>
+              <span className="pcard-price pcard-price-sm">₹149</span>
             </div>
             <div className="pcard-eyebrow">Braided Rose ₹200 · Mixed Bloom ₹150</div>
             <p className="pcard-desc">
