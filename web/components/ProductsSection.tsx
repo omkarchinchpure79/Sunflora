@@ -116,7 +116,7 @@ const mobileCards = [
     price: '₹649',
     tag: 'FESTIVE',
     tagBg: '#8A9A5B',
-    img: '/assets/door-side-latkan-4ft-maroon.jpeg',
+    img: '/assets/door-side-latkan-4ft-maroon-1.jpeg',
     href: '/products/door-side-latkan-4ft',
     blurb: 'Deep maroon velvet blooms on pearl strands.',
   },
@@ -499,9 +499,13 @@ export default function ProductsSection() {
           style={{ '--rot': '1deg' } as React.CSSProperties}
           onClick={goTo('/products/door-side-latkan-4ft')}
         >
-          <div className="pcard-hero" style={{ borderRadius: 12 }}>
-            <img className="img-cover" src="/assets/door-side-latkan-4ft-maroon.jpeg" alt="" loading="lazy" decoding="async" />
+          <div className="pcard-hero">
+            <img className="img-cover" src="/assets/door-side-latkan-4ft-maroon-1.jpeg" alt="Door Side Latkans 4 Ft" loading="lazy" decoding="async" />
             <span className="pcard-badge" style={{ background: '#8A9A5B' }}>FESTIVE HANGING</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr 1fr' }}>
+            <div><DesktopOnlyImg src="/assets/door-side-latkan-4ft-maroon-2.jpeg" /></div>
+            <div><DesktopOnlyImg src="/assets/door-side-latkan-4ft-maroon.jpeg" /></div>
           </div>
           <div className="pcard-body">
             <div className="pcard-row">
