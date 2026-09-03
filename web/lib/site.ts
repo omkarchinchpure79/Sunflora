@@ -289,7 +289,10 @@ export const products: Record<string, Product> = {
     metaDescription: 'Miniature pink flower garland designed for car dashboard Ganpati idols, home temples, and pooja thalis. ₹99, made to order.',
     priceRange: { low: 99, high: 99 },
     summary: 'A petite handmade garland with vibrant pink blooms and green leaves — custom-sized to frame car dashboard murtis and small temple idols.',
-    images: ['/assets/ganpati-mala-murti-pink.jpeg'],
+    images: [
+      '/assets/ganpati-mala-murti-pink.jpeg',
+      '/assets/ganpati-mala-murti-pink-2.jpeg',
+    ],
     tags: ['Car dashboard', 'Mini mala', 'Ganpati murti', 'Pooja thali'],
     alt: 'Car Dashboard Murti Mala — miniature flower garland',
     ctaLabel: 'DM us to order 🚗',
@@ -1228,6 +1231,7 @@ export const products: Record<string, Product> = {
       '/assets/ganpati-mala-braided-rose.jpeg',
       '/assets/ganpati-mala-tricolor.jpeg',
       '/assets/ganpati-mala-murti-pink.jpeg',
+      '/assets/ganpati-mala-murti-pink-2.jpeg',
     ],
     tags: ['Ganpati décor', 'Pooja garland', 'Murti mala', 'Festivals & poojas'],
     alt: 'Ganpati Special Mala — handmade velvet flower garland',
@@ -1664,7 +1668,10 @@ export const ganpatiMalaVariants = {
   },
   murtiPink: {
     label: 'Murti / Dashboard Mala',
-    images: ['/assets/ganpati-mala-murti-pink.jpeg'],
+    images: [
+      '/assets/ganpati-mala-murti-pink.jpeg',
+      '/assets/ganpati-mala-murti-pink-2.jpeg',
+    ],
   },
 } as const
 
