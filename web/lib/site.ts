@@ -1349,6 +1349,98 @@ export const products: Record<string, Product> = {
     finalCtaTitle: 'Give your doorway a warm, auspicious welcome.',
   },
 
+  'single-handmade-hibiscus-flower': {
+    slug: 'single-handmade-hibiscus-flower',
+    name: 'Single Handmade Hibiscus Flower',
+    title: 'Single Handmade Hibiscus Flower (Jaswand) 🌺',
+    eyebrow: 'single handcrafted bloom',
+    category: 'Single Flowers',
+    mrp: '₹150',
+    mrpValue: 150,
+    price: '₹99',
+    priceValue: 99,
+    badge: '34% OFF',
+    metaTitle: 'Single Handmade Hibiscus Flower (₹99) — velvet Jaswand flower',
+    metaDescription: 'Handcrafted single velvet hibiscus (Jaswand) flower with delicate pistil detailing and green leaves. ₹99 (MRP ₹150). Single piece.',
+    priceRange: { low: 99, high: 99 },
+    summary: 'A handcrafted velvet craft-wire hibiscus flower featuring delicately blended ombre petals, realistic stamens, and vibrant leaves — revered as Ganpati Bappa\'s beloved sacred flower. Note: Price is ₹99 for 1 single flower.',
+    images: [
+      '/assets/single-handmade-hibiscus-1.jpeg',
+      '/assets/single-flowers-collection.jpeg',
+    ],
+    tags: ['Single flower', 'Hibiscus / Jaswand', 'Ganpati pooja', 'Home & altar décor', '₹99 deal'],
+    alt: 'Single Handmade Hibiscus Flower — velvet craft wire Jaswand',
+    ctaLabel: 'DM us to order 🌺',
+    ctaNote: 'You will receive 1 single flower (₹99 per piece). DM your color choice (Peach or Red)!',
+    features: [
+      { title: 'Single Flower Piece', body: 'Each order is for 1 single handcrafted flower (₹99 per piece). Multi-flower photos are for styling inspiration.' },
+      { title: 'Sacred Bappa Offering', body: 'The sacred Hibiscus (Jaswand) bloom, hand-sculpted specifically for Ganpati pooja, temple thalis, and daily worship.' },
+      { title: 'Ombre Petal Crafting', body: 'Plush velvet petals with natural gradient shading and fine central stamen pistils.' },
+      { title: 'Everlasting Devotion', body: 'Stays fresh and vibrant year after year without wilting, fading, or losing form.' },
+    ],
+    specs: [
+      { label: 'Quantity', value: '1 single flower per order' },
+      { label: 'Price', value: '₹99 (MRP ₹150)' },
+      { label: 'Materials', value: 'Velvet craft wire & stamens' },
+      { label: 'Care', value: 'Keep dry, reusable forever' },
+    ],
+    specsBg: '#fcedec',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Choose your color (Peach/Red)', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We craft & ship it', body: '' },
+    ],
+    crossSell: ['single-flower', 'ganpati-dashboard-mala', 'lotus-asaan'],
+    finalCtaTitle: 'Offer Bappa a sacred bloom crafted to stay forever.',
+  },
+
+  'single-flower': {
+    slug: 'single-flower',
+    name: 'Single Handcrafted Flower',
+    title: 'Single Handcrafted Flower 🌸',
+    eyebrow: 'single handcrafted bloom',
+    category: 'Single Flowers',
+    mrp: '₹150',
+    mrpValue: 150,
+    price: '₹99',
+    priceValue: 99,
+    badge: '34% OFF',
+    metaTitle: 'Single Handcrafted Flower (₹99) — handmade velvet decor flower',
+    metaDescription: 'Artisanal single velvet flower for pooja thalis, hanging planters, and home decor. ₹99 (MRP ₹150). You will get 1 single flower.',
+    priceRange: { low: 99, high: 99 },
+    summary: 'An artisanal velvet craft-wire single flower designed for versatile decoration — tuck into hanging planters, pooja thalis, or hair and altar arrangements. Note: You will receive 1 single flower (₹99 per piece).',
+    images: [
+      '/assets/single-flower-planter.jpeg',
+      '/assets/single-flowers-collection.jpeg',
+    ],
+    tags: ['Single flower', 'Planter décor', 'Pooja thali', 'Mandir décor', '₹99 deal'],
+    alt: 'Single Handcrafted Flower — velvet flower in planter and flat lay',
+    ctaLabel: 'DM us to order 🌸',
+    ctaNote: 'Note: You will get only 1 single flower for ₹99. Multiple flowers shown for styling only.',
+    features: [
+      { title: '1 Single Flower Only', body: 'You will receive 1 single flower for ₹99. The image showing multiple flowers is to display available color options and styling ideas.' },
+      { title: 'Versatile Styling', body: 'Tuck into macrame plant hangers, place on your pooja thali, or style on your desk and shelves.' },
+      { title: 'Hand-Shaped Velvet Petals', body: 'Intricately wired velvet petals with leafy accents, shaped individually by hand.' },
+      { title: 'Never Wilts', body: 'A durable forever bloom that brings handmade charm to any corner.' },
+    ],
+    specs: [
+      { label: 'Quantity', value: '1 single flower per order' },
+      { label: 'Price', value: '₹99 (MRP ₹150)' },
+      { label: 'Materials', value: 'Velvet craft wire & leaves' },
+      { label: 'Use', value: 'Planters, pooja thali & decor' },
+    ],
+    specsBg: '#e7ecd8',
+    orderSteps: [
+      { title: 'DM us on Instagram', body: '' },
+      { title: 'Tell us your color choice', body: '' },
+      { title: 'Pay upfront to confirm', body: '' },
+      { title: 'We pack & ship it', body: '' },
+    ],
+    crossSell: ['single-handmade-hibiscus-flower', 'ganpati-dashboard-mala', 'lotus-decorative-latkan'],
+    finalCtaTitle: 'A sweet handmade touch for your favorite space.',
+  },
+
   'multipurpose-2ft-latkan': {
     slug: 'multipurpose-2ft-latkan',
     name: 'Multipurpose 2 Ft Latkan',
@@ -1414,7 +1506,11 @@ export const catalogProducts: Product[] = [
   products['bouquet-purple'],
   products['bouquet-blush-lily-daisy'],
 
-  // 3. Latkans & Festive Hangings
+  // 3. Single Flowers (₹99 Special)
+  products['single-handmade-hibiscus-flower'],
+  products['single-flower'],
+
+  // 4. Latkans & Festive Hangings
   products['lotus-decorative-latkan'],
   products['ganpati-side-latkan-1ft'],
   products['ganpati-side-latkan-maroon'],
@@ -1426,12 +1522,12 @@ export const catalogProducts: Product[] = [
   products['multipurpose-2ft-latkan'],
   products['lotus-latkan'],
 
-  // 4. Frames & Keepsakes
+  // 5. Frames & Keepsakes
   products['frame-3d-box'],
   products['signature-frame'],
   products['mini-frame'],
 
-  // 5. Lotus Asaans
+  // 6. Lotus Asaans
   products['lotus-asaan'],
   products['lotus-asaan-red'],
   products['lotus-asaan-medium'],
@@ -1441,6 +1537,7 @@ export const catalogProducts: Product[] = [
 /** Categories for filtering */
 export const CATALOG_CATEGORIES = [
   'All Products',
+  'Single Flowers',
   'Ganpati Malas',
   'Everlasting Bouquets',
   'Festive Latkans',

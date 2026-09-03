@@ -190,6 +190,26 @@ const mobileCards = [
     href: '/products/flower-mala',
     blurb: 'Velvet flower malas strung on pearls.',
   },
+  {
+    id: 'single-handmade-hibiscus-flower',
+    name: 'Single Handmade Hibiscus',
+    price: '₹99',
+    tag: '34% OFF',
+    tagBg: '#C23B22',
+    img: '/assets/single-handmade-hibiscus-1.jpeg',
+    href: '/products/single-handmade-hibiscus-flower',
+    blurb: '1 single handcrafted Jaswand flower (₹99 per piece).',
+  },
+  {
+    id: 'single-flower',
+    name: 'Single Handcrafted Flower',
+    price: '₹99',
+    tag: '34% OFF',
+    tagBg: '#6B2E8F',
+    img: '/assets/single-flower-planter.jpeg',
+    href: '/products/single-flower',
+    blurb: '1 single velvet flower for planters & pooja (₹99 per piece).',
+  },
 ]
 
 export default function ProductsSection() {
@@ -759,6 +779,80 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/flower-mala" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Single Handmade Hibiscus Flower */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '1deg' } as React.CSSProperties}
+          onClick={goTo('/products/single-handmade-hibiscus-flower')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/single-handmade-hibiscus-1.jpeg" alt="Single Handmade Hibiscus Flower" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#C23B22' }}>34% OFF</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
+            <div style={{ aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/single-flowers-collection.jpeg" />
+            </div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Single Handmade Hibiscus</h3>
+              <span className="pcard-price pcard-price-sm">
+                ₹99 <del style={{ fontSize: '13px', color: '#999', fontWeight: 400, marginLeft: '4px' }}>₹150</del>
+              </span>
+            </div>
+            <div className="pcard-eyebrow">sacred handmade Jaswand · ₹99 per single flower 🌺</div>
+            <p className="pcard-desc">
+              Hand-sculpted velvet craft-wire hibiscus with ombre petals and realistic stamens. Note: Price is ₹99 for 1 single flower.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati pooja', 'Sacred Jaswand', 'Single piece'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/single-handmade-hibiscus-flower" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Single Handcrafted Flower */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/single-flower')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/single-flower-planter.jpeg" alt="Single Handcrafted Flower" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#6B2E8F' }}>34% OFF</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
+            <div style={{ aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/single-flowers-collection.jpeg" />
+            </div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Single Handcrafted Flower</h3>
+              <span className="pcard-price pcard-price-sm">
+                ₹99 <del style={{ fontSize: '13px', color: '#999', fontWeight: 400, marginLeft: '4px' }}>₹150</del>
+              </span>
+            </div>
+            <div className="pcard-eyebrow">versatile bloom · ₹99 per single flower 🌸</div>
+            <p className="pcard-desc">
+              Velvet craft-wire single flower for planters, pooja thalis, or desk accents. Note: You will receive 1 single flower (₹99).
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Planters', 'Pooja thali', 'Single piece'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/single-flower" className="pcard-details" onClick={stopBubble}>See details →</Link>
             <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
