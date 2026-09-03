@@ -73,8 +73,8 @@ const mobileCards = [
   {
     id: 'blush',
     name: 'Bouquet — Blush Lily & Daisy',
-    price: '₹999',
-    tag: '17% OFF',
+    price: '₹599',
+    tag: '50% OFF',
     tagBg: '#B34A6E',
     img: '/assets/bouquet-blush-lily-daisy.jpeg',
     href: '/products/bouquet-blush-lily-daisy',
@@ -149,6 +149,16 @@ const mobileCards = [
     img: '/assets/lotus-asaan-small-1.jpeg',
     href: '/products/lotus-asaan',
     blurb: 'A hand-shaped lotus seat for your idol.',
+  },
+  {
+    id: 'lotus-asaan-red',
+    name: 'Lotus Asaan — Vibrant Red',
+    price: '₹399',
+    tag: 'FOR YOUR BAPPA',
+    tagBg: '#C23B22',
+    img: '/assets/lotus-asaan-red-chalkboard.jpeg',
+    href: '/products/lotus-asaan-red',
+    blurb: 'Radiant red velvet lotus seat with pearls for Bappa.',
   },
   {
     id: 'lotus-asaan-medium',
@@ -383,7 +393,7 @@ export default function ProductsSection() {
         >
           <div className="pcard-hero" style={{ borderRadius: 12 }}>
             <img className="img-cover" src="/assets/bouquet-blush-lily-daisy.jpeg" alt="Handcrafted Bouquet — Blush Lily & Daisy" loading="lazy" decoding="async" />
-            <span className="pcard-badge" style={{ background: '#B34A6E' }}>17% OFF</span>
+            <span className="pcard-badge" style={{ background: '#B34A6E' }}>50% OFF</span>
           </div>
           <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
             <div style={{ backgroundColor: '#FBE8EF', aspectRatio: '2 / 1' }}>
@@ -393,7 +403,7 @@ export default function ProductsSection() {
           <div className="pcard-body">
             <div className="pcard-row">
               <h3>Bouquet — Blush Lily &amp; Daisy</h3>
-              <span className="pcard-price pcard-price-sm">₹999</span>
+              <span className="pcard-price pcard-price-sm">₹599</span>
             </div>
             <p className="pcard-desc">
               Center pink lily, white daisy florets, and fern foliage wrapped in layered pastel blush with a net lace bow.
@@ -614,6 +624,43 @@ export default function ProductsSection() {
               ))}
             </div>
             <Link href="/products/lotus-asaan" className="pcard-details" onClick={stopBubble}>See details →</Link>
+            <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
+          </div>
+        </div>
+
+        {/* Lotus Asaan (Vibrant Red) */}
+        <div
+          className="pcard pcard-new"
+          data-reveal
+          style={{ '--rot': '-1deg' } as React.CSSProperties}
+          onClick={goTo('/products/lotus-asaan-red')}
+        >
+          <div className="pcard-hero" style={{ borderRadius: 12 }}>
+            <img className="img-cover" src="/assets/lotus-asaan-red-chalkboard.jpeg" alt="Lotus Asaan Vibrant Red" loading="lazy" decoding="async" />
+            <span className="pcard-badge" style={{ background: '#C23B22' }}>FOR YOUR BAPPA</span>
+          </div>
+          <div className="pcard-strip" style={{ gridTemplateColumns: '1fr' }}>
+            <div style={{ aspectRatio: '2 / 1' }}>
+              <DesktopOnlyImg src="/assets/lotus-asaan-red.jpeg" />
+            </div>
+          </div>
+          <div className="pcard-body">
+            <div className="pcard-row">
+              <h3>Lotus Asaan (Red)</h3>
+              <span className="pcard-price pcard-price-sm">
+                ₹399 <del style={{ fontSize: '13px', color: '#999', fontWeight: 400, marginLeft: '4px' }}>₹499</del>
+              </span>
+            </div>
+            <div className="pcard-eyebrow">pearl-tipped red lotus · idol seat 🪷</div>
+            <p className="pcard-desc">
+              Radiant red velvet petals tipped with pearls, golden center, and emerald base leaves — an auspicious seat for your Ganpati Bappa.
+            </p>
+            <div className="pcard-tags pcard-tags-latkan">
+              {['Ganpati', 'Diwali', 'Mandir & pooja thali'].map((t) => (
+                <span key={t}>{t}</span>
+              ))}
+            </div>
+            <Link href="/products/lotus-asaan-red" className="pcard-details" onClick={stopBubble}>See details →</Link>
             <a {...ig} className="pcard-dm" onClick={stopBubble}>DM to order</a>
           </div>
         </div>
