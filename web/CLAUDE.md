@@ -53,9 +53,9 @@ This is a single Next.js 15 (App Router) + React 19 codebase serving **one respo
 
 ### Data layer: `lib/site.ts`
 
-Single source of truth for the whole site — brand copy, design tokens (`C`), Instagram DM helpers (`igDm`, `igProfile`, `igAt`), and the `products` record (keyed by slug: `signature-frame`, `mini-frame`, `bouquets`, `lotus-latkan`, `purple-lotus-latkan`, `lotus-asaan`, `lotus-decorative-latkan`, `flower-mala`). Product detail pages, the sitemap, and JSON-LD metadata all read from this one file.
+Single source of truth for product content — brand copy, design tokens (`C`), Instagram DM helpers (`igDm`, `igProfile`, `igAt`), the `products` record, and the `catalogProducts` list. Product pages, the sitemap, JSON-LD metadata, and the current catalogue all read from this file.
 
-Adding a product means editing `products` here **and** `components/ProductsSection.tsx` — the landing-page grid and mobile carousel are hand-written per card (for the bespoke rotation/badge/thumb-strip layout), so they do *not* derive from `products`. A product added only to `lib/site.ts` gets a working detail page and sitemap entry but never appears on the homepage.
+Adding a product means adding its record to `products` and adding that record to `catalogProducts` in the right category. A product added only to `products` has a working detail page and sitemap entry but does not appear in the visible catalogue. `components/ProductsSection.tsx` is a legacy, currently unused component; do not use it as the source of homepage behaviour.
 
 `navProducts` at the bottom of the file is currently **dead code** — nothing imports it. Header and Footer link only Home / Menu / Contact us. Keep it in sync anyway or delete it deliberately; don't assume editing it changes the nav.
 
@@ -80,7 +80,7 @@ None of this helps a phone with no Instagram app, or a signed-out desktop visito
 ### Routing
 
 - `app/page.tsx` — the landing page (hero, products grid, why-Sunflora, how-it-works). "Menu" in nav scrolls to `/#products` on this page rather than routing elsewhere.
-- `app/products/[slug]/page.tsx` — generic product detail template, driven entirely by `lib/site.ts`. Excludes any slug in `CUSTOM_ROUTES` (currently `bouquets` and `flower-mala`) because those need client-side variant state and have their own routes.
+- `app/products/[slug]/page.tsx` — generic product detail template, driven entirely by `lib/site.ts`. It excludes the five collection slugs in `CUSTOM_ROUTES`, which have client-side variant state and their own routes.
 - `app/products/bouquets/page.tsx` — dedicated route rendering `<BouquetDetail />`, which wraps `<ProductDetail>` with colourway toggle state (`bouquetVariants.burgundy` / `.purple` from `lib/site.ts`).
 - `app/products/flower-mala/page.tsx` — dedicated route rendering `<MalaDetail />`, same wrapping pattern with `malaVariants.braided` / `.cluster`. Unlike the bouquet colourways, the two mala styles have **different prices**, so `MalaDetail` swaps `price`/`priceRange` into the product object alongside the images. `ProductDetail` needed no change — it renders whatever `product.price` it is handed. The `products['flower-mala']` entry keeps a spanning `₹150–200` / `{low:150,high:200}` so the JSON-LD `AggregateOffer` and the homepage card stay honest across both styles.
 - `app/contact/page.tsx` — single dedicated Contact page with one DM CTA.
@@ -136,11 +136,11 @@ The mobile rule is counter-intuitive: a phone shows a slice of the 1.79:1 scene,
 
 Mounted once per page. Uses GSAP + `@gsap/react`'s `useGSAP` hook + `ScrollTrigger.batch()` to fade/slide in every `[data-reveal]` element as it scrolls into view (staggered per batch), plus a fixed scroll-progress bar. The reveal tween **must** keep `clearProps: 'transform'` in its `onEnter` callback — GSAP's inline `transform` style otherwise permanently overrides any CSS `:hover` rule on the same element (inline style beats stylesheet regardless of specificity), silently killing hover animations like the product-card lift-on-hover effect.
 
-### Product cards (`components/ProductsSection.tsx`, `components/ProductDetail.tsx`)
+### Product cards (`components/ProductCatalogGrid.tsx`, `components/ProductDetail.tsx`)
 
 Whole-card click-through to the product page is implemented via `useRouter().push()` on the card's `onClick`, with nested interactive elements (the "DM to order" link) calling `e.stopPropagation()` so they don't also trigger the card navigation. When adding a new clickable nested element inside a `.pcard`/`.ccard`, remember to stop propagation on it.
 
-The desktop products grid uses a fixed `grid-template-columns: repeat(3, minmax(220px, 1fr))` (not `auto-fit`) — this is intentional so cards wrap in rows of 3 (currently 9 cards → 3+3+3), not evenly spread across all available columns. Adding a 10th card leaves a lone card on the last row; prefer adding them in threes.
+The current catalogue is data-driven from `catalogProducts` and supports category filtering and price/discount sorting. Keep its product order intentional: it determines the default browsing order on both the homepage and `/products`.
 
 ### Images
 

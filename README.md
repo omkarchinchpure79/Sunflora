@@ -37,25 +37,9 @@ This is **not a single-purpose code repo** — it's the whole project folder for
 
 ## The catalogue
 
-Eight products, all defined in [`web/lib/site.ts`](web/lib/site.ts). Prices reading **DM for price** are awaiting a figure from the founder — they are deliberately not guessed, and they emit no `offers` block in the page's JSON-LD rather than advertising a price that doesn't exist.
+The live catalogue is defined in [`web/lib/site.ts`](web/lib/site.ts). It currently contains 26 catalogued items across Ganpati malas, everlasting bouquets, single flowers, festive latkans, keepsake frames, and lotus asaans. Pricing, photography, page copy, structured data, related products, and category filtering all come from that file.
 
-| Product | Price | Route |
-|---|---|---|
-| Signature Frame | ₹900–1,200 | `/products/signature-frame` |
-| Mini Frame | ₹400–500 | `/products/mini-frame` |
-| Everlasting Bouquet | *DM for price* | `/products/bouquets` |
-| Lotus Latkan — Set of 2 | *DM for price* | `/products/lotus-latkan` |
-| Purple Lotus Latkan — Set of 2 | ₹800 / pair | `/products/purple-lotus-latkan` |
-| Lotus Asaan | ₹350 | `/products/lotus-asaan` |
-| Lotus Decorative Latkan — Set of 2 | ₹500 / pair | `/products/lotus-decorative-latkan` |
-| Artificial Flower Mala | ₹200 or ₹150 | `/products/flower-mala` |
-
-Two products have **variants** and therefore their own routes instead of the generic `[slug]` template, because a toggle needs client-side state:
-
-- **Everlasting Bouquet** — two colourways (burgundy & white, purple) that share one price.
-- **Artificial Flower Mala** — two styles (Braided Rose ₹200, Mixed Bloom ₹150) at **different** prices. The style toggle swaps the price along with the photos; the product's own entry keeps a spanning ₹150–200 so the JSON-LD `AggregateOffer` and the homepage card stay honest across both.
-
-> The Lotus Asaan's photos show a Ganpati idol sitting in the lotus. The idol is **not** part of the product, which is why "Idol not included" appears in the specs strip and on the homepage card.
+Five collection pages have a client-side colour or style selector and therefore use dedicated routes: bouquets, flower malas, Ganpati special malas, 5 ft door latkans, and 2 ft multipurpose latkans. All other products use the generic `/products/[slug]` template.
 
 ## Repository structure
 
@@ -82,11 +66,10 @@ Sunflora/
     │       └── flower-mala/       — dedicated route: Flower Mala (client style + price state)
     ├── components/                — shared React components
     │   ├── Header.tsx / Footer.tsx
-    │   ├── ProductsSection.tsx    — landing-page products grid + mobile carousel
+    │   ├── ProductCatalogGrid.tsx — filterable, sortable catalogue used on the home and products pages
     │   ├── ProductDetail.tsx      — shared product detail layout (+ ProductDetail.css)
     │   ├── ProductGallery.tsx     — image gallery/carousel on product pages
-    │   ├── BouquetDetail.tsx      — wraps ProductDetail with colourway toggle state
-    │   ├── MalaDetail.tsx         — wraps ProductDetail with style toggle (also swaps price)
+    │   ├── *Detail.tsx            — five small wrappers that add variant-selection state to ProductDetail
     │   └── ScrollReveal.tsx       — GSAP scroll-triggered fade/slide-in animations
     ├── lib/
     │   └── site.ts                — single source of truth: brand copy, design tokens, all product data
@@ -119,7 +102,7 @@ There is no test suite in this repo.
 ## How the site is built
 
 - **Framework:** Next.js 15 (App Router) + React 19, one responsive codebase — every component renders both desktop and mobile layouts and switches purely via CSS media queries. There's no separate mobile build and no device-detection branching in JS.
-- **Content model:** `web/lib/site.ts` is the single source of truth for the entire site — brand copy, design tokens, the free-shipping threshold, Instagram DM helper links, and every product (keyed by slug). Product pages, the sitemap, and SEO/JSON-LD metadata all read from this one file. The landing-page cards are the one deliberate exception — see [Adding a product](#adding-a-product).
+- **Content model:** `web/lib/site.ts` is the source of truth for product copy, design tokens, the free-shipping threshold, Instagram DM helper links, and product data. Product pages, the sitemap, SEO/JSON-LD metadata, and the filterable catalogue all derive from it. Add a new product to both `products` and `catalogProducts` in that file.
 - **Styling:** a mix of `styled-jsx` (inline `<style jsx>`, requires a Client Component) and plain imported `.css` files (used specifically on pages that also export `generateMetadata`, since that's a Server Component export and can't coexist with `styled-jsx`).
 - **Animation:** GSAP + `@gsap/react`'s `useGSAP` hook drives scroll-triggered reveal animations, mounted once via `ScrollReveal.tsx`.
 - **No cart/checkout:** ordering happens entirely through Instagram DM — every "DM to order" button links to `igDm` from `lib/site.ts`.
@@ -128,18 +111,10 @@ For the full architectural detail, styling gotchas, and things that look like bu
 
 ## Adding a product
 
-Two files, always both:
+1. **`web/lib/site.ts`** — add the product record to `products`, then add it to `catalogProducts` in the appropriate category. This gives it a product page, sitemap entry, JSON-LD, cross-sell eligibility, and a card in both the homepage and `/products` catalogue.
+2. **Use a dedicated route only when needed.** Products with a colour/style picker use a small client component that passes the selected variation into `ProductDetail`. Otherwise, the generic `/products/[slug]` page is enough.
 
-1. **`web/lib/site.ts`** — add an entry to `products`. This alone gives you a working detail page at `/products/<slug>`, a sitemap entry, JSON-LD, and cross-sell eligibility.
-2. **`web/components/ProductsSection.tsx`** — add a desktop grid card *and* a `mobileCards` entry. The landing page is hand-written per card (each has its own rotation, badge colour and thumbnail strip), so it does **not** derive from `products`. A product added only to `site.ts` will never appear on the homepage.
-
-Then `cd web && npm run build` — that is also the only typecheck, as there's no standalone `tsc` script.
-
-Notes that have already caught people out:
-
-- The desktop grid is a fixed 3-column track, so cards look best added in **threes**. A 10th card would sit alone on its own row.
-- Cards beyond the first six sit behind a **"Show more"** toggle on desktop; the mobile carousel always lists everything.
-- Those hidden cards are **conditionally rendered, not CSS-hidden**. `ScrollReveal` runs `gsap.set(opacity: 0)` over every `[data-reveal]` element once at mount, and a `display: none` card never scrolls into view to be faded back in — it would stay invisible permanently after being revealed.
+Then `cd web && npm run build` to typecheck and verify the production build.
 
 ## Deployment
 

@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     'handmade gifts India',
     'Sunflora',
   ],
-  authors: [{ name: BRAND.name }],
+  authors: [{ name: 'Sonali Misal' }],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

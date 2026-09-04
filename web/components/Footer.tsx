@@ -40,6 +40,7 @@ export default function Footer() {
             <span className="footer-word">{BRAND.name}</span>
           </div>
           <p className="footer-tagline">{BRAND.tagline}</p>
+          <p className="footer-maker">Handcrafted with love by Sonali Misal</p>
         </div>
         <div className="footer-links">
           <Link href="/">Home</Link>
@@ -119,6 +120,13 @@ export default function Footer() {
           margin: 8px 0 0;
           color: #cbb0dd;
         }
+        .footer-maker {
+          margin: 10px 0 0;
+          color: #E3C9F5;
+          font-family: var(--font-caveat), cursive;
+          font-size: clamp(17px, 2vw, 20px);
+          line-height: 1.2;
+        }
         .footer-links {
           display: flex;
           flex-direction: column;
@@ -191,6 +199,11 @@ export default function Footer() {
           }
           .footer-tagline {
             font-size: 14px;
+            margin-bottom: 18px;
+          }
+          .footer-maker {
+            font-size: 18px;
+            margin-top: -10px;
             margin-bottom: 18px;
           }
           .footer-links-contact {
